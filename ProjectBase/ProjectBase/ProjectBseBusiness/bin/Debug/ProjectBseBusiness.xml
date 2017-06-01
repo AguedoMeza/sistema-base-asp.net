@@ -1,0 +1,112 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ProjectBseBusiness
+</name>
+</assembly>
+<members>
+<member name="P:ProjectBseBusiness.LogInc.Usuaio">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.LogInc.Password">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.LogInc.ValidaUsuario">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.cclasecnn.OpenConnection">
+	<summary>
+ Metodo que abre la conexion a datos
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.cclasecnn.CloseConnection">
+	<summary>
+ Metodo que cierra la conexion a datos
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.cclasecnn.Command(System.String)">
+	<summary>
+  StoredProcedure a ejecutar
+ </summary>
+	<param name="NombreProcedimiento"></param>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.cclasecnn.AddParameter(System.String,System.Data.SqlDbType,System.Object)">
+	<summary>
+ Metodo que agrega los parametros que pertenecen al StoredProcedure
+ </summary>
+	<param name="NombreParametro"></param>
+	<param name="SqlDbType"></param>
+	<param name="Valor"></param>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.cclasecnn.GetData(System.Data.DataTable@)">
+	<summary>
+ Funcion que obtiene una consulta(SELECT), regresa un DataTable, DataSet o un DataReader en un valor de referencia(ByRef) y devuelve(Return) un Boolean 
+ </summary>
+	<param name="dtData"></param>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.cclasecnn.GetData(System.Data.DataSet@)">
+	<summary>
+ Funcion que obtiene una consulta(SELECT), regresa un DataTable, DataSet o un DataReader en un valor de referencia(ByRef) y devuelve(Return) un Boolean 
+ </summary>
+	<param name="dsData"></param>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.cclasecnn.GetData(System.Data.SqlClient.SqlDataReader@)">
+	<summary>
+ Funcion que obtiene una consulta(SELECT), regresa un DataTable, DataSet o un DataReader en un valor de referencia(ByRef) y devuelve(Return) un Boolean 
+ </summary>
+	<param name="drData "></param>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.cclasecnn.GetString">
+	<summary>
+ Devuelve un resultado tipo String
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.cclasecnn.GetString(System.String,System.Data.SqlDbType,System.Int32@)">
+	<summary>
+ Devuelve un resultado tipo String y una referencia de Identidad
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.cclasecnn.GetInteger">
+	<summary>
+ Devuelve un resultado tipo String
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.cclasecnn.GetBoolean">
+	<summary>
+ Devuelve un resultado tipo Boolean
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.cclasecnn.SetData">
+	<summary>
+ Funcion que ejecuta un procedimiento(INSERT,UPDATE,DELETE) y devuelve(Return) un Boolean
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ProjectBseBusiness.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ProjectBseBusiness.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

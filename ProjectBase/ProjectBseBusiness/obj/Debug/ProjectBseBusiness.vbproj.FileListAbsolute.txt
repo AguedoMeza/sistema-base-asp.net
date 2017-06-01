@@ -1,0 +1,10 @@
+C:\Users\Aguedo\Documents\Visual Studio 2013\Projects\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.Resources.resources
+C:\Users\Aguedo\Documents\Visual Studio 2013\Projects\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.vbproj.GenerateResource.Cache
+C:\Users\Aguedo\Documents\Visual Studio 2013\Projects\ProjectBase\ProjectBseBusiness\bin\Debug\ProjectBseBusiness.dll
+C:\Users\Aguedo\Documents\Visual Studio 2013\Projects\ProjectBase\ProjectBseBusiness\bin\Debug\ProjectBseBusiness.pdb
+C:\Users\Aguedo\Documents\Visual Studio 2013\Projects\ProjectBase\ProjectBseBusiness\bin\Debug\ProjectBseBusiness.xml
+C:\Users\Aguedo\Documents\Visual Studio 2013\Projects\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.dll
+C:\Users\Aguedo\Documents\Visual Studio 2013\Projects\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.xml
+C:\Users\Aguedo\Documents\Visual Studio 2013\Projects\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.pdb
+C:\Users\Aguedo\Documents\Visual Studio 2013\Projects\ProjectBase\ProjectBseBusiness\bin\Debug\AjaxControlToolkit.dll
+C:\Users\Aguedo\Documents\Visual Studio 2013\Projects\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.vbprojResolveAssemblyReference.cache
