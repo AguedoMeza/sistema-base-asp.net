@@ -19,7 +19,7 @@ Public Class cclasecnn
     'Nueva Cadena de Conexion, para utilizar solo la del WEB.config sin volver a declarar datos de nuestro servidor-----Agregado por Aguedo"
     Dim connectionString As String = ConfigurationManager.ConnectionStrings("modeloConnectionString").ConnectionString
 
-    'COMENTARIO4
+    'COMENTARIO
 #End Region
 
 #Region "Variables"
