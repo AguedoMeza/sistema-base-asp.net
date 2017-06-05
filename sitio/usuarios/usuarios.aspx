@@ -147,7 +147,7 @@
                                     </br>
                                     <form role="form" id="form1">
                                         <div  class="table-responsive">
-                                        <asp:GridView ID="GridView1" runat="server" class="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowCommand="GridView1_RowCommand1">
+                                        <asp:GridView ID="GridView1" runat="server" ControlStyle-CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowCommand="GridView1_RowCommand1">
                               
 
                                            <Columns>
@@ -165,7 +165,15 @@
 
 
                                               <asp:CheckBoxField DataField="Activo" HeaderText="Activo" ItemStyle-HorizontalAlign="Center"/>
-
+                                              
+                                             <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:CheckBox ID="chkStatus" runat="server" 
+                                                        AutoPostBack="true" OnCheckedChanged="chkStatus_OnCheckedChanged"
+                                                        Checked='<%# Convert.ToBoolean(Eval("activo")) %>'
+                                                        Text='<%# Eval("activo").ToString().Equals("True") ? " Approved " : " Pending " %>' />
+                                                </ItemTemplate>                    
+                                              </asp:TemplateField>
                                               
                                            </Columns>
                                             

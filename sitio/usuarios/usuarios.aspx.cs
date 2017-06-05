@@ -16,8 +16,28 @@ public partial class usuarios_Default : System.Web.UI.Page
         {
             this.LLenarGrid();
             this.LlemarCombo();
+            
      
         }
+    }
+    public void chkStatus_OnCheckedChanged(object sender, EventArgs e)
+    {
+     
+            CheckBox chkStatus = (CheckBox)sender;
+            //Int64 nID = Convert.ToInt64(GridView1.DataKeys[((GridViewRow)chkStatus.NamingContainer).RowIndex].Value);
+
+            LogInc cnn = new LogInc();
+            cnn.Activo = 1;
+            cnn.idUsuario = 74;
+
+            int var = cnn.UsuarioUpdate();
+ 
+            
+                //com.Parameters.Add("@Status", SqlDbType.Bit).Value = chkStatus.Checked;
+                //com.Parameters.Add("@ID", SqlDbType.BigInt).Value = nID;
+ 
+
+            this.LLenarGrid();
     }
     private bool EstanCamposLLenos()
     {
@@ -88,6 +108,8 @@ public partial class usuarios_Default : System.Web.UI.Page
         //this.GridView1.Columns[0].HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
        // this.GridView1.HeaderRow.Cells[0].HorizontalAlign = HorizontalAlign.Left;
         //this.GridView1.Columns[0].HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+
+       
       
         
     }

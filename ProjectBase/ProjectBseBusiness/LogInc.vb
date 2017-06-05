@@ -198,14 +198,17 @@ Public Class LogInc
 
         Try
             cnnDatos.Command("usuarios_update")
-            cnnDatos.AddParameter("@nombre", SqlDbType.VarChar, mNombre)
-            cnnDatos.AddParameter("@ap_paterno", SqlDbType.VarChar, mApellido)
-            cnnDatos.AddParameter("@usuario", SqlDbType.VarChar, mUsuario)
-            cnnDatos.AddParameter("@contraseña", SqlDbType.VarChar, mPassword)
+            'cnnDatos.AddParameter("@nombre", SqlDbType.VarChar, mNombre)
+            'cnnDatos.AddParameter("@ap_paterno", SqlDbType.VarChar, mApellido)
+            'cnnDatos.AddParameter("@usuario", SqlDbType.VarChar, mUsuario)
+            'cnnDatos.AddParameter("@contraseña", SqlDbType.VarChar, mPassword)
 
-            cnnDatos.AddParameter("@curp", SqlDbType.VarChar, mNoEmpleado)
-            cnnDatos.AddParameter("@empresa", SqlDbType.Int, mEmpresa)
+            'cnnDatos.AddParameter("@curp", SqlDbType.VarChar, mNoEmpleado)
+            'cnnDatos.AddParameter("@empresa", SqlDbType.Int, mEmpresa)
             cnnDatos.AddParameter("@id", SqlDbType.Int, mIdUsuario)
+            cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
+
+
 
             refIdUsuario = cnnDatos.GetString
         Catch ex As Exception
@@ -213,7 +216,6 @@ Public Class LogInc
         End Try
         Return refIdUsuario
     End Function
-
     Public Function UsuarioDetalle() As DataTable
         Dim cnnDatos As New cclasecnn
 
