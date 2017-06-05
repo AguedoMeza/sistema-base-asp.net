@@ -24,8 +24,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "sitio", "http://localhost:5
 		SlnRelativePath = "..\sitio\"
 	EndProjectSection
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ProjectBseBusiness", "..\..\..\..\Documents\Visual Studio 2013\Projects\ProjectBase\ProjectBseBusiness\ProjectBseBusiness.vbproj", "{4D9E0543-8FA7-4892-BECF-CB3619A6090E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,10 +34,6 @@ Global
 		{6EC3D7FB-7AD9-4469-A145-3D4E38A64552}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EC3D7FB-7AD9-4469-A145-3D4E38A64552}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{6EC3D7FB-7AD9-4469-A145-3D4E38A64552}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{4D9E0543-8FA7-4892-BECF-CB3619A6090E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D9E0543-8FA7-4892-BECF-CB3619A6090E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D9E0543-8FA7-4892-BECF-CB3619A6090E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D9E0543-8FA7-4892-BECF-CB3619A6090E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
