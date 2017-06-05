@@ -17,3 +17,13 @@ C:\Users\Aguedo\Source\Repos\sistema-base-asp.net\ProjectBase\ProjectBseBusiness
 C:\Users\Aguedo\Source\Repos\sistema-base-asp.net\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.dll
 C:\Users\Aguedo\Source\Repos\sistema-base-asp.net\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.xml
 C:\Users\Aguedo\Source\Repos\sistema-base-asp.net\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.pdb
+C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\bin\Debug\ProjectBseBusiness.dll
+C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\bin\Debug\ProjectBseBusiness.pdb
+C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\bin\Debug\ProjectBseBusiness.xml
+C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\bin\Debug\AjaxControlToolkit.dll
+C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.vbprojResolveAssemblyReference.cache
+C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.Resources.resources
+C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.vbproj.GenerateResource.Cache
+C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.dll
+C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.xml
+C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.pdb

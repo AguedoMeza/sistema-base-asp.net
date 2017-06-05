@@ -6,40 +6,7 @@ ProjectBseBusiness
 </name>
 </assembly>
 <members>
-<member name="P:ProjectBseBusiness.LogInc.Usuaio">
-	<summary>
- Nombre de Usuario
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:ProjectBseBusiness.LogInc.Password">
-	<summary>
- Password del usuario
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:ProjectBseBusiness.LogInc.ValidaUsuario">
-	<summary>
- Funcion que Valida el acceso al usuario
- </summary>
-	<returns>Regresa un areeglo de String</returns>
-	<remarks></remarks>
-</member><member name="P:ProjectBseBusiness.My.Resources.Resources.ResourceManager">
-	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:ProjectBseBusiness.My.Resources.Resources.Culture">
-	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="T:ProjectBseBusiness.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
-</member><member name="P:ProjectBseBusiness.empresac.Fecha">
+<member name="P:ProjectBseBusiness.empresac.Fecha">
 	<summary>
  Nombre de Usuario
  </summary>
@@ -54,6 +21,26 @@ ProjectBseBusiness
 	<returns></returns>
 	<remarks></remarks>
 </member><member name="M:ProjectBseBusiness.empresac.ValidaUsuario">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.LogInc.Usuaio">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.LogInc.Password">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.LogInc.ValidaUsuario">
 	<summary>
  Funcion que Valida el acceso al usuario
  </summary>
@@ -127,6 +114,19 @@ ProjectBseBusiness
  </summary>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ProjectBseBusiness.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ProjectBseBusiness.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
 </member>
 </members>
 </doc>

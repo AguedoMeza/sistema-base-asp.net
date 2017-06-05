@@ -7,6 +7,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "sitio", "http://localhost:5
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{4d9e0543-8fa7-4892-becf-cb3619a6090e}|ProjectBseBusiness.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_59977"
 		Debug.AspNetCompiler.PhysicalPath = "..\sitio\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59977\"
