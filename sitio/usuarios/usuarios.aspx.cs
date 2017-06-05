@@ -27,14 +27,15 @@ public partial class usuarios_Default : System.Web.UI.Page
             //Int64 nID = Convert.ToInt64(GridView1.DataKeys[((GridViewRow)chkStatus.NamingContainer).RowIndex].Value);
 
             LogInc cnn = new LogInc();
-            cnn.Activo = 1;
-            cnn.idUsuario = 74;
 
+            cnn.Usuaio = this.txtUsuario.Text;
+            cnn.Nombre = this.txtNombre.Text;
+            cnn.NoEmpleado = this.txtCurp.Text;
+            cnn.Apellido = this.txtAp_paterno.Text;
+            cnn.Password = this.txtContrasena.Text;
+            cnn.Empresa = Convert.ToInt32(this.ddlist_empresas.SelectedValue.ToString());
+            cnn.idUsuario = 75;
             int var = cnn.UsuarioUpdate();
- 
-            
-                //com.Parameters.Add("@Status", SqlDbType.Bit).Value = chkStatus.Checked;
-                //com.Parameters.Add("@ID", SqlDbType.BigInt).Value = nID;
  
 
             this.LLenarGrid();
