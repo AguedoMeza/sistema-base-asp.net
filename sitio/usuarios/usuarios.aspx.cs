@@ -24,18 +24,27 @@ public partial class usuarios_Default : System.Web.UI.Page
     {
      
             CheckBox chkStatus = (CheckBox)sender;
-            //Int64 nID = Convert.ToInt64(GridView1.DataKeys[((GridViewRow)chkStatus.NamingContainer).RowIndex].Value);
+          
+           int nID = Convert.ToInt32(GridView1.DataKeys[((GridViewRow)chkStatus.NamingContainer).RowIndex].Value);
 
-            LogInc cnn = new LogInc();
+           if(chkStatus.Checked)
+           {
+               LogInc cnn = new LogInc();
 
-            cnn.Usuaio = this.txtUsuario.Text;
-            cnn.Nombre = this.txtNombre.Text;
-            cnn.NoEmpleado = this.txtCurp.Text;
-            cnn.Apellido = this.txtAp_paterno.Text;
-            cnn.Password = this.txtContrasena.Text;
-            cnn.Empresa = Convert.ToInt32(this.ddlist_empresas.SelectedValue.ToString());
-            cnn.idUsuario = 75;
-            int var = cnn.UsuarioUpdate();
+               cnn.Activo = 1;
+               cnn.idUsuario = nID;
+               int var = cnn.estado();
+           }
+           else
+           {
+               LogInc cnn = new LogInc();
+
+               cnn.Activo = 0;
+               cnn.idUsuario = nID;
+               int var = cnn.estado();
+           }
+
+          
  
 
             this.LLenarGrid();

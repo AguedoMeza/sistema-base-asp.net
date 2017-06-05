@@ -38,7 +38,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                      <h1 class="page-header">Catalogo de Usuarios</h1>
+                                      <h1 class="page-header">Catalogo de Usuarios <asp:Label ID="ch" runat="server" Text="Label"></asp:Label></h1>
                                       <%-- inicio modal prueba :V  --%>
         
         
@@ -147,10 +147,9 @@
                                     </br>
                                     <form role="form" id="form1">
                                         <div  class="table-responsive">
-                                        <asp:GridView ID="GridView1" runat="server" ControlStyle-CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowCommand="GridView1_RowCommand1">
-                              
-
-                                           <Columns>
+                                     
+                                        <asp:GridView ID="GridView1" runat="server" DataKeyNames="#"  ControlStyle-CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowCommand="GridView1_RowCommand1">
+                                            <Columns>
                                                <asp:BoundField DataField="#" HeaderText="ID" ItemStyle-HorizontalAlign="Center"  HeaderStyle-HorizontalAlign="Center"/>
                                                 <asp:BoundField DataField="Persona" ItemStyle-HorizontalAlign="Center"  HeaderText="Nombre">
                                                     <HeaderStyle HorizontalAlign="Center" />
@@ -171,7 +170,7 @@
                                                     <asp:CheckBox ID="chkStatus" runat="server" 
                                                         AutoPostBack="true" OnCheckedChanged="chkStatus_OnCheckedChanged"
                                                         Checked='<%# Convert.ToBoolean(Eval("activo")) %>'
-                                                        Text='<%# Eval("activo").ToString().Equals("True") ? " Approved " : " Pending " %>' />
+                                                        Text='<%# Eval("activo").ToString().Equals("True") ? "" : "" %>' />
                                                 </ItemTemplate>                    
                                               </asp:TemplateField>
                                               
@@ -181,6 +180,7 @@
                            
                         
                                         </asp:GridView>
+                                          
                                         </div>
                                          
             <!--Delete Record Modal Ends here -->
