@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master_pages/MasterPage.master" AutoEventWireup="true" CodeFile="perfiles.aspx.cs" Inherits="usuarios_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/master_pages/MasterPage.master" AutoEventWireup="true" CodeFile="modulos.aspx.cs" Inherits="usuarios_Default" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
@@ -114,15 +114,15 @@
                                     <form role="form" id="form1">
                                         <div class="table-responsive">
 
-                                            <asp:GridView ID="GridView1" runat="server" DataKeyNames="#" ControlStyle-CssClass="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowCommand="GridView1_RowCommand1">
+                                            <asp:GridView ID="GridView1" runat="server" DataKeyNames="id" Class="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowCommand="GridView1_RowCommand1">
                                                 <Columns>
-                                                    <asp:BoundField DataField="#" HeaderText="ID" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" />
-                                                    <asp:BoundField DataField="Nombre" ItemStyle-HorizontalAlign="Center" HeaderText="Nombre">
+                                                    <asp:BoundField DataField="id" HeaderText="ID" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" />
+                                                    <asp:BoundField DataField="nombre" ItemStyle-HorizontalAlign="Center" HeaderText="Nombre">
                                                         <HeaderStyle HorizontalAlign="Center" />
                                                     </asp:BoundField>
 
                                                     <%--<asp:BoundField DataField="CURP" ItemStyle-HorizontalAlign="Center" HeaderText="CURP" />--%>
-                                                    <asp:BoundField DataField="Empresa" ItemStyle-HorizontalAlign="Center" HeaderText="Empresa" />
+                                                    <asp:BoundField DataField="descripcion_actividad" ItemStyle-HorizontalAlign="Center" HeaderText="Descripción Actividad" />
                                                    <%-- <asp:BoundField DataField="Usuario" ItemStyle-HorizontalAlign="Center" HeaderText="Usuario" />--%>
 
                                                     <asp:ButtonField ButtonType="Button" CommandName="Actualizar"
@@ -131,12 +131,12 @@
 
                                                     <%--   <asp:CheckBoxField DataField="Activo" HeaderText="Activo" ItemStyle-HorizontalAlign="Center"/>--%>
 
-                                                    <asp:TemplateField>
+                                                   <asp:TemplateField>
                                                         <ItemTemplate>
                                                             <asp:CheckBox ID="chkStatus" runat="server"
                                                                 AutoPostBack="true" OnCheckedChanged="chkStatus_OnCheckedChanged"
-                                                                Checked='<%# Convert.ToBoolean(Eval("activo")) %>'
-                                                                Text='<%# Eval("activo").ToString().Equals("True") ? "" : "" %>' />
+                                                                Checked='<%# Convert.ToBoolean(Eval("Activo")) %>'
+                                                                Text='<%# Eval("Activo").ToString().Equals("True") ? "" : "" %>' />
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
