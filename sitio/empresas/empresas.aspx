@@ -134,7 +134,7 @@
        <%--  Terminacion modal prueba :V  --%>
                                     <form role="form" id="form1">
                                         <div  class="table-responsive">
-                                        <asp:GridView ID="GridEmpresa" runat="server" class="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowCommand="GridView1_RowCommand1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                                        <asp:GridView ID="GridEmpresa" runat="server" DataKeyNames="id"  class="table table-striped table-bordered table-hover" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowCommand="GridView1_RowCommand1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                                   <Columns>
                                                <asp:BoundField DataField="id" ItemStyle-HorizontalAlign="Center"  HeaderText="ID" />
                                                 <asp:BoundField DataField="nombre" ItemStyle-HorizontalAlign="Center"  HeaderText="Nombre" />
@@ -150,7 +150,14 @@
                                     HeaderText="Editar" Text="Actualizar"  ControlStyle-CssClass="btn btn-success"   />
 
 
-                                              <asp:CheckBoxField DataField="Activo" HeaderText="Activo" />
+                                              <asp:TemplateField HeaderText="Activo" ItemStyle-HorizontalAlign="Center">
+                                                        <ItemTemplate >
+                                                            <asp:CheckBox ID="chkStatus" runat="server"
+                                                                AutoPostBack="true" OnCheckedChanged="chkStatus_OnCheckedChanged"
+                                                                Checked='<%# Convert.ToBoolean(Eval("Activo")) %>'
+                                                                Text='<%# Eval("Activo").ToString().Equals("True") ? "" : "" %>' />
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
                                            </Columns>
                                         </asp:GridView>
                                         </div>

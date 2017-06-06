@@ -19,7 +19,35 @@ public partial class empresas_empresas : System.Web.UI.Page
             this.LLenarGrid();
         }
     }
+    public void chkStatus_OnCheckedChanged(object sender, EventArgs e)
+    {
 
+        CheckBox chkStatus = (CheckBox)sender;
+
+        int nID = Convert.ToInt32(GridEmpresa.DataKeys[((GridViewRow)chkStatus.NamingContainer).RowIndex].Value);
+
+        if (chkStatus.Checked)
+        {
+            empresac cnn = new empresac();
+
+            cnn.Activo = 1;
+            cnn.idUsuario = nID;
+            int var = cnn.estado();
+        }
+        else
+        {
+            empresac cnn = new empresac();
+
+            cnn.Activo = 0;
+            cnn.idUsuario = nID;
+            int var = cnn.estado();
+        }
+
+
+
+
+        this.LLenarGrid();
+    }
     private bool EstanCamposLLenos()
     {
         if (this.TxtCon.Text == String.Empty)
