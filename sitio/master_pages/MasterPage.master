@@ -305,6 +305,12 @@
                         <li>
                             <a href="../empresas/empresas.aspx"><i class="fa fa-table fa-fw"></i>Empresas</a>
                         </li>
+                        <li>
+                            <a href="../perfiles/perfiles.aspx"><i class="fa fa-table fa-fw"></i>Perfiles</a>
+                        </li>
+                        <li>
+                            <a href="../modulos/modulos.aspx"><i class="fa fa-table fa-fw"></i>Modulos</a>
+                        </li>
                         
                         
                       
