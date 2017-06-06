@@ -9,7 +9,7 @@ Public Class empresac
 
 #Region "Atributos"
     Dim mUsuario, mPassword, mNoEmpleado, mNombre, mApellido, mCorreo, mdireccion, mrfc, mContacto, mRazon_Social, mContact As String
-    Dim midRegion, mIdUsuario, mNoRuta, mIdEmpresa As Integer
+    Dim midRegion, mIdUsuario, mNoRuta, mIdEmpresa, mActivo As Integer
     Dim mFecha As DateTime
     Dim mHora As DateTime
 
@@ -168,6 +168,15 @@ Public Class empresac
         End Set
     End Property
 
+    Public Property Activo As Integer
+        Get
+            Return mActivo
+        End Get
+        Set(ByVal value As Integer)
+            mActivo = value
+        End Set
+    End Property
+
     Public Property idREgion As Integer
         Get
             Return midRegion
@@ -185,6 +194,26 @@ Public Class empresac
             mNoRuta = value
         End Set
     End Property
+
+    Public Function estado() As Integer
+
+        Dim cnnDatos As New cclasecnn
+
+        Dim refIdUsuario As Integer
+
+        Try
+            cnnDatos.Command("empresas_estado")
+            cnnDatos.AddParameter("@id", SqlDbType.Int, mIdUsuario)
+            cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
+
+
+
+            refIdUsuario = cnnDatos.GetString
+        Catch ex As Exception
+            Throw cnnDatos.ErrorIT
+        End Try
+        Return refIdUsuario
+    End Function
 
     Public Property idUsuario As Integer
         Get
