@@ -55,36 +55,6 @@ public partial class empresas_empresas : System.Web.UI.Page
 
         this.LLenarGrid();
     }
-    //private bool EstanCamposLLenos()
-    //{
-    //    if (this.TxtCon.Text == String.Empty)
-    //    {
-    //        this.pn_con.CssClass = "form-group has-error";
-    //        return false;
-    //    }
-    //    else if (this.txtDireccion.Text == String.Empty)
-    //    {
-    //        this.pn_direccion.CssClass = "form-group has-error";
-    //        return false;
-    //    }
-    //    else if (this.txtNombre.Text == String.Empty)
-    //    {
-    //        this.pn_nombre.CssClass = "form-group has-error";
-    //        return false;
-    //    }
-    //    else if (this.txtrazon_social.Text == String.Empty)
-    //    {
-    //        this.pn_razon.CssClass = "form-group has-error";
-    //        return false;
-    //    }
-    //    else if (this.txtrfc.Text == String.Empty)
-    //    {
-    //        this.pn_rfc.CssClass = "form-group has-error";
-    //        return false;
-    //    }
-       
-    //    return true;
-    //}
 
     private void LimpiarClases()
     {
@@ -190,6 +160,7 @@ public partial class empresas_empresas : System.Web.UI.Page
                     cnn.RFC = this.txtrfc.Text;
                     cnn.Razon_social = this.txtrazon_social.Text;
                     cnn.Contact = this.TxtCon.Text;
+                    cnn.Activo = 1;
 
 
                     int var = cnn.Empresas_Insert();
