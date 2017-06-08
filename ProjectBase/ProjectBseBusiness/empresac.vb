@@ -355,6 +355,7 @@ Public Class empresac
 
 
             cnnDatos.AddParameter("@id_usuario", SqlDbType.Int, mIdUsuario)
+              cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
             cnnDatos.AddParameter("@nombre", SqlDbType.VarChar, mNombre)
             cnnDatos.AddParameter("@direccion", SqlDbType.VarChar, mdireccion)
 
