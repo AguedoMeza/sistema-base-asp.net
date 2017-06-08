@@ -155,7 +155,7 @@ Public Class LogInc
 
         Try
             cnnDatos.Command("usuarios_validar")
-            cnnDatos.AddParameter("@usuario", SqlDbType.VarChar, mUsuario)
+            cnnDatos.AddParameter("@correo", SqlDbType.VarChar, mUsuario)
             cnnDatos.AddParameter("@contra", SqlDbType.VarChar, mPassword)
             refIdUsuario = cnnDatos.GetString
         Catch ex As Exception
@@ -181,7 +181,8 @@ Public Class LogInc
             cnnDatos.AddParameter("@contraseña", SqlDbType.VarChar, mPassword)
             cnnDatos.AddParameter("@curp", SqlDbType.VarChar, mNoEmpleado)
             cnnDatos.AddParameter("@empresa", SqlDbType.Int, mEmpresa)
-              cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
+            cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
+            cnnDatos.AddParameter("@id_usuario", SqlDbType.Int, mNoRuta)
 
             refIdUsuario = cnnDatos.GetString
         Catch ex As Exception
@@ -253,6 +254,26 @@ Public Class LogInc
         End Try
         Return Resultado
     End Function
+
+    Public Function UsuarioDetalleSesiones() As DataTable
+        Dim cnnDatos As New cclasecnn
+
+        Dim Resultado As New DataTable
+        Try
+            cnnDatos.Command("usuarios_sesion")
+            cnnDatos.AddParameter("@correo", SqlDbType.VarChar, mCorreo)
+
+
+
+            cnnDatos.GetData(Resultado)
+
+        Catch ex As Exception
+            Throw cnnDatos.ErrorIT
+        End Try
+        Return Resultado
+    End Function
+
+   
 
   Public Function UsuariosValidaInformacionCompleta(idUsuario As Integer) As String
         Dim cnnDatos As New cclasecnn

@@ -3,7 +3,49 @@
 <html lang="en">
 
 <head runat="server">
+    <style type="text/css">
+           .modalBackground 
+            {
+                background-color: Black;
+                filter: alpha(opacity=90);
+                opacity: 0.8;
+                z-index: 10000;
+            }
+        .table th {
+            text-align: center;
+        }
+        /*clase para cambiar el hover del textbox al hacer clic*/
+       .form-control2:focus {border-color:rgb(255, 0, 0)!important;
+-webkit-box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    box-shadow: none!important;
+}
+        /*clase para sobreescribir la original y cambiar el color del borde*/
+        .form-control2 {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image:none;
+    border: 1px solid #b73a3a;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+    
 
+       
+           
+           
+          
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,7 +106,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Bienvenido @<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                <a class="navbar-brand" href="index.html">Bienvenido <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                 </a>&nbsp;</div>
             <!-- /.navbar-header -->
 
@@ -310,6 +352,15 @@
                         </li>
                         <li>
                             <a href="../modulos/modulos.aspx"><i class="fa fa-table fa-fw"></i>Modulos</a>
+                        </li>
+                          <li>
+                            <a href="../perfiles_detalle/perfiles_detalle.aspx"><i class="fa fa-table fa-fw"></i>Detaller Perfil</a>
+                        </li>
+                         <li>
+                            <a href="../acciones/acciones.aspx"><i class="fa fa-table fa-fw"></i>Acciones</a>
+                        </li>
+                           <li>
+                            <a href="../funciones/funciones.aspx"><i class="fa fa-table fa-fw"></i>Funciones</a>
                         </li>
                         
                         

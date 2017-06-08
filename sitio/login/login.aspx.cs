@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ProjectBseBusiness;
+using System.Configuration;
+using System.Data;
 
 public partial class login_login : System.Web.UI.Page
 {
@@ -36,10 +38,31 @@ public partial class login_login : System.Web.UI.Page
         cnn.Usuaio = this.TextBox1.Text;
         cnn.Password = this.TextBox2.Text;
         int var = cnn.ValidaUsuario();
-
+       
+        string nombre_usuario = "";
+        string id_usuario = "";
+       
         if (var == 1)
         {
-            Session["nom"] = cnn.Usuaio;//usar nombres completos para identificar
+            LogInc cnnPruea = new LogInc();
+
+            cnnPruea.Correo = cnn.Usuaio;
+
+
+            DataTable dt = new DataTable();
+
+            dt = cnnPruea.UsuarioDetalleSesiones();
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                nombre_usuario = fila["nombre_usuario"].ToString();
+                id_usuario = fila["id"].ToString();
+              
+            }
+
+           
+            Session["nom"] = nombre_usuario;
+            Session["id_usuario_registro"] = id_usuario;
             Response.Redirect("../inicio/inicio.aspx");
         }
         else

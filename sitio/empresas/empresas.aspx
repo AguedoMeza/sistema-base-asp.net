@@ -74,28 +74,28 @@
                                 <asp:Panel ID="pn_nombre" runat="server" class="form-group">
                                              <asp:TextBox ID="txtNombre" runat="server" class="form-control" 
                                             placeholder="Nombre" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
-                                </asp:Panel>
+                                <%--</asp:Panel>
 
-                                <asp:Panel ID="pn_direccion" runat="server"  class="form-group">
+                                <asp:Panel ID="pn_direccion" runat="server"  class="form-group">--%>
                                     <asp:TextBox ID="txtDireccion" runat="server" class="form-control" 
                                             placeholder="Direccion" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
-                                </asp:Panel>
+                              <%--  </asp:Panel>
 
-                                <asp:Panel ID="pn_rfc" runat="server" class="form-group">
+                                <asp:Panel ID="pn_rfc" runat="server" class="form-group">--%>
                       
                                    <asp:TextBox ID="txtrfc" runat="server" class="form-control" 
                                             placeholder="RFC" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
-                                </asp:Panel>
+                              <%--  </asp:Panel>
 
-                                <asp:Panel ID="pn_razon" runat="server"  class="form-group">
+                                <asp:Panel ID="pn_razon" runat="server"  class="form-group">--%>
                                       <asp:TextBox ID="txtrazon_social" runat="server" class="form-control" 
                                             placeholder="Razon_Social" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
-                                </asp:Panel>
+                              <%--  </asp:Panel>
 
-                                <asp:Panel ID="pn_con" runat="server"  class="form-group">
+                                <asp:Panel ID="pn_con" runat="server"  class="form-group">--%>
                                     <asp:TextBox ID="TxtCon" runat="server" class="form-control" 
                                             placeholder="Contato" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
-                                </asp:Panel>
+                               <%-- </asp:Panel>--%>
 
                                 
 
@@ -119,7 +119,7 @@
                       data-dismiss="modal" aria-hidden="true" onclick="btnClose_Click"  ControlStyle-CssClass="btn btn-danger"/>
 
                   <asp:Button ID="btnGuardar" runat="server" Text="Limpiar" class="btn" 
-                      data-dismiss="modal" aria-hidden="true" onclick="btnGuardar_Click"  ControlStyle-CssClass="btn btn-success"/>
+                      data-dismiss="modal" aria-hidden="true" onclick="btnLimpiar_Click"  ControlStyle-CssClass="btn btn-success"/>
 
                    <asp:Button ID="btn_registrar_actualizar" runat="server" Text="Registrar" class="btn" 
                       data-dismiss="modal" aria-hidden="true" onclick="btnGuardar_Click"  ControlStyle-CssClass="btn btn-primary"/>

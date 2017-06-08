@@ -19,6 +19,13 @@ public partial class empresas_empresas : System.Web.UI.Page
             this.LLenarGrid();
         }
     }
+    private void Limpiar()
+    {
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            texto.Text = String.Empty;
+        }
+    }
     public void chkStatus_OnCheckedChanged(object sender, EventArgs e)
     {
 
@@ -48,62 +55,46 @@ public partial class empresas_empresas : System.Web.UI.Page
 
         this.LLenarGrid();
     }
-    private bool EstanCamposLLenos()
-    {
-        if (this.TxtCon.Text == String.Empty)
-        {
-            this.pn_con.CssClass = "form-group has-error";
-            return false;
-        }
-        else if (this.txtDireccion.Text == String.Empty)
-        {
-            this.pn_direccion.CssClass = "form-group has-error";
-            return false;
-        }
-        else if (this.txtNombre.Text == String.Empty)
-        {
-            this.pn_nombre.CssClass = "form-group has-error";
-            return false;
-        }
-        else if (this.txtrazon_social.Text == String.Empty)
-        {
-            this.pn_razon.CssClass = "form-group has-error";
-            return false;
-        }
-        else if (this.txtrfc.Text == String.Empty)
-        {
-            this.pn_rfc.CssClass = "form-group has-error";
-            return false;
-        }
+    //private bool EstanCamposLLenos()
+    //{
+    //    if (this.TxtCon.Text == String.Empty)
+    //    {
+    //        this.pn_con.CssClass = "form-group has-error";
+    //        return false;
+    //    }
+    //    else if (this.txtDireccion.Text == String.Empty)
+    //    {
+    //        this.pn_direccion.CssClass = "form-group has-error";
+    //        return false;
+    //    }
+    //    else if (this.txtNombre.Text == String.Empty)
+    //    {
+    //        this.pn_nombre.CssClass = "form-group has-error";
+    //        return false;
+    //    }
+    //    else if (this.txtrazon_social.Text == String.Empty)
+    //    {
+    //        this.pn_razon.CssClass = "form-group has-error";
+    //        return false;
+    //    }
+    //    else if (this.txtrfc.Text == String.Empty)
+    //    {
+    //        this.pn_rfc.CssClass = "form-group has-error";
+    //        return false;
+    //    }
        
-        return true;
-    }
+    //    return true;
+    //}
 
     private void LimpiarClases()
     {
-
-        this.pn_rfc.CssClass = "form-group";
-
-        this.pn_razon.CssClass = "form-group";
-
-        this.pn_nombre.CssClass = "form-group";
-
-        this.pn_direccion.CssClass = "form-group";
-
-        this.pn_con.CssClass = "form-group";
-
-      
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            texto.CssClass = "form-control";
+        }
     }
 
-    private void Limpiar()
-    {
-        this.TxtCon.Text = "";
-        this.txtDireccion.Text = "";
-        this.txtNombre.Text = "";
-        this.txtrazon_social.Text = "";
-        this.txtrfc.Text = "";
-    }
-
+   
     private void LLenarGrid()
     {
         empresac cnn = new empresac();
@@ -159,11 +150,15 @@ public partial class empresas_empresas : System.Web.UI.Page
     {
         btnPopUp_ModalPopupExtender.Hide();
     }
+    protected void btnLimpiar_Click(object sender, EventArgs e)
+    {
+        this.Limpiar();
+    }
     protected void btnGuardar_Click(object sender, EventArgs e)
     {
         int idEmpresa = Convert.ToInt32(Session["idEmpresa"]);
 
-        if(idEmpresa != 0)
+        if(idEmpresa != 0) //agregar exepcion de sql con try-catch
         {
             empresac cnn = new empresac();
             cnn.Nombre = this.txtNombre.Text;
@@ -179,23 +174,35 @@ public partial class empresas_empresas : System.Web.UI.Page
         }
         else
         {
-            if (this.EstanCamposLLenos() == true)
+            foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
             {
-                empresac cnn = new empresac();
+                if (texto.Text == String.Empty)
+                {
+                    texto.CssClass = "form-control2";
 
-                cnn.Nombre = this.txtNombre.Text;
-                cnn.Direccion = this.txtDireccion.Text;
-                cnn.RFC = this.txtrfc.Text;
-                cnn.Razon_social = this.txtrazon_social.Text;
-                cnn.Contact = this.TxtCon.Text;
+                }
+                else
+                {
+                    empresac cnn = new empresac();
+
+                    cnn.Nombre = this.txtNombre.Text;
+                    cnn.Direccion = this.txtDireccion.Text;
+                    cnn.RFC = this.txtrfc.Text;
+                    cnn.Razon_social = this.txtrazon_social.Text;
+                    cnn.Contact = this.TxtCon.Text;
 
 
-                int var = cnn.Empresas_Insert();
+                    int var = cnn.Empresas_Insert();
 
-                btnPopUp_ModalPopupExtender.Hide();
+                    btnPopUp_ModalPopupExtender.Hide();
 
-                Response.Redirect("../empresas/empresas.aspx");
+                    Response.Redirect("../empresas/empresas.aspx");
+                }
+
             }
+            
+                
+            
         }
         
 

@@ -15,6 +15,32 @@
         .table th {
             text-align: center;
         }
+        /*clase para cambiar el hover del textbox al hacer clic*/
+       .form-control2:focus {border-color:rgb(255, 0, 0)!important;
+-webkit-box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    box-shadow: none!important;
+}
+        /*clase para sobreescribir la original y cambiar el color del borde*/
+        .form-control2 {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image:none;
+    border: 1px solid #b73a3a;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+    
 
        
            
@@ -38,7 +64,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                      <h1 class="page-header">Catalogo de Usuarios <asp:Label ID="ch" runat="server" Text="Label"></asp:Label></h1>
+                                      <h1 class="page-header">Catalogo de Usuarios</h1>
                                       <%-- inicio modal prueba :V  --%>
         
         
@@ -77,41 +103,43 @@
                             <div class="span4 ">
                                 <%-- Inicio de formulario men :v --%>
                                 <asp:Panel ID="pn_nombre" runat="server" class="form-group">
+
+
                                             <asp:TextBox ID="txtNombre" runat="server" class="form-control" 
                                             placeholder="Nombre" TabIndex="4" ValidationGroup="val4">  </asp:TextBox>
-                                </asp:Panel>
+                               <%-- </asp:Panel>--%>
 
-                                <asp:Panel ID="pn_ap_paterno" runat="server"  class="form-group">
+                                <%--<asp:Panel ID="pn_ap_paterno" runat="server"  class="form-group">--%>
                                     <asp:TextBox ID="txtAp_paterno" runat="server" class="form-control" 
                                             placeholder="Apellido Paterno" TabIndex="4" ValidationGroup="val4" ></asp:TextBox>
-                                </asp:Panel>
+                               <%-- </asp:Panel>--%>
 
-                                <asp:Panel ID="pn_ap_materno" runat="server" class="form-group">
+                               <%-- <asp:Panel ID="pn_ap_materno" runat="server" class="form-group">--%>
                       
                                     <asp:TextBox ID="txtAp_Materno" runat="server" class="form-control" 
                                             placeholder="Apellido Materno" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
-                                </asp:Panel>
+                               <%-- </asp:Panel>--%>
 
-                                <asp:Panel ID="pn_curp" runat="server"  class="form-group">
+                               <%-- <asp:Panel ID="pn_curp" runat="server"  class="form-group">--%>
                                       <asp:TextBox ID="txtCurp" runat="server" class="form-control" 
                                             placeholder="CURP" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
-                                </asp:Panel>
+                               <%-- </asp:Panel>--%>
 
-                                <asp:Panel ID="pn_empresas" runat="server"  class="form-group">
+                          <%--      <asp:Panel ID="pn_empresas" runat="server"  class="form-group">--%>
                                      <asp:DropDownList ID="ddlist_empresas" runat="server" class="form-control" ></asp:DropDownList>
-                                </asp:Panel>
+                                <%--</asp:Panel>--%>
 
-                                <asp:Panel ID="pn_usuario" runat="server"  class="form-group">
+                             <%--   <asp:Panel ID="pn_usuario" runat="server"  class="form-group">--%>
                                      <asp:TextBox ID="txtUsuario" runat="server" class="form-control" 
                                             placeholder="Nombre de Usuario" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
-                                </asp:Panel>
-                                <asp:Panel ID="pn_contrasena" runat="server"  class="form-group">
+                             <%--   </asp:Panel>--%>
+                               <%-- <asp:Panel ID="pn_contrasena" runat="server"  class="form-group">--%>
                                      <asp:TextBox ID="txtContrasena" type="password" runat="server" class="form-control" 
                                             placeholder="Contraseña" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
 
-                                </asp:Panel>
-                                <asp:Panel ID="pn_conf" runat="server"  class="form-group">
-                                     <asp:TextBox ID="txtConf" type="password" runat="server" class="form-control" 
+                                <%--</asp:Panel>--%>
+                                <%--<asp:Panel ID="pn_conf" runat="server"  class="form-group">--%>
+                                     <asp:TextBox ID="txtConf" type="password" runat="server" AutoPostBack="true" OnTextChanged="txtConf_TextChanged" class="form-control" 
                                             placeholder="Contraseña" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
 
                                 </asp:Panel>
@@ -131,7 +159,7 @@
                       data-dismiss="modal" aria-hidden="true" onclick="btnClose_Click" ControlStyle-CssClass="btn btn-danger"/>
 
                   <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" class="btn" 
-                      data-dismiss="modal" aria-hidden="true" onclick="btnGuardar_Click"  ControlStyle-CssClass="btn btn-success"/>
+                      data-dismiss="modal" aria-hidden="true" onclick="btnLimpiar_Click"  ControlStyle-CssClass="btn btn-success"/>
 
                    <asp:Button ID="btn_registrar_actualizar" runat="server" Text="Registrar" class="btn" 
                       data-dismiss="modal" aria-hidden="true" onclick="btnGuardar_Click" ControlStyle-CssClass="btn btn-primary" />
@@ -163,10 +191,10 @@
                                     HeaderText="Editar" Text="Actualizar"  ControlStyle-CssClass="btn btn-success" ItemStyle-HorizontalAlign="Center" />
 
 
-                                              <asp:CheckBoxField DataField="Activo" HeaderText="Activo" ItemStyle-HorizontalAlign="Center"/>
+                                             
                                               
-                                             <asp:TemplateField>
-                                                <ItemTemplate>
+                                             <asp:TemplateField ItemStyle-HorizontalAlign="Center"  HeaderText="Activo" >
+                                                <ItemTemplate >
                                                     <asp:CheckBox ID="chkStatus" runat="server" 
                                                         AutoPostBack="true" OnCheckedChanged="chkStatus_OnCheckedChanged"
                                                         Checked='<%# Convert.ToBoolean(Eval("activo")) %>'
@@ -180,7 +208,7 @@
                            
                         
                                         </asp:GridView>
-                                          
+                                         
                                         </div>
                                          
             <!--Delete Record Modal Ends here -->
@@ -204,7 +232,7 @@
             </div>
             <!-- /.row -->
 
-   
+
 
 </asp:Content>
 

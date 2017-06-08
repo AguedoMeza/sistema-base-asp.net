@@ -30,8 +30,8 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Catalogo de Usuarios
-                        <asp:Label ID="ch" runat="server" Text="Label"></asp:Label></h1>
+                    <h1 class="page-header">Catalogo de Acciones
+                       </h1>
                     <%-- inicio modal prueba :V  --%>
 
 
@@ -42,7 +42,7 @@
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <br />
-                            <asp:Button ID="btnPopUp" runat="server" Text="Nuevo Usuario" class="btn btn-primary" OnClick="btnPopUp_Click" />
+                            <asp:Button ID="btnPopUp" runat="server" Text="Nueva Acción" class="btn btn-primary" OnClick="btnPopUp_Click" />
 
                             <br />
                         </ContentTemplate>
@@ -60,7 +60,7 @@
                             <ContentTemplate>
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    <h3 id="myModalLabel">Usuarios</h3>
+                                    <h3 id="myModalLabel">Acciones</h3>
                                 </div>
                                 <div class="modal-body">
                                     <div class="container-fluid well">
@@ -72,6 +72,16 @@
                                                 <asp:Panel ID="pn_nombre" runat="server" class="form-group">
                                                     <asp:TextBox ID="txtNombre" runat="server" class="form-control"
                                                         placeholder="Nombre" TabIndex="4" ValidationGroup="val4">  </asp:TextBox>
+                                                </asp:Panel>
+
+                                                  <asp:Panel ID="pn_definicion" runat="server" class="form-group">
+                                                    <asp:TextBox ID="txtDefinicion" runat="server" class="form-control"
+                                                        placeholder="Definición" TabIndex="4" ValidationGroup="val4">  </asp:TextBox>
+                                                </asp:Panel>
+
+                                                   <asp:Panel ID="pn_actividad" runat="server" class="form-group">
+                                                    <asp:TextBox ID="txtActividad" runat="server" class="form-control"
+                                                        placeholder="Actividad" TabIndex="4" ValidationGroup="val4">  </asp:TextBox>
                                                 </asp:Panel>
 
                                                <%-- <asp:Panel ID="pn_ap_paterno" runat="server" class="form-group">
@@ -122,10 +132,10 @@
                                                     </asp:BoundField>
 
                                                    
-                                                    <asp:BoundField DataField="definicion" ItemStyle-HorizontalAlign="Center" HeaderText="Empresa" />
+                                                    <asp:BoundField DataField="definicion" ItemStyle-HorizontalAlign="Center" HeaderText="Definición" />
                           
 
-                                                       <asp:BoundField DataField="actividad" ItemStyle-HorizontalAlign="Center" HeaderText="Empresa" />
+                                                       <asp:BoundField DataField="actividad" ItemStyle-HorizontalAlign="Center" HeaderText="Actividad" />
 
                                                     <asp:ButtonField ButtonType="Button" CommandName="Actualizar"
                                                         HeaderText="Editar" Text="Actualizar" ControlStyle-CssClass="btn btn-success" ItemStyle-HorizontalAlign="Center" />

@@ -14,12 +14,36 @@ public partial class usuarios_Default : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+
             this.LLenarGrid();
             this.LlemarCombo();
-            
-     
+            //this.prueba();
+           
+
         }
     }
+   
+    
+     private void prueba()
+    {
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            if(texto.Text == String.Empty)
+
+            {
+                
+                texto.CssClass = "form-control2";
+               
+            }
+            
+         }
+      
+        
+    }
+
+
+   
+  
     public void chkStatus_OnCheckedChanged(object sender, EventArgs e)
     {
      
@@ -49,57 +73,6 @@ public partial class usuarios_Default : System.Web.UI.Page
 
             this.LLenarGrid();
     }
-    private bool EstanCamposLLenos()
-    {
-        bool var = true;
-        if(this.txtAp_Materno.Text == String.Empty)
-        {
-            this.pn_ap_materno.CssClass = "form-group has-error";
-            var = false;
-        }
-        if(this.txtAp_paterno.Text == String.Empty)
-        {
-            this.pn_ap_paterno.CssClass = "form-group has-error";
-            var = false;
-        }
-        if(this.txtContrasena.Text == String.Empty || this.txtContrasena.Text != this.txtConf.Text)
-        {
-            this.pn_contrasena.CssClass = "form-group has-error";
-            var = false;
-        }
-        if(this.txtCurp.Text == String.Empty)
-        {
-            this.pn_curp.CssClass = "form-group has-error";
-            var = false;
-        }
-        if(this.txtNombre.Text == String.Empty)
-        {
-            this.pn_usuario.CssClass = "form-group has-error";
-            var = false;
-        }
-        if(this.txtUsuario.Text == String.Empty)
-        {
-            this.pn_usuario.CssClass = "form-group has-error";
-            var = false;
-        }
-        return var;
-    }
-
-    private void LimpiarClases()
-    {
-        
-            this.pn_ap_materno.CssClass = "form-group";
-            
-            this.pn_ap_paterno.CssClass = "form-group";
-           
-            this.pn_contrasena.CssClass = "form-group";
-        
-            this.pn_curp.CssClass = "form-group";
-        
-            this.pn_usuario.CssClass = "form-group";
-          
-            this.pn_usuario.CssClass = "form-group";
-      }
 
     private void LLenarGrid()
     {
@@ -133,52 +106,66 @@ public partial class usuarios_Default : System.Web.UI.Page
     }
     protected void btnGuardar_Click(object sender, EventArgs e)
     {
-
-        int idUsuario = Convert.ToInt32(Session["idUsuario"]);
+        //string valorTextBox = "";
+       // this.prueba();
         
-        if(idUsuario != 0)
-        {
-          
-            LogInc cnn = new LogInc();
+        int idUsuario = 75;
+        int idUsuarioResgistro = Convert.ToInt32(Session["id_usuario_registro"]);
 
-            cnn.Usuaio = this.txtUsuario.Text;
-            cnn.Nombre = this.txtNombre.Text;
-            cnn.NoEmpleado = this.txtCurp.Text;
-            cnn.Apellido = this.txtAp_paterno.Text;
-            cnn.Password = this.txtContrasena.Text;
-            cnn.Empresa = Convert.ToInt32(this.ddlist_empresas.SelectedValue.ToString());
-            cnn.idUsuario = idUsuario;
-            int var = cnn.UsuarioUpdate();
-            Session.Remove("idUsuario");
-            btnPopUp_ModalPopupExtender.Hide();
-            Response.Redirect("../usuarios/usuarios.aspx");
-        }
+        if (idUsuario != 0)
+        {
+           
+                    LogInc cnn = new LogInc();
+
+                    cnn.Usuaio = this.txtUsuario.Text;
+                    cnn.Nombre = this.txtNombre.Text;
+                    cnn.NoEmpleado = this.txtCurp.Text;
+                    cnn.Apellido = this.txtAp_paterno.Text;
+                    cnn.Password = this.txtContrasena.Text;
+                    cnn.Empresa = Convert.ToInt32(this.ddlist_empresas.SelectedValue.ToString());
+                    cnn.idUsuario = idUsuario;
+                    int var = cnn.UsuarioUpdate();
+                    Session.Remove("idUsuario");
+                    btnPopUp_ModalPopupExtender.Hide();
+                    Response.Redirect("../usuarios/usuarios.aspx");
+                
+
+            }        
         else
         {
-            if (this.EstanCamposLLenos() == true)
+            foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
             {
-                LogInc cnn = new LogInc();
+                if (texto.Text == String.Empty)
+                {
+                    texto.CssClass = "form-control2";
 
-                cnn.Nombre = this.txtNombre.Text;
-                cnn.Apellido = this.txtAp_paterno.Text;
-                cnn.Apellido_Materno = this.txtAp_Materno.Text;
-                cnn.Usuaio = this.txtUsuario.Text;
-                cnn.Password = this.txtContrasena.Text;
-                cnn.NoEmpleado = this.txtCurp.Text;
-                cnn.Empresa = Convert.ToInt16(this.ddlist_empresas.SelectedValue.ToString());
-                cnn.Activo = 1;
+                }
+                else
+                {
+                    LogInc cnn = new LogInc();
 
-                int var = cnn.UsuariosInsert();
+                    cnn.Nombre = this.txtNombre.Text;
+                    cnn.Apellido = this.txtAp_paterno.Text;
+                    cnn.Apellido_Materno = this.txtAp_Materno.Text;
+                    cnn.Usuaio = this.txtUsuario.Text;
+                    cnn.Password = this.txtContrasena.Text;
+                    cnn.NoEmpleado = this.txtCurp.Text;
+                    cnn.Empresa = Convert.ToInt16(this.ddlist_empresas.SelectedValue.ToString());
+                    cnn.Activo = 1;
+                    cnn.NoRuta = idUsuarioResgistro;
 
-                btnPopUp_ModalPopupExtender.Hide();
+                    int var = cnn.UsuariosInsert();
 
-                Response.Redirect("../usuarios/usuarios.aspx");
+                    btnPopUp_ModalPopupExtender.Hide();
+
+                    Response.Redirect("../usuarios/usuarios.aspx");
+           
+                }
+
             }
+                
         }
-
-       
-       
-         
+        
     }
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
@@ -198,16 +185,24 @@ public partial class usuarios_Default : System.Web.UI.Page
         Session["idUsuario"] = 0;
         this.btn_registrar_actualizar.Text = "Registrar";
     }
+
+
     private void Limpiar()
     {
-        this.txtNombre.Text = "";
-        this.txtUsuario.Text = "";
-        this.txtCurp.Text = "";
-        this.txtAp_Materno.Text = "";
-        this.txtAp_paterno.Text = "";
-        this.ddlist_empresas.Items.Insert(0, new ListItem("Empresa de origen..", "0"));  
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            texto.Text = String.Empty;
+        }
     }
-
+    private void LimpiarClases()
+    {
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            texto.CssClass = "form-control";
+        }
+    }
+    
+    
     private void LlemarCombo()
     {
         empresac cnn = new empresac();
@@ -287,5 +282,19 @@ public partial class usuarios_Default : System.Web.UI.Page
         catch (Exception)
         {
         }
+    }
+   
+
+    protected void txtConf_TextChanged(object sender, EventArgs e)
+    {
+        if(this.txtConf.Text != this.txtContrasena.Text)
+        {
+        this.txtConf.CssClass = "form-control2";
+        }
+        else if (this.txtConf.Text == this.txtContrasena.Text)
+        {
+            this.txtConf.CssClass = "form-control";
+        }
+        
     }
 }

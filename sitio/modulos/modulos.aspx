@@ -30,8 +30,8 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Catalogo de Usuarios
-                        <asp:Label ID="ch" runat="server" Text="Label"></asp:Label></h1>
+                    <h1 class="page-header">Catalogo de Modulos
+                        </h1>
                     <%-- inicio modal prueba :V  --%>
 
 
@@ -42,7 +42,7 @@
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <br />
-                            <asp:Button ID="btnPopUp" runat="server" Text="Nuevo Usuario" class="btn btn-primary" OnClick="btnPopUp_Click" />
+                            <asp:Button ID="btnPopUp" runat="server" Text="Nuevo Modulo" class="btn btn-primary" OnClick="btnPopUp_Click" />
 
                             <br />
                         </ContentTemplate>
@@ -60,7 +60,7 @@
                             <ContentTemplate>
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    <h3 id="myModalLabel">Usuarios</h3>
+                                    <h3 id="myModalLabel">Modulos<h3>
                                 </div>
                                 <div class="modal-body">
                                     <div class="container-fluid well">
