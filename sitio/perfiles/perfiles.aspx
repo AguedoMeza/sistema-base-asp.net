@@ -97,7 +97,7 @@
                                         data-dismiss="modal" aria-hidden="true" OnClick="btnClose_Click" ControlStyle-CssClass="btn btn-danger" />
 
                                     <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" class="btn"
-                                        data-dismiss="modal" aria-hidden="true" OnClick="btnGuardar_Click" ControlStyle-CssClass="btn btn-success" />
+                                        data-dismiss="modal" aria-hidden="true" OnClick="btnLimpiar_Click" ControlStyle-CssClass="btn btn-success" />
 
                                     <asp:Button ID="btn_registrar_actualizar" runat="server" Text="Registrar" class="btn"
                                         data-dismiss="modal" aria-hidden="true" OnClick="btnGuardar_Click" ControlStyle-CssClass="btn btn-primary" />

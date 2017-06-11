@@ -15,35 +15,38 @@ public partial class usuarios_Default : System.Web.UI.Page
         if (!IsPostBack)
         {
 
-            this.LLenarGrid();
-            this.LlemarCombo();
-            //this.prueba();
-           
-
+           this.LLenarGrid();
+           //this.LlemarCombo();
+           /// pn_nombre.Controls.OfType<TextBox>().Count();
+           //int var =  pn_nombre.Controls.OfType<TextBox>().Count();
+           //this.Label3.Text = var.ToString();
         }
     }
    
     
-     private void prueba()
-    {
-        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
-        {
-            if(texto.Text == String.Empty)
-
-            {
-                
-                texto.CssClass = "form-control2";
-               
-            }
-            
-         }
-      
+     private bool prueba()
+     {
+         int i = 0;
         
-    }
+             foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+             {
+                 i++;
 
+                 int var = pn_nombre.Controls.OfType<TextBox>().Count();
+                
+                 if (texto.Text == String.Empty)
+                 {
+                     texto.CssClass = "form-control2";
+ 
+                     if (texto.Text == String.Empty && i== var)
+                     {
+                         return false;
+                     }
+                 }
+             }
+             return true;
+     }
 
-   
-  
     public void chkStatus_OnCheckedChanged(object sender, EventArgs e)
     {
      
@@ -67,11 +70,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                cnn.idUsuario = nID;
                int var = cnn.estado();
            }
-
-          
- 
-
-            this.LLenarGrid();
+           this.LLenarGrid();
     }
 
     private void LLenarGrid()
@@ -106,15 +105,13 @@ public partial class usuarios_Default : System.Web.UI.Page
     }
     protected void btnGuardar_Click(object sender, EventArgs e)
     {
-        //string valorTextBox = "";
-       // this.prueba();
-        
-        int idUsuario = 75;
+        int idUsuario = Convert.ToInt32(Session["idUsuario"]);
         int idUsuarioResgistro = Convert.ToInt32(Session["id_usuario_registro"]);
 
         if (idUsuario != 0)
         {
-           
+           if(this.prueba()==true)
+           {
                     LogInc cnn = new LogInc();
 
                     cnn.Usuaio = this.txtUsuario.Text;
@@ -128,41 +125,33 @@ public partial class usuarios_Default : System.Web.UI.Page
                     Session.Remove("idUsuario");
                     btnPopUp_ModalPopupExtender.Hide();
                     Response.Redirect("../usuarios/usuarios.aspx");
-                
+           }
 
-            }        
+        }
+        
         else
         {
-            foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+            if (this.prueba() == true)
             {
-                if (texto.Text == String.Empty)
-                {
-                    texto.CssClass = "form-control2";
+                LogInc cnn = new LogInc();
 
-                }
-                else
-                {
-                    LogInc cnn = new LogInc();
+                cnn.Nombre = this.txtNombre.Text;
+                cnn.Apellido = this.txtAp_paterno.Text;
+                cnn.Apellido_Materno = this.txtAp_Materno.Text;
+                cnn.Usuaio = this.txtUsuario.Text;
+                cnn.Password = this.txtContrasena.Text;
+                cnn.NoEmpleado = this.txtCurp.Text;
+                cnn.Empresa = Convert.ToInt16(this.ddlist_empresas.SelectedValue.ToString());
+                cnn.Activo = 1;
+                cnn.NoRuta = idUsuarioResgistro;
 
-                    cnn.Nombre = this.txtNombre.Text;
-                    cnn.Apellido = this.txtAp_paterno.Text;
-                    cnn.Apellido_Materno = this.txtAp_Materno.Text;
-                    cnn.Usuaio = this.txtUsuario.Text;
-                    cnn.Password = this.txtContrasena.Text;
-                    cnn.NoEmpleado = this.txtCurp.Text;
-                    cnn.Empresa = Convert.ToInt16(this.ddlist_empresas.SelectedValue.ToString());
-                    cnn.Activo = 1;
-                    cnn.NoRuta = idUsuarioResgistro;
+                int var = cnn.UsuariosInsert();
 
-                    int var = cnn.UsuariosInsert();
+                btnPopUp_ModalPopupExtender.Hide();
 
-                    btnPopUp_ModalPopupExtender.Hide();
-
-                    Response.Redirect("../usuarios/usuarios.aspx");
-           
-                }
-
+                Response.Redirect("../usuarios/usuarios.aspx");
             }
+           
                 
         }
         
@@ -182,6 +171,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         btnPopUp_ModalPopupExtender.Show();
         this.LimpiarClases();
         this.Limpiar();
+        this.LlemarCombo();
         Session["idUsuario"] = 0;
         this.btn_registrar_actualizar.Text = "Registrar";
     }
@@ -194,6 +184,7 @@ public partial class usuarios_Default : System.Web.UI.Page
             texto.Text = String.Empty;
         }
     }
+
     private void LimpiarClases()
     {
         foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
@@ -212,9 +203,17 @@ public partial class usuarios_Default : System.Web.UI.Page
         this.ddlist_empresas.DataSource = cnn.EmpresaDetalle();
         this.ddlist_empresas.DataValueField = "id";
         this.ddlist_empresas.DataTextField = "nombre";
+
+       
         this.ddlist_empresas.DataBind();
-        this.ddlist_empresas.Items.Insert(0, new ListItem("Empresa de origen..", "0"));  
-    }
+
+        this.ddlist_empresas.ClearSelection();
+       // this.ddlist_empresas.Items.Insert(0, new ListItem("Empresa de origen..", "0"));
+
+        //this.Label3.Text = this.ddlist_empresas.Items[1].ToString();
+
+    }   
+
 
 
     private void MostrarDatos()
@@ -248,8 +247,11 @@ public partial class usuarios_Default : System.Web.UI.Page
                 string ap_materno = fila["Ap_Materno"].ToString();
                 this.txtAp_Materno.Text = ap_materno;
 
-                string empresa= fila["Empresa"].ToString();
-                this.ddlist_empresas.Items.Insert(0, new ListItem(empresa, "0"));  
+                string empresa= fila["id_empresa"].ToString();
+
+                this.ddlist_empresas.ClearSelection();
+                this.ddlist_empresas.Items.FindByValue(empresa).Selected = true;
+         
             }
        
          this.btn_registrar_actualizar.Text = "Actualizar";
@@ -274,6 +276,8 @@ public partial class usuarios_Default : System.Web.UI.Page
                   
                    
                     btnPopUp_ModalPopupExtender.Show();
+                   
+                    this.LlemarCombo();
                     this.MostrarDatos();
                   
                 }

@@ -11,13 +11,11 @@ using System.Data;
 public partial class usuarios_Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
-    {
+   { 
         if (!IsPostBack)
         {
             this.LLenarGrid();
             this.LlemarCombo();
-            
-     
         }
     }
     public void chkStatus_OnCheckedChanged(object sender, EventArgs e)
@@ -43,59 +41,35 @@ public partial class usuarios_Default : System.Web.UI.Page
                cnn.idUsuario = nID;
                int var = cnn.estado();
            }
-
-          
- 
-
-            this.LLenarGrid();
+           this.LLenarGrid();
     }
     private bool EstanCamposLLenos()
     {
-        bool var = true;
-    //    if(this.txtAp_Materno.Text == String.Empty)
-    //    {
-    //        this.pn_ap_materno.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtAp_paterno.Text == String.Empty)
-    //    {
-    //        this.pn_ap_paterno.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtContrasena.Text == String.Empty || this.txtContrasena.Text != this.txtConf.Text)
-    //    {
-    //        this.pn_contrasena.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtCurp.Text == String.Empty)
-    //    {
-    //        this.pn_curp.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtNombre.Text == String.Empty)
-    //    {
-    //        this.pn_usuario.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-      
-        return var;
-    }
+         int i = 0;
+        
+             foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+             {
+                 i++;
 
+                 int var = pn_nombre.Controls.OfType<TextBox>().Count();
+                
+                 if (texto.Text == String.Empty)
+                 {
+                     texto.CssClass = "form-control2";
+
+                     if (texto.Text == String.Empty && i== var)
+                     {
+                         return false;
+                     }
+                 }
+             }
+             return true;
+     }
+    
     private void LimpiarClases()
     {
-        
-            //this.pn_ap_materno.CssClass = "form-group";
-            
-            //this.pn_ap_paterno.CssClass = "form-group";
-           
-            //this.pn_contrasena.CssClass = "form-group";
-        
-            //this.pn_curp.CssClass = "form-group";
-        
-            //this.pn_usuario.CssClass = "form-group";
-          
-            //this.pn_usuario.CssClass = "form-group";
-      }
+
+    }
 
     private void LLenarGrid()
     {
@@ -137,7 +111,8 @@ public partial class usuarios_Default : System.Web.UI.Page
         
         if(idUsuario != 0)
         {
-          
+            if(this.EstanCamposLLenos() == true)
+            {
             perfilc cnn = new perfilc();
 
            
@@ -151,6 +126,7 @@ public partial class usuarios_Default : System.Web.UI.Page
             Session.Remove("idUsuario");
             btnPopUp_ModalPopupExtender.Hide();
             Response.Redirect("../perfiles/perfiles.aspx");
+            }
         }
         else
         {
@@ -195,9 +171,10 @@ public partial class usuarios_Default : System.Web.UI.Page
     }
     private void Limpiar()
     {
-        this.txtNombre.Text = "";
-      
-        this.ddlist_empresas.Items.Insert(0, new ListItem("Empresa de origen..", "0"));  
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            texto.Text = String.Empty;
+        }
     }
 
     private void LlemarCombo()

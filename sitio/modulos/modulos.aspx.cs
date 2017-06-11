@@ -51,34 +51,25 @@ public partial class usuarios_Default : System.Web.UI.Page
     }
     private bool EstanCamposLLenos()
     {
-        bool var = true;
-    //    if(this.txtAp_Materno.Text == String.Empty)
-    //    {
-    //        this.pn_ap_materno.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtAp_paterno.Text == String.Empty)
-    //    {
-    //        this.pn_ap_paterno.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtContrasena.Text == String.Empty || this.txtContrasena.Text != this.txtConf.Text)
-    //    {
-    //        this.pn_contrasena.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtCurp.Text == String.Empty)
-    //    {
-    //        this.pn_curp.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtNombre.Text == String.Empty)
-    //    {
-    //        this.pn_usuario.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-      
-        return var;
+        int i = 0;
+
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            i++;
+
+            int var = pn_nombre.Controls.OfType<TextBox>().Count();
+
+            if (texto.Text == String.Empty)
+            {
+                texto.CssClass = "form-control2";
+
+                if (texto.Text == String.Empty && i == var)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     private void LimpiarClases()
@@ -137,23 +128,26 @@ public partial class usuarios_Default : System.Web.UI.Page
         
         if(idUsuario != 0)
         {
-          
-            moduloc cnn = new moduloc();
+            if(this.EstanCamposLLenos()==true)
+
+            {
+                moduloc cnn = new moduloc();
 
            
-            cnn.Nombre = this.txtNombre.Text;
+                cnn.Nombre = this.txtNombre.Text;
            
-            cnn.Empresa = Convert.ToInt32(this.ddlist_empresas.SelectedValue.ToString());
+                cnn.Empresa = Convert.ToInt32(this.ddlist_empresas.SelectedValue.ToString());
             
-            cnn.idUsuario = idUsuario;
+                cnn.idUsuario = idUsuario;
 
-            cnn.Descripcion = "descripcion editada";
+                cnn.Descripcion = "descripcion editada";
 
-            int var = cnn.ModulosUpdate();
+                int var = cnn.ModulosUpdate();
 
-            Session.Remove("idUsuario");
-            btnPopUp_ModalPopupExtender.Hide();
-            Response.Redirect("../modulos/modulos.aspx");
+                Session.Remove("idUsuario");
+                btnPopUp_ModalPopupExtender.Hide();
+                Response.Redirect("../modulos/modulos.aspx");
+            }
         }
         else
         {
@@ -201,9 +195,11 @@ public partial class usuarios_Default : System.Web.UI.Page
     }
     private void Limpiar()
     {
-        this.txtNombre.Text = "";
-      
-        this.ddlist_empresas.Items.Insert(0, new ListItem("Empresa de origen..", "0"));  
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            texto.Text = String.Empty;
+        }
+       
     }
 
     private void LlemarCombo()

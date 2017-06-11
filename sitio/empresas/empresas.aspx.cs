@@ -116,6 +116,28 @@ public partial class empresas_empresas : System.Web.UI.Page
           this.btn_registrar_actualizar.Text = "Actualizar";
 
     }
+    private bool prueba()
+    {
+        int i = 0;
+
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            i++;
+
+            int var = pn_nombre.Controls.OfType<TextBox>().Count();
+
+            if (texto.Text == String.Empty)
+            {
+                texto.CssClass = "form-control2";
+
+                if (texto.Text == String.Empty && i == var)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
     protected void btnClose_Click(object sender, EventArgs e)
     {
         btnPopUp_ModalPopupExtender.Hide();
@@ -130,6 +152,8 @@ public partial class empresas_empresas : System.Web.UI.Page
 
         if(idEmpresa != 0) //agregar exepcion de sql con try-catch
         {
+            if(this.prueba()==true)
+            {
             empresac cnn = new empresac();
             cnn.Nombre = this.txtNombre.Text;
             cnn.Apellido = this.txtDireccion.Text;
@@ -141,18 +165,12 @@ public partial class empresas_empresas : System.Web.UI.Page
             Session.Remove("idUsuario");
             btnPopUp_ModalPopupExtender.Hide();
             Response.Redirect("../empresas/empresas.aspx");
+            }
         }
         else
         {
-            foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+            if(this.prueba() == true)
             {
-                if (texto.Text == String.Empty)
-                {
-                    texto.CssClass = "form-control2";
-
-                }
-                else
-                {
                     empresac cnn = new empresac();
 
                     cnn.Nombre = this.txtNombre.Text;
@@ -168,12 +186,7 @@ public partial class empresas_empresas : System.Web.UI.Page
                     btnPopUp_ModalPopupExtender.Hide();
 
                     Response.Redirect("../empresas/empresas.aspx");
-                }
-
             }
-            
-                
-            
         }
         
 
