@@ -17,14 +17,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
         catch (Exception ex)
         {
-            Response.Redirect("../login/login.aspx?men=1");
+            Response.Redirect("../../login/login.aspx?men=1");
         }
 
     }
     protected void Button2_Click(object sender, EventArgs e)
     {
          Session.Remove("nom");
-         Response.Redirect("../login/login.aspx");
+         Response.Redirect("../../login/login.aspx");
 
     }
 }

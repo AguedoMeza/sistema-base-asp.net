@@ -71,8 +71,10 @@
     <Compile Include="cclasecnn.vb" />
     <Compile Include="Class1.vb" />
     <Compile Include="empresac.vb" />
+    <Compile Include="funcionesc.vb" />
     <Compile Include="LogInc.vb" />
     <Compile Include="moduloc.vb" />
+    <Compile Include="modulos_funcionesc.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

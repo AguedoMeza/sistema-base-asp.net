@@ -203,14 +203,13 @@ public partial class usuarios_Default : System.Web.UI.Page
         this.ddlist_empresas.DataSource = cnn.EmpresaDetalle();
         this.ddlist_empresas.DataValueField = "id";
         this.ddlist_empresas.DataTextField = "nombre";
-
-       
         this.ddlist_empresas.DataBind();
 
         this.ddlist_empresas.ClearSelection();
-       // this.ddlist_empresas.Items.Insert(0, new ListItem("Empresa de origen..", "0"));
+       
+        this.ddlist_empresas.Items.Insert(0, new ListItem("Empresa de origen..", "0"));
 
-        //this.Label3.Text = this.ddlist_empresas.Items[1].ToString();
+       
 
     }   
 
@@ -279,6 +278,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                    
                     this.LlemarCombo();
                     this.MostrarDatos();
+                    this.LimpiarClases();
                   
                 }
             }

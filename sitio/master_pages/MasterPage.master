@@ -331,7 +331,7 @@
                                 
                                 <span class="input-group-btn">
                                     
-                                       <img src="../imgs/logo.png"/>
+                                       <img src="../../imgs/logo.png"/>
                                     
                                 </span>
                             </div>
@@ -342,25 +342,25 @@
                         </li>
                         
                         <li>
-                            <a href="../usuarios/usuarios.aspx"><i class="fa fa-table fa-fw"></i>Usuarios</a>
+                            <a href="../../administracion/usuarios/usuarios.aspx"><i class="fa fa-table fa-fw"></i>Usuarios</a>
                         </li>
                         <li>
-                            <a href="../empresas/empresas.aspx"><i class="fa fa-table fa-fw"></i>Empresas</a>
+                            <a href="../../administracion/empresas/empresas.aspx"><i class="fa fa-table fa-fw"></i>Empresas</a>
                         </li>
                         <li>
-                            <a href="../perfiles/perfiles.aspx"><i class="fa fa-table fa-fw"></i>Perfiles</a>
+                            <a href="../../administracion/perfiles/perfiles.aspx"><i class="fa fa-table fa-fw"></i>Perfiles</a>
                         </li>
                         <li>
-                            <a href="../modulos/modulos.aspx"><i class="fa fa-table fa-fw"></i>Modulos</a>
+                            <a href="../../administracion/modulos/modulos.aspx"><i class="fa fa-table fa-fw"></i>Modulos</a>
                         </li>
                           <li>
-                            <a href="../perfiles_detalle/perfiles_detalle.aspx"><i class="fa fa-table fa-fw"></i>Detaller Perfil</a>
+                            <a href="../../administracion/perfiles_detalle/perfiles_detalle.aspx"><i class="fa fa-table fa-fw"></i>Detalle Perfil</a>
                         </li>
                          <li>
-                            <a href="../acciones/acciones.aspx"><i class="fa fa-table fa-fw"></i>Acciones</a>
+                            <a href="../../administracion/acciones/acciones.aspx"><i class="fa fa-table fa-fw"></i>Acciones</a>
                         </li>
                            <li>
-                            <a href="../funciones/funciones.aspx"><i class="fa fa-table fa-fw"></i>Funciones</a>
+                            <a href="../../administracion/funciones/funciones.aspx"><i class="fa fa-table fa-fw"></i>Funciones</a>
                         </li>
                         
                         
@@ -394,16 +394,16 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../assets/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../assets/bower_components/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="../../assets/bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="../assets/dist/js/sb-admin-2.js"></script>
+    <script src="../../assets/dist/js/sb-admin-2.js"></script>
 
  </form>
   

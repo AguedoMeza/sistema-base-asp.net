@@ -143,7 +143,7 @@
 
                                                     <%--   <asp:CheckBoxField DataField="Activo" HeaderText="Activo" ItemStyle-HorizontalAlign="Center"/>--%>
 
-                                                    <asp:TemplateField>
+                                                    <asp:TemplateField  HeaderText="Activo" ItemStyle-HorizontalAlign="Center">
                                                         <ItemTemplate>
                                                             <asp:CheckBox ID="chkStatus" runat="server"
                                                                 AutoPostBack="true" OnCheckedChanged="chkStatus_OnCheckedChanged"
