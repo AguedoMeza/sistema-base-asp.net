@@ -138,7 +138,7 @@
                                   <Columns>
                                                <asp:BoundField DataField="id" ItemStyle-HorizontalAlign="Center"  HeaderText="ID" />
                                                 <asp:BoundField DataField="nombre" ItemStyle-HorizontalAlign="Center"  HeaderText="Nombre" />
-                                                <asp:BoundField DataField="direccion" HeaderText="Direccion" />
+                                                <asp:BoundField DataField="direccion" ItemStyle-HorizontalAlign="Center" HeaderText="Direccion" />
                                              <%--<asp:BoundField DataField="Empresa" HeaderText="Empresa" />--%>
                                                <asp:BoundField DataField="rfc" ItemStyle-HorizontalAlign="Center"  HeaderText="RFC" />
                                                 <asp:BoundField DataField="razon_Social" ItemStyle-HorizontalAlign="Center"  HeaderText="Razon Social" />

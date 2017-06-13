@@ -15,7 +15,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         if (!IsPostBack)
         {
             this.LLenarGrid();
-            this.LlemarCombo();
+            
         }
     }
     public void chkStatus_OnCheckedChanged(object sender, EventArgs e)
@@ -165,6 +165,7 @@ public partial class usuarios_Default : System.Web.UI.Page
        
         btnPopUp_ModalPopupExtender.Show();
         this.LimpiarClases();
+        this.LlemarCombo();
         this.Limpiar();
         Session["idUsuario"] = 0;
         this.btn_registrar_actualizar.Text = "Registrar";
@@ -187,6 +188,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         this.ddlist_empresas.DataValueField = "id";
         this.ddlist_empresas.DataTextField = "nombre";
         this.ddlist_empresas.DataBind();
+        this.ddlist_empresas.ClearSelection();
         this.ddlist_empresas.Items.Insert(0, new ListItem("Empresa de origen..", "0"));  
     }
 
@@ -211,8 +213,10 @@ public partial class usuarios_Default : System.Web.UI.Page
                 string nombre = fila["Nombre"].ToString();
                 this.txtNombre.Text = nombre;
 
-                string empresa= fila["Empresa"].ToString();
-                this.ddlist_empresas.Items.Insert(0, new ListItem(empresa, "0"));  
+                string empresa = fila["id_empresa"].ToString();
+
+                this.ddlist_empresas.ClearSelection();
+                this.ddlist_empresas.Items.FindByValue(empresa).Selected = true;
             }
        
          this.btn_registrar_actualizar.Text = "Actualizar";
@@ -237,6 +241,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                   
                    
                     btnPopUp_ModalPopupExtender.Show();
+                    this.LlemarCombo();
                     this.MostrarDatos();
                   
                 }
