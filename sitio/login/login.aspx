@@ -17,7 +17,7 @@
                                     <asp:TextBox ID="TextBox1" class="form-control" placeholder="E-mail" runat="server"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
-                                    <asp:TextBox ID="TextBox2" class="form-control" placeholder="Password" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="TextBox2" class="form-control" placeholder="Password" runat="server" type="password"></asp:TextBox>
                                 </div>
                                 <div class="checkbox">
                                     <label>

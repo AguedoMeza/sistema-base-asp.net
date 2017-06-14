@@ -72,14 +72,16 @@
                                                 <asp:Panel ID="pn_nombre" runat="server" class="form-group">
                                                     <asp:TextBox ID="txtNombre" runat="server" class="form-control"
                                                         placeholder="Nombre" TabIndex="4" ValidationGroup="val4">  </asp:TextBox>
-                                                </asp:Panel>
+
+                                                     <asp:TextBox ID="txtDesc" runat="server" class="form-control"
+                                                        placeholder="Descripción Actividad" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
+                                              <%--  </asp:Panel>--%>
 
                                                <%-- <asp:Panel ID="pn_ap_paterno" runat="server" class="form-group">
-                                                    <asp:TextBox ID="txtAp_paterno" runat="server" class="form-control"
-                                                        placeholder="Apellido Paterno" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
+                                                   
                                                 </asp:Panel>--%>
 
-                                                <asp:Panel ID="pn_empresas" runat="server" class="form-group">
+                                                <%--<asp:Panel ID="pn_empresas" runat="server" class="form-group">--%>
                                                     <asp:DropDownList ID="ddlist_empresas" runat="server" class="form-control"></asp:DropDownList>
                                                 </asp:Panel>
 

@@ -228,7 +228,7 @@ ProjectBseBusiness
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:ProjectBseBusiness.accionesc.UsuariosInsert">
+</member><member name="M:ProjectBseBusiness.accionesc.AccionesInsert">
 	<summary>
  Funcion que Valida el acceso al usuario
  </summary>

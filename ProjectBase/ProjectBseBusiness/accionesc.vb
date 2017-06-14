@@ -8,7 +8,7 @@ Public Class accionesc
 
 
 #Region "Atributos"
-    Dim mNombre, mDescripcion As String
+    Dim mNombre, mDescripcion, mActividad As String
     Dim mIdUsuario, mEmpresa, mActivo As Integer
 
 #End Region
@@ -38,6 +38,16 @@ Public Class accionesc
         End Get
         Set(ByVal value As String)
             mDescripcion = value
+        End Set
+    End Property
+
+    Public Property Actividad As String
+        Get
+            Return mActividad
+
+        End Get
+        Set(ByVal value As String)
+            mActividad = value
         End Set
     End Property
 
@@ -96,11 +106,10 @@ Public Class accionesc
 
         Try
             cnnDatos.Command("acciones_insert")
+            cnnDatos.AddParameter("@id_usuario", SqlDbType.Int, mIdUsuario)
             cnnDatos.AddParameter("@nombre", SqlDbType.VarChar, mNombre)
-            cnnDatos.AddParameter("@descripcion", SqlDbType.VarChar, mDescripcion)
-
-
-            cnnDatos.AddParameter("@id_empresa", SqlDbType.Int, mEmpresa)
+            cnnDatos.AddParameter("@definicion", SqlDbType.VarChar, mDescripcion)
+            cnnDatos.AddParameter("@actividad", SqlDbType.VarChar, mActividad)
             cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
 
             refIdUsuario = cnnDatos.GetString
@@ -110,19 +119,19 @@ Public Class accionesc
         Return refIdUsuario
     End Function
 
-    Public Function ModulosUpdate() As Integer
+    Public Function AccionesUpdate() As Integer
 
         Dim cnnDatos As New cclasecnn
 
         Dim refIdUsuario As Integer
 
         Try
-            cnnDatos.Command("modulos_update")
+            cnnDatos.Command("acciones_update")
             cnnDatos.AddParameter("@nombre", SqlDbType.VarChar, mNombre)
-            cnnDatos.AddParameter("@descripcion", SqlDbType.VarChar, mDescripcion)
-            cnnDatos.AddParameter("@id_empresa", SqlDbType.Int, mEmpresa)
+            cnnDatos.AddParameter("@definicion", SqlDbType.VarChar, mDescripcion)
+            cnnDatos.AddParameter("@actividad", SqlDbType.VarChar, mActividad)
             cnnDatos.AddParameter("@id", SqlDbType.Int, mIdUsuario)
-            'cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
+
 
 
 

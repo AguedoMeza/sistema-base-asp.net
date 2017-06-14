@@ -132,7 +132,7 @@ public partial class usuarios_Default : System.Web.UI.Page
             
                 cnn.idUsuario = idUsuario;
 
-                cnn.Descripcion = "descripcion editada";
+                cnn.Descripcion = this.txtDesc.Text;
 
                 int var = cnn.ModulosUpdate();
 
@@ -151,7 +151,7 @@ public partial class usuarios_Default : System.Web.UI.Page
 
                 cnn.Empresa = Convert.ToInt16(this.ddlist_empresas.SelectedValue.ToString());
 
-                cnn.Descripcion = "modulo";
+                cnn.Descripcion = this.txtDesc.Text;
 
                 cnn.Activo = 1;
 
@@ -227,6 +227,9 @@ public partial class usuarios_Default : System.Web.UI.Page
                
                 string nombre = fila["nombre"].ToString();
                 this.txtNombre.Text = nombre;
+
+                string descripcion = fila["descripcion_actividad"].ToString();
+                this.txtDesc.Text = descripcion;
 
                 string empresa = fila["id_empresa"].ToString();
 

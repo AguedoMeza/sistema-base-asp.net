@@ -274,7 +274,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                   
                    
                     btnPopUp_ModalPopupExtender.Show();
-                   
+                    this.LimpiarClases();
                     this.LlenarComboModulos();
                     this.LlenarComboAcciones();
                     this.MostrarDatos();

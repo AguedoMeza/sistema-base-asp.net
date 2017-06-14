@@ -134,24 +134,32 @@ public partial class usuarios_Default : System.Web.UI.Page
         {
             if (this.prueba() == true)
             {
-                LogInc cnn = new LogInc();
+                if (this.txtContrasena.Text == this.txtConf.Text)
+                {
+                    LogInc cnn = new LogInc();
 
-                cnn.Nombre = this.txtNombre.Text;
-                cnn.Apellido = this.txtAp_paterno.Text;
-                cnn.Apellido_Materno = this.txtAp_Materno.Text;
-                cnn.Usuaio = this.txtUsuario.Text;
-                cnn.Password = this.txtContrasena.Text;
-                cnn.NoEmpleado = this.txtCurp.Text;
-                cnn.Empresa = Convert.ToInt16(this.ddlist_empresas.SelectedValue.ToString());
-                cnn.Correo = this.txtCorreo.Text;
-                cnn.Activo = 1;
-                cnn.NoRuta = idUsuarioResgistro;
+                    cnn.Nombre = this.txtNombre.Text;
+                    cnn.Apellido = this.txtAp_paterno.Text;
+                    cnn.Apellido_Materno = this.txtAp_Materno.Text;
+                    cnn.Usuaio = this.txtUsuario.Text;
+                    cnn.Password = this.txtContrasena.Text;
+                    cnn.NoEmpleado = this.txtCurp.Text;
+                    cnn.Empresa = Convert.ToInt16(this.ddlist_empresas.SelectedValue.ToString());
+                    cnn.Correo = this.txtCorreo.Text;
+                    cnn.Activo = 1;
+                    cnn.NoRuta = idUsuarioResgistro;
 
-                int var = cnn.UsuariosInsert();
+                    int var = cnn.UsuariosInsert();
 
-                btnPopUp_ModalPopupExtender.Hide();
+                    btnPopUp_ModalPopupExtender.Hide();
 
-                Response.Redirect("../usuarios/usuarios.aspx");
+                    Response.Redirect("../usuarios/usuarios.aspx");
+                }
+                else
+                {
+                    this.txtContrasena.CssClass = "form-control2";
+                    this.txtConf.CssClass = "form-control2";
+                }
             }
            
                 
@@ -296,14 +304,6 @@ public partial class usuarios_Default : System.Web.UI.Page
 
     protected void txtConf_TextChanged(object sender, EventArgs e)
     {
-        if(this.txtConf.Text != this.txtContrasena.Text)
-        {
-        this.txtConf.CssClass = "form-control2";
-        }
-        else if (this.txtConf.Text == this.txtContrasena.Text)
-        {
-            this.txtConf.CssClass = "form-control";
-        }
         
     }
 }

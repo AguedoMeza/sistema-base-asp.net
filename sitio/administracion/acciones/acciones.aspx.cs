@@ -41,20 +41,37 @@ public partial class usuarios_Default : System.Web.UI.Page
                int var = cnn.estado();
            }
 
-          
- 
-
-            this.LLenarGrid();
+           this.LLenarGrid();
     }
     private bool EstanCamposLLenos()
     {
-        bool var = true;
-    
-        return var;
+        int i = 0;
+
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            i++;
+
+            int var = pn_nombre.Controls.OfType<TextBox>().Count();
+
+            if (texto.Text == String.Empty)
+            {
+                texto.CssClass = "form-control2";
+
+                if (texto.Text == String.Empty && i == var)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     private void LimpiarClases()
     {
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            texto.CssClass = "form-control";
+        }
     }
 
     private void LLenarGrid()
@@ -80,36 +97,39 @@ public partial class usuarios_Default : System.Web.UI.Page
     {
 
         int idUsuario = Convert.ToInt32(Session["idUsuario"]);
+        int idUsuarioResgistro = Convert.ToInt32(Session["id_usuario_registro"]);
         
         if(idUsuario != 0)
         {
-          
-            accionesc cnn = new accionesc();
+            if (this.EstanCamposLLenos() == true)
+            {
+                accionesc cnn = new accionesc();
 
-           
-            cnn.Nombre = this.txtNombre.Text;
-           
-          //  cnn.Empresa = Convert.ToInt32(this.ddlist_empresas.SelectedValue.ToString());
-            cnn.idUsuario = idUsuario;
 
-            int var = cnn.AccionesDetalle();
+                cnn.Nombre = this.txtNombre.Text;
+                cnn.Descripcion = this.txtDefinicion.Text;
+                cnn.Actividad = this.txtActividad.Text;
+                cnn.idUsuario = idUsuario;
 
-            Session.Remove("idUsuario");
-            btnPopUp_ModalPopupExtender.Hide();
-            Response.Redirect("../acciones/acciones.aspx");
+                int var = cnn.AccionesUpdate();
+
+                Session.Remove("idUsuario");
+                btnPopUp_ModalPopupExtender.Hide();
+                Response.Redirect("../acciones/acciones.aspx");
+            }
         }
         else
         {
             if (this.EstanCamposLLenos() == true)
             {
-                perfilc cnn = new perfilc();
-
+                accionesc cnn = new accionesc();
+                cnn.idUsuario = idUsuarioResgistro;
                 cnn.Nombre = this.txtNombre.Text;
-        
-               // cnn.Empresa = Convert.ToInt16(this.ddlist_empresas.SelectedValue.ToString());
+                cnn.Descripcion = this.txtDefinicion.Text;
+                cnn.Actividad = this.txtActividad.Text;
                 cnn.Activo = 1;
 
-                int var = cnn.UsuariosInsert();
+                int var = cnn.AccionesInsert();
 
                 btnPopUp_ModalPopupExtender.Hide();
 
@@ -141,7 +161,10 @@ public partial class usuarios_Default : System.Web.UI.Page
     }
     private void Limpiar()
     {
-        
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            texto.Text = String.Empty;
+        }
     }
 
     
@@ -198,6 +221,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                   
                    
                     btnPopUp_ModalPopupExtender.Show();
+                    this.LimpiarClases();
                     this.MostrarDatos();
                   
                 }
