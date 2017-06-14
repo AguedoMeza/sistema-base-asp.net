@@ -42,6 +42,7 @@
             transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
         }
     </style>
+    
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -136,6 +137,7 @@
                                                     <%--<asp:Panel ID="pn_conf" runat="server"  class="form-group">--%>
                                                     <asp:TextBox ID="txtConf" type="password" runat="server" AutoPostBack="true" OnTextChanged="txtConf_TextChanged" class="form-control"
                                                         placeholder="Contraseña" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
+
 
                                                 </asp:Panel>
 

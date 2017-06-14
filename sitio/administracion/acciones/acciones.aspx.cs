@@ -46,10 +46,12 @@ public partial class usuarios_Default : System.Web.UI.Page
     private bool EstanCamposLLenos()
     {
         int i = 0;
-
+        
         foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
         {
             i++;
+           
+            bool[] true_or_false = new bool[7];
 
             int var = pn_nombre.Controls.OfType<TextBox>().Count();
 
@@ -59,8 +61,9 @@ public partial class usuarios_Default : System.Web.UI.Page
 
                 if (texto.Text == String.Empty && i == var)
                 {
-                    return false;
+
                 }
+                
             }
         }
         return true;
@@ -98,26 +101,43 @@ public partial class usuarios_Default : System.Web.UI.Page
 
         int idUsuario = Convert.ToInt32(Session["idUsuario"]);
         int idUsuarioResgistro = Convert.ToInt32(Session["id_usuario_registro"]);
-        
+        int i = 0;
         if(idUsuario != 0)
         {
-            if (this.EstanCamposLLenos() == true)
-            {
-                accionesc cnn = new accionesc();
+           
+                i++;
+                foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+                {
+                    TextBox[] array = {texto};
+
+                    int con = pn_nombre.Controls.OfType<TextBox>().Count();
+
+                    if(i == con)
+                    {
+                        foreach (TextBox j in array)
+                        {
+                           if(j.Text != String.Empty)
+                           {
+                                accionesc cnn = new accionesc();
 
 
-                cnn.Nombre = this.txtNombre.Text;
-                cnn.Descripcion = this.txtDefinicion.Text;
-                cnn.Actividad = this.txtActividad.Text;
-                cnn.idUsuario = idUsuario;
+                                cnn.Nombre = this.txtNombre.Text;
+                                cnn.Descripcion = this.txtDefinicion.Text;
+                                cnn.Actividad = this.txtActividad.Text;
+                                cnn.idUsuario = idUsuario;
 
-                int var = cnn.AccionesUpdate();
+                                int var = cnn.AccionesUpdate();
 
-                Session.Remove("idUsuario");
-                btnPopUp_ModalPopupExtender.Hide();
-                Response.Redirect("../acciones/acciones.aspx");
-            }
-        }
+                                Session.Remove("idUsuario");
+                                btnPopUp_ModalPopupExtender.Hide();
+                                Response.Redirect("../acciones/acciones.aspx");
+                           }
+                        }
+                    }
+                
+        
+                
+              
         else
         {
             if (this.EstanCamposLLenos() == true)
@@ -135,12 +155,12 @@ public partial class usuarios_Default : System.Web.UI.Page
 
                 Response.Redirect("../acciones/acciones.aspx");
             }
-        }
+                    }
 
        
        
          
-    }
+                
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
       
