@@ -126,7 +126,10 @@
                                                         placeholder="Nombre de Usuario" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
                                                     <%--   </asp:Panel>--%>
                                                     <%-- <asp:Panel ID="pn_contrasena" runat="server"  class="form-group">--%>
-                                                    <asp:TextBox ID="txtContrasena" type="password" runat="server" class="form-control"
+                                                     <asp:TextBox ID="txtCorreo" runat="server" class="form-control"
+                                                        placeholder="Correo electrónico" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
+                                                  
+                                                      <asp:TextBox ID="txtContrasena" type="password" runat="server" class="form-control"
                                                         placeholder="Contraseña" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
 
                                                     <%--</asp:Panel>--%>
@@ -176,6 +179,7 @@
 
                                                     <asp:BoundField DataField="CURP" ItemStyle-HorizontalAlign="Center" HeaderText="CURP" />
                                                     <asp:BoundField DataField="Empresa" ItemStyle-HorizontalAlign="Center" HeaderText="Empresa" />
+                                                    <asp:BoundField DataField="Correo" ItemStyle-HorizontalAlign="Center" HeaderText="Correo" />
                                                     <asp:BoundField DataField="Usuario" ItemStyle-HorizontalAlign="Center" HeaderText="Usuario" />
 
                                                     <asp:ButtonField ButtonType="Button" CommandName="Actualizar"

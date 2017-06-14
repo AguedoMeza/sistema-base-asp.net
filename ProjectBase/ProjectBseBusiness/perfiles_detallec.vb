@@ -113,14 +113,11 @@ Public Class perfiles_detallec
         Dim refIdUsuario As Integer
 
         Try
-            cnnDatos.Command("perfiles_update")
-            cnnDatos.AddParameter("@nombre", SqlDbType.VarChar, mNombre)
-
-
-
-            cnnDatos.AddParameter("@id_empresa", SqlDbType.Int, mEmpresa)
+            cnnDatos.Command("perfiles_detalle_update")
+            cnnDatos.AddParameter("@id_modulo", SqlDbType.Int, mEmpresa)
+             cnnDatos.AddParameter("@id_perfil", SqlDbType.Int, mPerfil)
             cnnDatos.AddParameter("@id", SqlDbType.Int, mIdUsuario)
-            'cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
+
 
 
 

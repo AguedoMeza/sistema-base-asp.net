@@ -120,6 +120,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                     cnn.Apellido = this.txtAp_paterno.Text;
                     cnn.Password = this.txtContrasena.Text;
                     cnn.Empresa = Convert.ToInt32(this.ddlist_empresas.SelectedValue.ToString());
+                    cnn.Correo = this.txtCorreo.Text;
                     cnn.idUsuario = idUsuario;
                     int var = cnn.UsuarioUpdate();
                     Session.Remove("idUsuario");
@@ -142,6 +143,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                 cnn.Password = this.txtContrasena.Text;
                 cnn.NoEmpleado = this.txtCurp.Text;
                 cnn.Empresa = Convert.ToInt16(this.ddlist_empresas.SelectedValue.ToString());
+                cnn.Correo = this.txtCorreo.Text;
                 cnn.Activo = 1;
                 cnn.NoRuta = idUsuarioResgistro;
 
@@ -245,6 +247,9 @@ public partial class usuarios_Default : System.Web.UI.Page
 
                 string ap_materno = fila["Ap_Materno"].ToString();
                 this.txtAp_Materno.Text = ap_materno;
+
+                string correo = fila["correo"].ToString();
+                this.txtCorreo.Text = correo;
 
                 string empresa= fila["id_empresa"].ToString();
 

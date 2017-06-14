@@ -26,4 +26,3 @@ C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBs
 C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.dll
 C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.xml
 C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.pdb
-C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.vbprojResolveAssemblyReference.cache

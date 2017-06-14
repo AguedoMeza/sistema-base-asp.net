@@ -149,23 +149,25 @@ public partial class empresas_empresas : System.Web.UI.Page
     protected void btnGuardar_Click(object sender, EventArgs e)
     {
         int idEmpresa = Convert.ToInt32(Session["idEmpresa"]);
+        int idUsuarioResgistro = Convert.ToInt32(Session["id_usuario_registro"]);
 
         if(idEmpresa != 0) //agregar exepcion de sql con try-catch
         {
-            if(this.prueba()==true)
+            if (this.prueba() == true)
             {
-            empresac cnn = new empresac();
-            cnn.Nombre = this.txtNombre.Text;
-            cnn.Apellido = this.txtDireccion.Text;
-            cnn.Usuaio = this.txtrazon_social.Text;
-            cnn.Password = this.txtrfc.Text;
-            cnn.Correo = this.TxtCon.Text;
-            cnn.idUsuario = idEmpresa;
-            int var = cnn.UsuarioUpdate();
-            Session.Remove("idUsuario");
-            btnPopUp_ModalPopupExtender.Hide();
-            Response.Redirect("../empresas/empresas.aspx");
+                empresac cnn = new empresac();
+                cnn.Nombre = this.txtNombre.Text;
+                cnn.Apellido = this.txtDireccion.Text;
+                cnn.Usuaio = this.txtrazon_social.Text;
+                cnn.Password = this.txtrfc.Text;
+                cnn.Correo = this.TxtCon.Text;
+                cnn.idUsuario = idEmpresa;
+                int var = cnn.UsuarioUpdate();
+                Session.Remove("idUsuario");
+                btnPopUp_ModalPopupExtender.Hide();
+                Response.Redirect("../empresas/empresas.aspx");
             }
+            
         }
         else
         {
@@ -179,7 +181,7 @@ public partial class empresas_empresas : System.Web.UI.Page
                     cnn.Razon_social = this.txtrazon_social.Text;
                     cnn.Contact = this.TxtCon.Text;
                     cnn.Activo = 1;
-                    cnn.idUsuario = 75;
+                    cnn.idUsuario = idUsuarioResgistro;
 
 
                     int var = cnn.Empresas_Insert();
@@ -240,8 +242,7 @@ public partial class empresas_empresas : System.Web.UI.Page
 
 
                     btnPopUp_ModalPopupExtender.Show();
-                    //Response.Redirect("prueba.aspx");  
-                    // this.LLenarGrid();
+                    this.LimpiarClases();
                     this.MostrarDatos();
 
                 }

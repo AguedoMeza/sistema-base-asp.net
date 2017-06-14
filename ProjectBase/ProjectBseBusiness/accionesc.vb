@@ -87,7 +87,7 @@ Public Class accionesc
 
 
 
-    Public Function UsuariosInsert() As Integer
+    Public Function AccionesInsert() As Integer
 
         Dim cnnDatos As New cclasecnn
 
@@ -95,7 +95,7 @@ Public Class accionesc
 
 
         Try
-            cnnDatos.Command("modulos_insert")
+            cnnDatos.Command("acciones_insert")
             cnnDatos.AddParameter("@nombre", SqlDbType.VarChar, mNombre)
             cnnDatos.AddParameter("@descripcion", SqlDbType.VarChar, mDescripcion)
 

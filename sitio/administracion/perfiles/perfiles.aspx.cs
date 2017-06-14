@@ -68,7 +68,10 @@ public partial class usuarios_Default : System.Web.UI.Page
     
     private void LimpiarClases()
     {
-
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            texto.CssClass = "form-control";
+        }
     }
 
     private void LLenarGrid()
@@ -241,6 +244,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                   
                    
                     btnPopUp_ModalPopupExtender.Show();
+                    this.LimpiarClases();
                     this.LlemarCombo();
                     this.MostrarDatos();
                   

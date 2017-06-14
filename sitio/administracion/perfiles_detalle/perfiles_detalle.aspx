@@ -70,20 +70,20 @@
                                             <div class="span4 ">
                                                 <%-- Inicio de formulario men :v --%>
                                                 <asp:Panel ID="pn_nombre" runat="server" class="form-group">
-                                                    <asp:TextBox ID="txtNombre" runat="server" class="form-control"
-                                                        placeholder="Nombre" TabIndex="4" ValidationGroup="val4">  </asp:TextBox>
-                                                </asp:Panel>
+                                                    <%--<asp:TextBox ID="txtNombre" runat="server" class="form-control"
+                                                        placeholder="Nombre" TabIndex="4" ValidationGroup="val4">  </asp:TextBox>--%>
+                                               <%-- </asp:Panel>--%>
 
                                                <%-- <asp:Panel ID="pn_ap_paterno" runat="server" class="form-group">
                                                     <asp:TextBox ID="txtAp_paterno" runat="server" class="form-control"
                                                         placeholder="Apellido Paterno" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
                                                 </asp:Panel>--%>
 
-                                                <asp:Panel ID="pn_perfiles" runat="server" class="form-group">
+                                               <%-- <asp:Panel ID="pn_perfiles" runat="server" class="form-group">--%>
                                                     <asp:DropDownList ID="ddlist_perfiles" runat="server" class="form-control"></asp:DropDownList>
-                                                </asp:Panel>
+                                             <%--   </asp:Panel>--%>
 
-                                                <asp:Panel ID="pn_modulos" runat="server" class="form-group">
+                                           <%--     <asp:Panel ID="pn_modulos" runat="server" class="form-group">--%>
                                                     <asp:DropDownList ID="ddlist_modulos" runat="server" class="form-control"></asp:DropDownList>
                                                 </asp:Panel>
 
@@ -101,7 +101,7 @@
                                         data-dismiss="modal" aria-hidden="true" OnClick="btnClose_Click" ControlStyle-CssClass="btn btn-danger" />
 
                                     <asp:Button ID="btnLimpiar" runat="server" Text="Limpiar" class="btn"
-                                        data-dismiss="modal" aria-hidden="true" OnClick="btnGuardar_Click" ControlStyle-CssClass="btn btn-success" />
+                                        data-dismiss="modal" aria-hidden="true" OnClick="btnLimpiar_Click" ControlStyle-CssClass="btn btn-success" />
 
                                     <asp:Button ID="btn_registrar_actualizar" runat="server" Text="Registrar" class="btn"
                                         data-dismiss="modal" aria-hidden="true" OnClick="btnGuardar_Click" ControlStyle-CssClass="btn btn-primary" />

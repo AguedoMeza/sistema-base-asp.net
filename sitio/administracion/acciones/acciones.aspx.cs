@@ -14,10 +14,7 @@ public partial class usuarios_Default : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            this.LLenarGrid();
-            this.LlemarCombo();
-            
-     
+            this.LLenarGrid();   
         }
     }
     public void chkStatus_OnCheckedChanged(object sender, EventArgs e)
@@ -52,50 +49,13 @@ public partial class usuarios_Default : System.Web.UI.Page
     private bool EstanCamposLLenos()
     {
         bool var = true;
-    //    if(this.txtAp_Materno.Text == String.Empty)
-    //    {
-    //        this.pn_ap_materno.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtAp_paterno.Text == String.Empty)
-    //    {
-    //        this.pn_ap_paterno.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtContrasena.Text == String.Empty || this.txtContrasena.Text != this.txtConf.Text)
-    //    {
-    //        this.pn_contrasena.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtCurp.Text == String.Empty)
-    //    {
-    //        this.pn_curp.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtNombre.Text == String.Empty)
-    //    {
-    //        this.pn_usuario.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-      
+    
         return var;
     }
 
     private void LimpiarClases()
     {
-        
-            //this.pn_ap_materno.CssClass = "form-group";
-            
-            //this.pn_ap_paterno.CssClass = "form-group";
-           
-            //this.pn_contrasena.CssClass = "form-group";
-        
-            //this.pn_curp.CssClass = "form-group";
-        
-            //this.pn_usuario.CssClass = "form-group";
-          
-            //this.pn_usuario.CssClass = "form-group";
-      }
+    }
 
     private void LLenarGrid()
     {
@@ -107,20 +67,6 @@ public partial class usuarios_Default : System.Web.UI.Page
 
         this.GridView1.DataBind();
 
-        //GridView1.Columns[0].ItemStyle.Width = 50;
-       
-        //GridView1.Columns[5].ItemStyle.Width = 50;
-        //GridView1.Columns[6].ItemStyle.Width = 50;
-        
-        
-        
-        //this.GridView1.Columns[0].HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
-       // this.GridView1.HeaderRow.Cells[0].HorizontalAlign = HorizontalAlign.Left;
-        //this.GridView1.Columns[0].HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
-
-       
-      
-        
     }
     protected void btnClose_Click(object sender, EventArgs e)
     {
@@ -138,15 +84,15 @@ public partial class usuarios_Default : System.Web.UI.Page
         if(idUsuario != 0)
         {
           
-            perfilc cnn = new perfilc();
+            accionesc cnn = new accionesc();
 
            
             cnn.Nombre = this.txtNombre.Text;
            
-            cnn.Empresa = Convert.ToInt32(this.ddlist_empresas.SelectedValue.ToString());
+          //  cnn.Empresa = Convert.ToInt32(this.ddlist_empresas.SelectedValue.ToString());
             cnn.idUsuario = idUsuario;
 
-            int var = cnn.PerfilesUpdate();
+            int var = cnn.AccionesDetalle();
 
             Session.Remove("idUsuario");
             btnPopUp_ModalPopupExtender.Hide();
@@ -160,7 +106,7 @@ public partial class usuarios_Default : System.Web.UI.Page
 
                 cnn.Nombre = this.txtNombre.Text;
         
-                cnn.Empresa = Convert.ToInt16(this.ddlist_empresas.SelectedValue.ToString());
+               // cnn.Empresa = Convert.ToInt16(this.ddlist_empresas.SelectedValue.ToString());
                 cnn.Activo = 1;
 
                 int var = cnn.UsuariosInsert();
@@ -195,23 +141,10 @@ public partial class usuarios_Default : System.Web.UI.Page
     }
     private void Limpiar()
     {
-        this.txtNombre.Text = "";
-      
-        this.ddlist_empresas.Items.Insert(0, new ListItem("Empresa de origen..", "0"));  
+        
     }
 
-    private void LlemarCombo()
-    {
-        empresac cnn = new empresac();
-
-        cnn.idEmpresa = 0;
-       
-        this.ddlist_empresas.DataSource = cnn.EmpresaDetalle();
-        this.ddlist_empresas.DataValueField = "id";
-        this.ddlist_empresas.DataTextField = "nombre";
-        this.ddlist_empresas.DataBind();
-        this.ddlist_empresas.Items.Insert(0, new ListItem("Empresa de origen..", "0"));  
-    }
+    
 
 
     private void MostrarDatos()
@@ -219,23 +152,28 @@ public partial class usuarios_Default : System.Web.UI.Page
 
         int idUsuario = Convert.ToInt32(Session["idUsuario"]);
 
-            perfilc cnn = new perfilc();
+            accionesc cnn = new accionesc();
 
             cnn.idUsuario = idUsuario;
 
 
             DataTable dt = new DataTable();
 
-            dt = cnn.PerfilDetalle();
+            dt = cnn.AccionesDetalle();
 
             foreach (DataRow fila in dt.Rows)
             {
                
-                string nombre = fila["Nombre"].ToString();
+                string nombre = fila["nombre"].ToString();
                 this.txtNombre.Text = nombre;
 
-                string empresa= fila["Empresa"].ToString();
-                this.ddlist_empresas.Items.Insert(0, new ListItem(empresa, "0"));  
+                string definicion = fila["definicion"].ToString();
+                this.txtDefinicion.Text = definicion;
+
+                string actividad = fila["actividad"].ToString();
+                this.txtActividad.Text = actividad;
+
+              
             }
        
          this.btn_registrar_actualizar.Text = "Actualizar";

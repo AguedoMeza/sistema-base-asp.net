@@ -180,6 +180,7 @@ Public Class LogInc
             cnnDatos.AddParameter("@nombre_usuario", SqlDbType.VarChar, mUsuario)
             cnnDatos.AddParameter("@contraseña", SqlDbType.VarChar, mPassword)
             cnnDatos.AddParameter("@curp", SqlDbType.VarChar, mNoEmpleado)
+             cnnDatos.AddParameter("@correo", SqlDbType.VarChar, mCorreo)
             cnnDatos.AddParameter("@empresa", SqlDbType.Int, mEmpresa)
             cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
             cnnDatos.AddParameter("@id_usuario", SqlDbType.Int, mNoRuta)
@@ -203,7 +204,7 @@ Public Class LogInc
             cnnDatos.AddParameter("@ap_paterno", SqlDbType.VarChar, mApellido)
             cnnDatos.AddParameter("@usuario", SqlDbType.VarChar, mUsuario)
             cnnDatos.AddParameter("@contraseña", SqlDbType.VarChar, mPassword)
-
+            cnnDatos.AddParameter("@correo", SqlDbType.VarChar, mCorreo)
             cnnDatos.AddParameter("@curp", SqlDbType.VarChar, mNoEmpleado)
             cnnDatos.AddParameter("@empresa", SqlDbType.Int, mEmpresa)
             cnnDatos.AddParameter("@id", SqlDbType.Int, mIdUsuario)

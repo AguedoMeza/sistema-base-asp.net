@@ -15,7 +15,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         if (!IsPostBack)
         {
             this.LLenarGrid();
-            this.LlemarCombo();
+            //this.LlemarCombo();
             this.LlenarComboModulos();
             
      
@@ -52,51 +52,34 @@ public partial class usuarios_Default : System.Web.UI.Page
     }
     private bool EstanCamposLLenos()
     {
-        bool var = true;
-    //    if(this.txtAp_Materno.Text == String.Empty)
-    //    {
-    //        this.pn_ap_materno.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtAp_paterno.Text == String.Empty)
-    //    {
-    //        this.pn_ap_paterno.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtContrasena.Text == String.Empty || this.txtContrasena.Text != this.txtConf.Text)
-    //    {
-    //        this.pn_contrasena.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtCurp.Text == String.Empty)
-    //    {
-    //        this.pn_curp.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-    //    if(this.txtNombre.Text == String.Empty)
-    //    {
-    //        this.pn_usuario.CssClass = "form-group has-error";
-    //        var = false;
-    //    }
-      
-        return var;
+        int i = 0;
+
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            i++;
+
+            int var = pn_nombre.Controls.OfType<TextBox>().Count();
+
+            if (texto.Text == String.Empty)
+            {
+                texto.CssClass = "form-control2";
+
+                if (texto.Text == String.Empty && i == var)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     private void LimpiarClases()
     {
-        
-            //this.pn_ap_materno.CssClass = "form-group";
-            
-            //this.pn_ap_paterno.CssClass = "form-group";
-           
-            //this.pn_contrasena.CssClass = "form-group";
-        
-            //this.pn_curp.CssClass = "form-group";
-        
-            //this.pn_usuario.CssClass = "form-group";
-          
-            //this.pn_usuario.CssClass = "form-group";
-      }
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            texto.CssClass = "form-control";
+        }
+    }
 
     private void LLenarGrid()
     {
@@ -108,20 +91,6 @@ public partial class usuarios_Default : System.Web.UI.Page
 
         this.GridView1.DataBind();
 
-        //GridView1.Columns[0].ItemStyle.Width = 50;
-       
-        //GridView1.Columns[5].ItemStyle.Width = 50;
-        //GridView1.Columns[6].ItemStyle.Width = 50;
-        
-        
-        
-        //this.GridView1.Columns[0].HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
-       // this.GridView1.HeaderRow.Cells[0].HorizontalAlign = HorizontalAlign.Left;
-        //this.GridView1.Columns[0].HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
-
-       
-      
-        
     }
     protected void btnClose_Click(object sender, EventArgs e)
     {
@@ -138,22 +107,24 @@ public partial class usuarios_Default : System.Web.UI.Page
         
         if(idUsuario != 0)
         {
-          
-            perfiles_detallec cnn = new perfiles_detallec();
+            if (this.EstanCamposLLenos() == true)
+            {
+                perfiles_detallec cnn = new perfiles_detallec();
 
 
-            cnn.Empresa = Convert.ToInt16(this.ddlist_modulos.SelectedValue.ToString());
+                cnn.Empresa = Convert.ToInt16(this.ddlist_modulos.SelectedValue.ToString());
 
-            cnn.Perfil = Convert.ToInt16(this.ddlist_perfiles.SelectedValue.ToString());
-           
-            //cnn.Empresa = Convert.ToInt32(this.ddlist_empresas.SelectedValue.ToString());
-            cnn.idUsuario = idUsuario;
+                cnn.Perfil = Convert.ToInt16(this.ddlist_perfiles.SelectedValue.ToString());
 
-            int var = cnn.PerfilesUpdate();
+                //cnn.Empresa = Convert.ToInt32(this.ddlist_empresas.SelectedValue.ToString());
+                cnn.idUsuario = idUsuario;
 
-            Session.Remove("idUsuario");
-            btnPopUp_ModalPopupExtender.Hide();
-            Response.Redirect("../perfiles_detalle/perfiles_detalle.aspx");
+                int var = cnn.PerfilesUpdate();
+
+                Session.Remove("idUsuario");
+                btnPopUp_ModalPopupExtender.Hide();
+                Response.Redirect("../perfiles_detalle/perfiles_detalle.aspx");
+            }
         }
         else
         {
@@ -194,14 +165,16 @@ public partial class usuarios_Default : System.Web.UI.Page
         btnPopUp_ModalPopupExtender.Show();
         this.LimpiarClases();
         this.Limpiar();
+        this.LlemarCombo();
         Session["idUsuario"] = 0;
         this.btn_registrar_actualizar.Text = "Registrar";
     }
     private void Limpiar()
     {
-        this.txtNombre.Text = "";
-      
-        this.ddlist_perfiles.Items.Insert(0, new ListItem("Empresa de origen..", "0"));  
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            texto.Text = String.Empty;
+        }
     }
 
     private void LlemarCombo()
@@ -247,12 +220,14 @@ public partial class usuarios_Default : System.Web.UI.Page
 
             foreach (DataRow fila in dt.Rows)
             {
-               
-                string nombre = fila["Nombre"].ToString();
-                this.txtNombre.Text = nombre;
 
-                string empresa= fila["Empresa"].ToString();
-                //this.ddlist_empresas.Items.Insert(0, new ListItem(empresa, "0"));  
+                string perfil = fila["id_perfil"].ToString();
+                this.ddlist_perfiles.ClearSelection();
+                this.ddlist_perfiles.Items.FindByValue(perfil).Selected = true;
+
+                string modulo = fila["id_modulo"].ToString();
+                this.ddlist_modulos.ClearSelection();
+                this.ddlist_modulos.Items.FindByValue(modulo).Selected = true;
             }
        
          this.btn_registrar_actualizar.Text = "Actualizar";
@@ -277,6 +252,8 @@ public partial class usuarios_Default : System.Web.UI.Page
                   
                    
                     btnPopUp_ModalPopupExtender.Show();
+                    this.LlemarCombo();
+                    this.LimpiarClases();
                     this.MostrarDatos();
                   
                 }

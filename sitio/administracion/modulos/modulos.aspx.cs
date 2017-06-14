@@ -74,19 +74,11 @@ public partial class usuarios_Default : System.Web.UI.Page
 
     private void LimpiarClases()
     {
-        
-            //this.pn_ap_materno.CssClass = "form-group";
-            
-            //this.pn_ap_paterno.CssClass = "form-group";
-           
-            //this.pn_contrasena.CssClass = "form-group";
-        
-            //this.pn_curp.CssClass = "form-group";
-        
-            //this.pn_usuario.CssClass = "form-group";
-          
-            //this.pn_usuario.CssClass = "form-group";
-      }
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            texto.CssClass = "form-control";
+        }
+    }
 
     private void LLenarGrid()
     {
@@ -236,8 +228,10 @@ public partial class usuarios_Default : System.Web.UI.Page
                 string nombre = fila["nombre"].ToString();
                 this.txtNombre.Text = nombre;
 
-                //string empresa= fila["Empresa"].ToString();
-                //this.ddlist_empresas.Items.Insert(0, new ListItem(empresa, "0"));  
+                string empresa = fila["id_empresa"].ToString();
+
+                this.ddlist_empresas.ClearSelection();
+                this.ddlist_empresas.Items.FindByValue(empresa).Selected = true;
             }
        
          this.btn_registrar_actualizar.Text = "Actualizar";
@@ -262,6 +256,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                   
                    
                     btnPopUp_ModalPopupExtender.Show();
+                    this.LimpiarClases();
                     this.MostrarDatos();
                   
                 }
