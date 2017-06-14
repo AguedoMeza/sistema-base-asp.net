@@ -6,19 +6,146 @@ ProjectBseBusiness
 </name>
 </assembly>
 <members>
-<member name="P:ProjectBseBusiness.My.Resources.Resources.ResourceManager">
+<member name="P:ProjectBseBusiness.empresac.Fecha">
 	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:ProjectBseBusiness.My.Resources.Resources.Culture">
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.empresac.Password">
 	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="T:ProjectBseBusiness.My.Resources.Resources">
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.empresac.ValidaUsuario">
 	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.LogInc.Usuaio">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.LogInc.Password">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.LogInc.ValidaUsuario">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.perfilc.Nombre">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.perfilc.Activo">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.perfilc.UsuariosInsert">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.funcionesc.Nombre">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.funcionesc.Activo">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.funcionesc.FuncionesInsert">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.perfiles_detallec.Nombre">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.perfiles_detallec.Activo">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.perfiles_detallec.PDetalleInsert">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.moduloc.Nombre">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.moduloc.Activo">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.moduloc.UsuariosInsert">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.modulos_funcionesc.Nombre">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.modulos_funcionesc.Activo">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.modulos_funcionesc.FuncionesInsert">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
 </member><member name="M:ProjectBseBusiness.cclasecnn.OpenConnection">
 	<summary>
  Metodo que abre la conexion a datos
@@ -87,46 +214,39 @@ ProjectBseBusiness
  </summary>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="P:ProjectBseBusiness.empresac.Fecha">
+</member><member name="P:ProjectBseBusiness.accionesc.Nombre">
 	<summary>
  Nombre de Usuario
  </summary>
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="P:ProjectBseBusiness.empresac.Password">
+</member><member name="P:ProjectBseBusiness.accionesc.Activo">
 	<summary>
  Password del usuario
  </summary>
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:ProjectBseBusiness.empresac.ValidaUsuario">
+</member><member name="M:ProjectBseBusiness.accionesc.UsuariosInsert">
 	<summary>
  Funcion que Valida el acceso al usuario
  </summary>
 	<returns>Regresa un areeglo de String</returns>
 	<remarks></remarks>
-</member><member name="P:ProjectBseBusiness.LogInc.Usuaio">
+</member><member name="P:ProjectBseBusiness.My.Resources.Resources.ResourceManager">
 	<summary>
- Nombre de Usuario
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:ProjectBseBusiness.LogInc.Password">
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ProjectBseBusiness.My.Resources.Resources.Culture">
 	<summary>
- Password del usuario
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:ProjectBseBusiness.LogInc.ValidaUsuario">
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ProjectBseBusiness.My.Resources.Resources">
 	<summary>
- Funcion que Valida el acceso al usuario
- </summary>
-	<returns>Regresa un areeglo de String</returns>
-	<remarks></remarks>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
 </member>
 </members>
 </doc>

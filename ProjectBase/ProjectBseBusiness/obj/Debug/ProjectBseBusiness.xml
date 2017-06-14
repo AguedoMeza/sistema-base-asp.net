@@ -6,47 +6,7 @@ ProjectBseBusiness
 </name>
 </assembly>
 <members>
-<member name="P:ProjectBseBusiness.modulos_funcionesc.Nombre">
-	<summary>
- Nombre de Usuario
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:ProjectBseBusiness.modulos_funcionesc.Activo">
-	<summary>
- Password del usuario
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:ProjectBseBusiness.modulos_funcionesc.FuncionesInsert">
-	<summary>
- Funcion que Valida el acceso al usuario
- </summary>
-	<returns>Regresa un areeglo de String</returns>
-	<remarks></remarks>
-</member><member name="P:ProjectBseBusiness.funcionesc.Nombre">
-	<summary>
- Nombre de Usuario
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:ProjectBseBusiness.funcionesc.Activo">
-	<summary>
- Password del usuario
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:ProjectBseBusiness.funcionesc.FuncionesInsert">
-	<summary>
- Funcion que Valida el acceso al usuario
- </summary>
-	<returns>Regresa un areeglo de String</returns>
-	<remarks></remarks>
-</member><member name="P:ProjectBseBusiness.empresac.Fecha">
+<member name="P:ProjectBseBusiness.empresac.Fecha">
 	<summary>
  Nombre de Usuario
  </summary>
@@ -106,6 +66,26 @@ ProjectBseBusiness
  </summary>
 	<returns>Regresa un areeglo de String</returns>
 	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.funcionesc.Nombre">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.funcionesc.Activo">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.funcionesc.FuncionesInsert">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
 </member><member name="P:ProjectBseBusiness.perfiles_detallec.Nombre">
 	<summary>
  Nombre de Usuario
@@ -141,6 +121,26 @@ ProjectBseBusiness
 	<returns></returns>
 	<remarks></remarks>
 </member><member name="M:ProjectBseBusiness.moduloc.UsuariosInsert">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.modulos_funcionesc.Nombre">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.modulos_funcionesc.Activo">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.modulos_funcionesc.FuncionesInsert">
 	<summary>
  Funcion que Valida el acceso al usuario
  </summary>

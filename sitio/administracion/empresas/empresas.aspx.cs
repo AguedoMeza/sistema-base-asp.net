@@ -179,6 +179,7 @@ public partial class empresas_empresas : System.Web.UI.Page
                     cnn.Razon_social = this.txtrazon_social.Text;
                     cnn.Contact = this.TxtCon.Text;
                     cnn.Activo = 1;
+                    cnn.idUsuario = 75;
 
 
                     int var = cnn.Empresas_Insert();

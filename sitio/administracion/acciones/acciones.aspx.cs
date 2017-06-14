@@ -150,7 +150,7 @@ public partial class usuarios_Default : System.Web.UI.Page
 
             Session.Remove("idUsuario");
             btnPopUp_ModalPopupExtender.Hide();
-            Response.Redirect("../perfiles/perfiles.aspx");
+            Response.Redirect("../acciones/acciones.aspx");
         }
         else
         {
@@ -167,7 +167,7 @@ public partial class usuarios_Default : System.Web.UI.Page
 
                 btnPopUp_ModalPopupExtender.Hide();
 
-                Response.Redirect("../perfiles/perfiles.aspx");
+                Response.Redirect("../acciones/acciones.aspx");
             }
         }
 
