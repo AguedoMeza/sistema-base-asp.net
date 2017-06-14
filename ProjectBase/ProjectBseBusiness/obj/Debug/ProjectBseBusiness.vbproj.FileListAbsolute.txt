@@ -26,3 +26,13 @@ C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBs
 C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.dll
 C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.xml
 C:\Users\Aguedo\Pictures\resp\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.pdb
+C:\Users\Enrique\Documents\GitHub\sistema-base-asp.net\ProjectBase\ProjectBseBusiness\bin\Debug\ProjectBseBusiness.dll
+C:\Users\Enrique\Documents\GitHub\sistema-base-asp.net\ProjectBase\ProjectBseBusiness\bin\Debug\ProjectBseBusiness.pdb
+C:\Users\Enrique\Documents\GitHub\sistema-base-asp.net\ProjectBase\ProjectBseBusiness\bin\Debug\ProjectBseBusiness.xml
+C:\Users\Enrique\Documents\GitHub\sistema-base-asp.net\ProjectBase\ProjectBseBusiness\bin\Debug\AjaxControlToolkit.dll
+C:\Users\Enrique\Documents\GitHub\sistema-base-asp.net\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.vbprojResolveAssemblyReference.cache
+C:\Users\Enrique\Documents\GitHub\sistema-base-asp.net\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.Resources.resources
+C:\Users\Enrique\Documents\GitHub\sistema-base-asp.net\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.vbproj.GenerateResource.Cache
+C:\Users\Enrique\Documents\GitHub\sistema-base-asp.net\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.dll
+C:\Users\Enrique\Documents\GitHub\sistema-base-asp.net\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.xml
+C:\Users\Enrique\Documents\GitHub\sistema-base-asp.net\ProjectBase\ProjectBseBusiness\obj\Debug\ProjectBseBusiness.pdb
