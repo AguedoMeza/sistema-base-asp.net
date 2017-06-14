@@ -41,7 +41,7 @@
 
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
-                            <br />
+                          <%--  <br />--%>
                             <asp:Button ID="btnPopUp" runat="server" Text="Nueva asignación" class="btn btn-primary" OnClick="btnPopUp_Click" />
 
                             <br />

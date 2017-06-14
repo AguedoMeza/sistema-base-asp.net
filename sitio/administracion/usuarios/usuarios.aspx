@@ -57,7 +57,7 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Catalogo de Usuarios</h1>
+                    <h1 class="page-header" >Catalogo de Usuarios</h1>
                     <%-- inicio modal prueba :V  --%>
 
 
@@ -67,7 +67,7 @@
 
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
-                            <br />
+                          <%--  <br />--%>
                             <asp:Button ID="btnPopUp" runat="server" Text="Nuevo Usuario" class="btn btn-primary" OnClick="btnPopUp_Click" />
 
                             <br />

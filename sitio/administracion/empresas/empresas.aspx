@@ -42,7 +42,7 @@
 
         <ContentTemplate>
            
-            <br />
+         <%--   <br />--%>
                   <asp:Button ID="btnPopUp" runat="server" Text="Nuevo Empresa" class="btn btn-primary" OnClick="btnPopUp_Click" />
                         
 <br />
@@ -89,10 +89,10 @@
 
                               
                                       <asp:TextBox ID="txtrazon_social" runat="server" class="form-control" 
-                                            placeholder="Razon_Social" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
+                                            placeholder="Razon Social" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
                     
                                     <asp:TextBox ID="TxtCon" runat="server" class="form-control" 
-                                            placeholder="Contato" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
+                                            placeholder="Contacto" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
                               
 
                                 
