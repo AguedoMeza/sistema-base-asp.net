@@ -51,18 +51,17 @@ public partial class usuarios_Default : System.Web.UI.Page
         {
             i++;
 
+            bool[] array = new bool[10];
+            
             int var = pn_nombre.Controls.OfType<TextBox>().Count();
 
             if (texto.Text == String.Empty)
             {
                 texto.CssClass = "form-control2";
 
-                if (texto.Text == String.Empty && i == var)
-                {
-                    return false;
-                }
+                array[i] = false;
             }
-            
+          
         }
         return true;
     }
@@ -102,7 +101,6 @@ public partial class usuarios_Default : System.Web.UI.Page
         int i = 0;
         if (idUsuario != 0)
         {
-<<<<<<< HEAD
             if (this.EstanCamposLLenos() == true)
             {
                 accionesc cnn = new accionesc();
@@ -123,44 +121,6 @@ public partial class usuarios_Default : System.Web.UI.Page
               
         }
 
-=======
-
-            i++;
-            foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
-            {
-                TextBox[] array = { texto };
-
-                int con = pn_nombre.Controls.OfType<TextBox>().Count();
-
-                if (i == con)
-                {
-                    foreach (TextBox j in array)
-                    {
-                        if (j.Text != String.Empty)
-                        {
-                            accionesc cnn = new accionesc();
-
-
-                            cnn.Nombre = this.txtNombre.Text;
-                            cnn.Descripcion = this.txtDefinicion.Text;
-                            cnn.Actividad = this.txtActividad.Text;
-                            cnn.idUsuario = idUsuario;
-
-                            int var = cnn.AccionesUpdate();
-
-                            Session.Remove("idUsuario");
-                            btnPopUp_ModalPopupExtender.Hide();
-                            Response.Redirect("../acciones/acciones.aspx");
-                        }
-                    }
-                }
-
-
-            }
-        }
-
-
->>>>>>> 012de0ad3cb3e617c2a03a8407b6e58573c8a3b2
         else
         {
             if (this.EstanCamposLLenos() == true)
@@ -179,107 +139,100 @@ public partial class usuarios_Default : System.Web.UI.Page
                 Response.Redirect("../acciones/acciones.aspx");
             }
         }
-<<<<<<< HEAD
-                }
-=======
->>>>>>> 012de0ad3cb3e617c2a03a8407b6e58573c8a3b2
+   }
+
+       
+       
+         
+                
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+      
+    }
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        
 
     }
+    protected void btnPopUp_Click(object sender, EventArgs e)
+    {
+       
+        btnPopUp_ModalPopupExtender.Show();
+        this.LimpiarClases();
+        this.Limpiar();
+        Session["idUsuario"] = 0;
+        this.btn_registrar_actualizar.Text = "Registrar";
+    }
+    private void Limpiar()
+    {
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
+            texto.Text = String.Empty;
+        }
+    }
+
+    
 
 
+    private void MostrarDatos()
+    {
+
+            int idUsuario = Convert.ToInt32(Session["idUsuario"]);
+
+            accionesc cnn = new accionesc();
+
+            cnn.idUsuario = idUsuario;
 
 
-                protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+            DataTable dt = new DataTable();
+
+            dt = cnn.AccionesDetalle();
+
+            foreach (DataRow fila in dt.Rows)
+            {
+               
+                string nombre = fila["nombre"].ToString();
+                this.txtNombre.Text = nombre;
+
+                string definicion = fila["definicion"].ToString();
+                this.txtDefinicion.Text = definicion;
+
+                string actividad = fila["actividad"].ToString();
+                this.txtActividad.Text = actividad;
+
+              
+            }
+       
+         this.btn_registrar_actualizar.Text = "Actualizar";
+       
+    }
+    protected void GridView1_RowCommand1(object sender, GridViewCommandEventArgs e)
+    {
+        try
+        {
+            short indicefila;
+            indicefila = Convert.ToInt16(e.CommandArgument);
+            string id;
+            
+            if (indicefila >= 0 & indicefila < GridView1.Rows.Count)
+            {
+                id = GridView1.Rows[indicefila].Cells[0].Text;
+               
+                if (e.CommandName == "Actualizar")
                 {
-
-                }
-                protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-                {
-
-
-                }
-                protected void btnPopUp_Click(object sender, EventArgs e)
-                {
-
+                    Session["idUsuario"] = id;
+                   
+                  
+                   
                     btnPopUp_ModalPopupExtender.Show();
                     this.LimpiarClases();
-                    this.Limpiar();
-                    Session["idUsuario"] = 0;
-                    this.btn_registrar_actualizar.Text = "Registrar";
-                }
-                private void Limpiar()
-                {
-                    foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
-                    {
-                        texto.Text = String.Empty;
-                    }
-                }
-
-
-
-
-                private void MostrarDatos()
-                {
-
-                    int idUsuario = Convert.ToInt32(Session["idUsuario"]);
-
-                    accionesc cnn = new accionesc();
-
-                    cnn.idUsuario = idUsuario;
-
-
-                    DataTable dt = new DataTable();
-
-                    dt = cnn.AccionesDetalle();
-
-                    foreach (DataRow fila in dt.Rows)
-                    {
-
-                        string nombre = fila["nombre"].ToString();
-                        this.txtNombre.Text = nombre;
-
-                        string definicion = fila["definicion"].ToString();
-                        this.txtDefinicion.Text = definicion;
-
-                        string actividad = fila["actividad"].ToString();
-                        this.txtActividad.Text = actividad;
-
-
-                    }
-
-                    this.btn_registrar_actualizar.Text = "Actualizar";
-
-                }
-                protected void GridView1_RowCommand1(object sender, GridViewCommandEventArgs e)
-                {
-                    try
-                    {
-                        short indicefila;
-                        indicefila = Convert.ToInt16(e.CommandArgument);
-                        string id;
-
-                        if (indicefila >= 0 & indicefila < GridView1.Rows.Count)
-                        {
-                            id = GridView1.Rows[indicefila].Cells[0].Text;
-
-                            if (e.CommandName == "Actualizar")
-                            {
-                                Session["idUsuario"] = id;
-
-
-
-                                btnPopUp_ModalPopupExtender.Show();
-                                this.LimpiarClases();
-                                this.MostrarDatos();
-
-                            }
-                        }
-                    }
-
-                    catch (Exception)
-                    {
-                    }
+                    this.MostrarDatos();
+                  
                 }
             }
-        
-       
+        }
+        catch (Exception)
+        {
+        }
+    }
+}
