@@ -86,7 +86,7 @@ Public Class modulos_funcionesc
 
 
 
-    Public Function FuncionesInsert() As Integer
+    Public Function ModulosFuncionesInsert() As Integer
 
         Dim cnnDatos As New cclasecnn
 
@@ -94,10 +94,9 @@ Public Class modulos_funcionesc
 
 
         Try
-            cnnDatos.Command("funciones_insert")
-            cnnDatos.AddParameter("@definicion", SqlDbType.VarChar, mNombre)
+            cnnDatos.Command("modulo_funciones_insert")
             cnnDatos.AddParameter("@id_modulos", SqlDbType.Int, mEmpresa)
-            cnnDatos.AddParameter("@id_acciones", SqlDbType.Int, mAccion)
+            cnnDatos.AddParameter("@id_funcion", SqlDbType.Int, mAccion)
             cnnDatos.AddParameter("@id_usuario", SqlDbType.Int, mIdUsuario)
             cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
 
@@ -108,17 +107,16 @@ Public Class modulos_funcionesc
         Return refIdUsuario
     End Function
 
-    Public Function FuncionesUpdate() As Integer
+    Public Function ModulosFuncionesUpdate() As Integer
 
         Dim cnnDatos As New cclasecnn
 
         Dim refIdUsuario As Integer
 
         Try
-            cnnDatos.Command("funciones_update")
-            cnnDatos.AddParameter("@definicion", SqlDbType.VarChar, mNombre)
+            cnnDatos.Command("modulo_funciones_update")
             cnnDatos.AddParameter("@id_modulos", SqlDbType.Int, mEmpresa)
-            cnnDatos.AddParameter("@id_acciones", SqlDbType.Int, mAccion)
+            cnnDatos.AddParameter("@id_funcion", SqlDbType.Int, mAccion)
             cnnDatos.AddParameter("@id", SqlDbType.Int, mIdUsuario)
 
 
@@ -138,7 +136,7 @@ Public Class modulos_funcionesc
         Dim refIdUsuario As Integer
 
         Try
-            cnnDatos.Command("funciones_estado")
+            cnnDatos.Command("mf_estado")
             cnnDatos.AddParameter("@id", SqlDbType.Int, mIdUsuario)
             cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
 
