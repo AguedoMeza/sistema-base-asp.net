@@ -52,7 +52,7 @@ public partial class usuarios_Default : System.Web.UI.Page
 
            if(chkStatus.Checked)
            {
-               funcionesc cnn = new funcionesc();
+               modulos_funcionesc cnn = new modulos_funcionesc();
 
                cnn.Activo = 1;
                cnn.idUsuario = nID;
@@ -60,7 +60,7 @@ public partial class usuarios_Default : System.Web.UI.Page
            }
            else
            {
-               funcionesc cnn = new funcionesc();
+               modulos_funcionesc cnn = new modulos_funcionesc();
 
                cnn.Activo = 0;
                cnn.idUsuario = nID;
@@ -101,17 +101,19 @@ public partial class usuarios_Default : System.Web.UI.Page
         {
            if(this.prueba()==true)
            {
-                    funcionesc  cnn = new funcionesc();
+                    modulos_funcionesc  cnn = new modulos_funcionesc();
 
                     
                     cnn.Empresa = Convert.ToInt32(this.ddlist_modulos.SelectedValue.ToString());
+
                     cnn.Accion = Convert.ToInt32(this.ddlist_acciones.SelectedValue.ToString());
-                    cnn.Nombre = this.txtDefinicion.Text;
+             
                     cnn.idUsuario = idUsuario;
-                    int var = cnn.FuncionesUpdate();
+
+                    int var = cnn.ModulosFuncionesUpdate();
                     Session.Remove("idUsuario");
                     btnPopUp_ModalPopupExtender.Hide();
-                    Response.Redirect("../funciones/funciones.aspx");
+                    Response.Redirect("../modulos_funciones/modulos_funciones.aspx");
            }
 
         }
@@ -120,21 +122,22 @@ public partial class usuarios_Default : System.Web.UI.Page
         {
             if (this.prueba() == true)
             {
-                funcionesc cnn = new funcionesc();
+                modulos_funcionesc cnn = new modulos_funcionesc();
 
                
                 cnn.Empresa = Convert.ToInt16(this.ddlist_modulos.SelectedValue.ToString());
+                
                 cnn.Accion = Convert.ToInt16(this.ddlist_acciones.SelectedValue.ToString());
-                cnn.Nombre = this.txtDefinicion.Text;
-               
+                
                 cnn.Activo = 1;
+
                 cnn.idUsuario = idUsuarioResgistro;
 
-                int var = cnn.FuncionesInsert();
+                int var = cnn.ModulosFuncionesInsert();
 
                 btnPopUp_ModalPopupExtender.Hide();
 
-                Response.Redirect("../funciones/funciones.aspx");
+                Response.Redirect("../modulos_funciones/modulos_funciones.aspx");
             }
            
                 
@@ -157,7 +160,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         this.LimpiarClases();
         this.Limpiar();
         this.LlenarComboModulos();
-        this.LlenarComboAcciones();
+        this.LlenarComboFunciones();
         Session["idUsuario"] = 0;
         this.btn_registrar_actualizar.Text = "Registrar";
     }
@@ -194,18 +197,18 @@ public partial class usuarios_Default : System.Web.UI.Page
         this.ddlist_modulos.Items.Insert(0, new ListItem("Modulo..", "0"));
     }
 
-    private void LlenarComboAcciones()
+    private void LlenarComboFunciones()
     {
-        accionesc cnn = new accionesc();
+        funcionesc  cnn = new funcionesc();
 
         cnn.idUsuario = 0;
 
-        this.ddlist_acciones.DataSource = cnn.AccionesDetalle();
+        this.ddlist_acciones.DataSource = cnn.FuncionDetalle();
 
         this.ddlist_acciones.DataValueField = "id";
-        this.ddlist_acciones.DataTextField = "nombre";
+        this.ddlist_acciones.DataTextField = "definicion";
         this.ddlist_acciones.DataBind();
-        this.ddlist_acciones.Items.Insert(0, new ListItem("Accion..", "0"));
+        this.ddlist_acciones.Items.Insert(0, new ListItem("Función..", "0"));
     }
 
      
@@ -217,25 +220,22 @@ public partial class usuarios_Default : System.Web.UI.Page
 
         int idUsuario = Convert.ToInt32(Session["idUsuario"]);
 
-            funcionesc cnn = new funcionesc();
+            modulos_funcionesc cnn = new modulos_funcionesc();
 
             cnn.idUsuario = idUsuario;
 
 
             DataTable dt = new DataTable();
 
-            dt = cnn.FuncionDetalle();
+            dt = cnn.ModuloFuncionDetalle();
 
             foreach (DataRow fila in dt.Rows)
             {
-                string definicion = fila["definicion"].ToString();
-                this.txtDefinicion.Text = definicion;
-
                 string modulo = fila["id_modulos"].ToString();
                 this.ddlist_modulos.ClearSelection();
                 this.ddlist_modulos.Items.FindByValue(modulo).Selected = true;
 
-                string accion = fila["id_acciones"].ToString();
+                string accion = fila["id_funcion"].ToString();
                 this.ddlist_acciones.ClearSelection();
                 this.ddlist_acciones.Items.FindByValue(accion).Selected = true;
          
@@ -265,7 +265,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                     btnPopUp_ModalPopupExtender.Show();
                    
                     this.LlenarComboModulos();
-                    this.LlenarComboAcciones();
+                    this.LlenarComboFunciones();
                     this.MostrarDatos();
                   
                 }

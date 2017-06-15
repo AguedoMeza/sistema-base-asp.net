@@ -106,8 +106,8 @@
                                 <asp:Panel ID="pn_nombre" runat="server" class="form-group">
 
 
-                                            <asp:TextBox ID="txtDefinicion" runat="server" class="form-control" 
-                                            placeholder="Definición" TabIndex="4" ValidationGroup="val4">  </asp:TextBox>
+                                           <%-- <asp:TextBox ID="txtDefinicion" runat="server" class="form-control" 
+                                            placeholder="Definición" TabIndex="4" ValidationGroup="val4">  </asp:TextBox>--%>
                              
                        
                                      <asp:DropDownList ID="ddlist_modulos" runat="server" class="form-control" ></asp:DropDownList>
