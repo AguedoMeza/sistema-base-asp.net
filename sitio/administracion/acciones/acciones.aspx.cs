@@ -45,25 +45,21 @@ public partial class usuarios_Default : System.Web.UI.Page
     }
     private bool EstanCamposLLenos()
     {
-        int i = 0;
-
+        bool resp = true;
         foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
         {
-            i++;
-
-            bool[] array = new bool[10];
             
-            int var = pn_nombre.Controls.OfType<TextBox>().Count();
+           //int var = pn_nombre.Controls.OfType<TextBox>().Count(); cuenta la cantidad de textbox
 
             if (texto.Text == String.Empty)
             {
                 texto.CssClass = "form-control2";
 
-                array[i] = false;
+                resp = false;
             }
           
         }
-        return true;
+        return resp;
     }
 
     private void LimpiarClases()

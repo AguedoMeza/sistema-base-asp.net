@@ -118,25 +118,21 @@ public partial class empresas_empresas : System.Web.UI.Page
     }
     private bool prueba()
     {
-        int i = 0;
-
+        bool resp = true;
         foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
         {
-            i++;
 
-            int var = pn_nombre.Controls.OfType<TextBox>().Count();
+            //int var = pn_nombre.Controls.OfType<TextBox>().Count(); cuenta la cantidad de textbox
 
             if (texto.Text == String.Empty)
             {
                 texto.CssClass = "form-control2";
 
-                if (texto.Text == String.Empty && i == var)
-                {
-                    return false;
-                }
+                resp = false;
             }
+
         }
-        return true;
+        return resp;
     }
     protected void btnClose_Click(object sender, EventArgs e)
     {

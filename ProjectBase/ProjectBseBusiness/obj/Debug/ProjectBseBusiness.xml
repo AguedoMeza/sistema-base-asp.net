@@ -6,7 +6,27 @@ ProjectBseBusiness
 </name>
 </assembly>
 <members>
-<member name="P:ProjectBseBusiness.empresac.Fecha">
+<member name="P:ProjectBseBusiness.usuarios_perfilesc.Nombre">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.usuarios_perfilesc.Activo">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.usuarios_perfilesc.UsuariosPerfilInsert">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.empresac.Fecha">
 	<summary>
  Nombre de Usuario
  </summary>

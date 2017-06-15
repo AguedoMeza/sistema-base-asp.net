@@ -344,6 +344,9 @@
                         <li>
                             <a href="../../administracion/usuarios/usuarios.aspx"><i class="fa fa-table fa-fw"></i>Usuarios</a>
                         </li>
+                         <li>
+                            <a href="../../administracion/usuarios_perfiles/usuarios_perfiles.aspx"><i class="fa fa-table fa-fw"></i>Asignación de perfiles</a>
+                        </li>
                         <li>
                             <a href="../../administracion/empresas/empresas.aspx"><i class="fa fa-table fa-fw"></i>Empresas</a>
                         </li>

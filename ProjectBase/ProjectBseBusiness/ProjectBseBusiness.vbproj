@@ -92,6 +92,7 @@
     </Compile>
     <Compile Include="perfilc.vb" />
     <Compile Include="perfiles_detallec.vb" />
+    <Compile Include="usuarios_perfilesc.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
