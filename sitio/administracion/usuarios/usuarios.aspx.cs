@@ -26,25 +26,21 @@ public partial class usuarios_Default : System.Web.UI.Page
     
      private bool prueba()
      {
-         int i = 0;
-        
-             foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
-             {
-                 i++;
+         bool resp = true;
+         foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+         {
 
-                 int var = pn_nombre.Controls.OfType<TextBox>().Count();
-                
-                 if (texto.Text == String.Empty)
-                 {
-                     texto.CssClass = "form-control2";
- 
-                     if (texto.Text == String.Empty && i== var)
-                     {
-                         return false;
-                     }
-                 }
+             //int var = pn_nombre.Controls.OfType<TextBox>().Count(); cuenta la cantidad de textbox
+
+             if (texto.Text == String.Empty)
+             {
+                 texto.CssClass = "form-control2";
+
+                 resp = false;
              }
-             return true;
+
+         }
+         return resp; return true;
      }
 
     public void chkStatus_OnCheckedChanged(object sender, EventArgs e)
@@ -85,15 +81,9 @@ public partial class usuarios_Default : System.Web.UI.Page
 
         GridView1.Columns[0].ItemStyle.Width = 50;
        
-        GridView1.Columns[5].ItemStyle.Width = 50;
         GridView1.Columns[6].ItemStyle.Width = 50;
-        //this.GridView1.Columns[0].HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
-       // this.GridView1.HeaderRow.Cells[0].HorizontalAlign = HorizontalAlign.Left;
-        //this.GridView1.Columns[0].HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
-
-       
-      
-        
+        GridView1.Columns[7].ItemStyle.Width = 50;
+     
     }
     protected void btnClose_Click(object sender, EventArgs e)
     {
@@ -244,6 +234,10 @@ public partial class usuarios_Default : System.Web.UI.Page
                 string usuario = fila["Usuario"].ToString();
                 this.txtUsuario.Text = usuario;
 
+                string contrasena = fila["Contraseña"].ToString();
+                this.txtContrasena.Text = contrasena;
+                this.txtConf.Text = contrasena;
+
                 string curp = fila["CURP"].ToString();
                 this.txtCurp.Text = curp;
 
@@ -302,8 +296,8 @@ public partial class usuarios_Default : System.Web.UI.Page
     }
    
 
-    protected void txtConf_TextChanged(object sender, EventArgs e)
+    protected void txtCorreo_TextChanged(object sender, EventArgs e)
     {
-        
+        this.txtContrasena.Enabled = false;
     }
 }

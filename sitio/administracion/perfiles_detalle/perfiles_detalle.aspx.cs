@@ -52,25 +52,21 @@ public partial class usuarios_Default : System.Web.UI.Page
     }
     private bool EstanCamposLLenos()
     {
-        int i = 0;
-
+        bool resp = true;
         foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
         {
-            i++;
 
-            int var = pn_nombre.Controls.OfType<TextBox>().Count();
+            //int var = pn_nombre.Controls.OfType<TextBox>().Count(); cuenta la cantidad de textbox
 
             if (texto.Text == String.Empty)
             {
                 texto.CssClass = "form-control2";
 
-                if (texto.Text == String.Empty && i == var)
-                {
-                    return false;
-                }
+                resp = false;
             }
+
         }
-        return true;
+        return resp; return true;
     }
 
     private void LimpiarClases()
@@ -90,6 +86,11 @@ public partial class usuarios_Default : System.Web.UI.Page
         this.GridView1.DataSource = cnn.PerfilDetalle();
 
         this.GridView1.DataBind();
+
+        GridView1.Columns[0].ItemStyle.Width = 50;
+
+        GridView1.Columns[3].ItemStyle.Width = 50;
+        GridView1.Columns[4].ItemStyle.Width = 50;
 
     }
     protected void btnClose_Click(object sender, EventArgs e)

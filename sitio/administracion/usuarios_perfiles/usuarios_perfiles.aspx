@@ -3,6 +3,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+        <title>Perfiles de usuarios</title>
 
     <style type="text/css">
         .modalBackground {
@@ -42,7 +43,7 @@
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                           <%--  <br />--%>
-                            <asp:Button ID="btnPopUp" runat="server" Text="Nueva Acción" class="btn btn-primary" OnClick="btnPopUp_Click" />
+                            <asp:Button ID="btnPopUp" runat="server" Text="Nueva Asignación" class="btn btn-primary" OnClick="btnPopUp_Click" />
 
                             <br />
                         </ContentTemplate>

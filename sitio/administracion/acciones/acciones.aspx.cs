@@ -80,6 +80,11 @@ public partial class usuarios_Default : System.Web.UI.Page
 
         this.GridView1.DataBind();
 
+        GridView1.Columns[0].ItemStyle.Width = 50;
+
+        GridView1.Columns[4].ItemStyle.Width = 50;
+        GridView1.Columns[5].ItemStyle.Width = 50;
+
     }
     protected void btnClose_Click(object sender, EventArgs e)
     {

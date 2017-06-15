@@ -45,25 +45,21 @@ public partial class usuarios_Default : System.Web.UI.Page
     }
     private bool EstanCamposLLenos()
     {
-         int i = 0;
-        
-             foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
-             {
-                 i++;
+        bool resp = true;
+        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        {
 
-                 int var = pn_nombre.Controls.OfType<TextBox>().Count();
-                
-                 if (texto.Text == String.Empty)
-                 {
-                     texto.CssClass = "form-control2";
+            //int var = pn_nombre.Controls.OfType<TextBox>().Count(); cuenta la cantidad de textbox
 
-                     if (texto.Text == String.Empty && i== var)
-                     {
-                         return false;
-                     }
-                 }
-             }
-             return true;
+            if (texto.Text == String.Empty)
+            {
+                texto.CssClass = "form-control2";
+
+                resp = false;
+            }
+
+        }
+        return resp; return true;
      }
     
     private void LimpiarClases()
@@ -84,20 +80,10 @@ public partial class usuarios_Default : System.Web.UI.Page
 
         this.GridView1.DataBind();
 
-        //GridView1.Columns[0].ItemStyle.Width = 50;
-       
-        //GridView1.Columns[5].ItemStyle.Width = 50;
-        //GridView1.Columns[6].ItemStyle.Width = 50;
-        
-        
-        
-        //this.GridView1.Columns[0].HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
-       // this.GridView1.HeaderRow.Cells[0].HorizontalAlign = HorizontalAlign.Left;
-        //this.GridView1.Columns[0].HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        GridView1.Columns[0].ItemStyle.Width = 50;
 
-       
-      
-        
+        GridView1.Columns[3].ItemStyle.Width = 50;
+        GridView1.Columns[4].ItemStyle.Width = 50;    
     }
     protected void btnClose_Click(object sender, EventArgs e)
     {

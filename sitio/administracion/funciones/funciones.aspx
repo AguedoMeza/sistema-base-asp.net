@@ -3,7 +3,8 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    
+        <title>Funciones</title>
+
     <style type="text/css">
            .modalBackground 
             {

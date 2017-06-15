@@ -3,6 +3,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%-- xd --%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+        <title>Usuarios</title>
 
     <style type="text/css">
         .modalBackground {
@@ -128,14 +129,14 @@
                                                     <%--   </asp:Panel>--%>
                                                     <%-- <asp:Panel ID="pn_contrasena" runat="server"  class="form-group">--%>
                                                      <asp:TextBox ID="txtCorreo" runat="server" class="form-control"
-                                                        placeholder="Correo electrónico" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
+                                                        placeholder="Correo electrónico" TabIndex="4" ValidationGroup="val4" OnTextChanged="txtCorreo_TextChanged" ></asp:TextBox>
                                                   
                                                       <asp:TextBox ID="txtContrasena" type="password" runat="server" class="form-control"
                                                         placeholder="Contraseña" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
 
                                                     <%--</asp:Panel>--%>
                                                     <%--<asp:Panel ID="pn_conf" runat="server"  class="form-group">--%>
-                                                    <asp:TextBox ID="txtConf" type="password" runat="server" AutoPostBack="true" OnTextChanged="txtConf_TextChanged" class="form-control"
+                                                    <asp:TextBox ID="txtConf" type="password" runat="server" AutoPostBack="true" class="form-control"
                                                         placeholder="Contraseña" TabIndex="4" ValidationGroup="val4"></asp:TextBox>
 
 
