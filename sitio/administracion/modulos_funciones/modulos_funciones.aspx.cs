@@ -25,22 +25,20 @@ public partial class usuarios_Default : System.Web.UI.Page
    
     
      private bool prueba()
-     {
-         bool resp = true;
-         foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
-         {
+    {
+        bool resp = true;
+        foreach (DropDownList texto in pn_nombre.Controls.OfType<DropDownList>())
+        {
 
-             //int var = pn_nombre.Controls.OfType<TextBox>().Count(); cuenta la cantidad de textbox
+            if (texto.SelectedValue.ToString() == "0")
+            {
+                texto.CssClass = "form-control2";
 
-             if (texto.Text == String.Empty)
-             {
-                 texto.CssClass = "form-control2";
+                resp = false;
+            }
 
-                 resp = false;
-             }
-
-         }
-         return resp;
+        }
+        return resp;
      }
 
     public void chkStatus_OnCheckedChanged(object sender, EventArgs e)
@@ -176,7 +174,7 @@ public partial class usuarios_Default : System.Web.UI.Page
 
     private void LimpiarClases()
     {
-        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        foreach (DropDownList texto in pn_nombre.Controls.OfType<DropDownList>())
         {
             texto.CssClass = "form-control";
         }
@@ -265,6 +263,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                     btnPopUp_ModalPopupExtender.Show();
                    
                     this.LlenarComboModulos();
+                    this.LimpiarClases();
                     this.LlenarComboFunciones();
                     this.MostrarDatos();
                   

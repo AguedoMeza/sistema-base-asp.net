@@ -66,12 +66,29 @@ public partial class usuarios_Default : System.Web.UI.Page
             }
 
         }
-        return resp; return true;
+        return resp; 
+    }
+
+    private bool validarCombos()
+    {
+        bool resp = true;
+        foreach (DropDownList texto in pn_nombre.Controls.OfType<DropDownList>())
+        {
+
+            if (texto.SelectedValue.ToString() == "0")
+            {
+                texto.CssClass = "form-control2";
+
+                resp = false;
+            }
+
+        }
+        return resp; 
     }
 
     private void LimpiarClases()
     {
-        foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
+        foreach (DropDownList texto in pn_nombre.Controls.OfType<DropDownList>())
         {
             texto.CssClass = "form-control";
         }
@@ -108,7 +125,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         
         if(idUsuario != 0)
         {
-            if (this.EstanCamposLLenos() == true)
+            if (this.validarCombos() == true)
             {
                 perfiles_detallec cnn = new perfiles_detallec();
 
@@ -129,7 +146,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         }
         else
         {
-            if (this.EstanCamposLLenos() == true)
+            if (this.validarCombos() == true)
             {
                 perfiles_detallec cnn = new perfiles_detallec();
 
@@ -189,6 +206,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         this.ddlist_perfiles.DataValueField = "#";
         this.ddlist_perfiles.DataTextField = "Nombre";
         this.ddlist_perfiles.DataBind();
+        this.ddlist_perfiles.ClearSelection();
         this.ddlist_perfiles.Items.Insert(0, new ListItem("Perfil..", "0"));  
     }
     private void LlenarComboModulos()
@@ -202,6 +220,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         this.ddlist_modulos.DataValueField = "id";
         this.ddlist_modulos.DataTextField = "nombre";
         this.ddlist_modulos.DataBind();
+        this.ddlist_modulos.ClearSelection();
         this.ddlist_modulos.Items.Insert(0, new ListItem("Modulo..", "0"));
     }
 

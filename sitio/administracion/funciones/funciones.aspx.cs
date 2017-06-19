@@ -42,6 +42,23 @@ public partial class usuarios_Default : System.Web.UI.Page
          }
          return resp;
      }
+     private bool validarCombos()
+     {
+         bool resp = true;
+         foreach (DropDownList texto in pn_nombre.Controls.OfType<DropDownList>())
+         {
+
+             if (texto.SelectedValue.ToString() == "0")
+             {
+                 texto.CssClass = "form-control2";
+
+                 resp = false;
+             }
+
+         }
+         return resp;
+     }
+
 
     public void chkStatus_OnCheckedChanged(object sender, EventArgs e)
     {
@@ -99,7 +116,7 @@ public partial class usuarios_Default : System.Web.UI.Page
 
         if (idUsuario != 0)
         {
-           if(this.prueba()==true)
+           if(this.prueba()==true && this.validarCombos()==true)
            {
                     funcionesc  cnn = new funcionesc();
 
@@ -118,7 +135,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         
         else
         {
-            if (this.prueba() == true)
+            if (this.prueba() == true && this.validarCombos()==true)
             {
                 funcionesc cnn = new funcionesc();
 
@@ -176,6 +193,8 @@ public partial class usuarios_Default : System.Web.UI.Page
         foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
         {
             texto.CssClass = "form-control";
+            this.ddlist_acciones.CssClass = "form-control";
+            this.ddlist_modulos.CssClass = "form-control";
         }
     }
 

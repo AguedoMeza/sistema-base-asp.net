@@ -15,7 +15,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         if (!IsPostBack)
         {
             this.LLenarGrid();
-            this.LlemarCombo();
+           
             
      
         }
@@ -67,12 +67,28 @@ public partial class usuarios_Default : System.Web.UI.Page
         }
         return resp;
     }
+    private bool validarCombos()
+    {
+        bool resp = true;
+        foreach (DropDownList texto in pn_nombre.Controls.OfType<DropDownList>())
+        {
 
+            if (texto.SelectedValue.ToString() == "0")
+            {
+                texto.CssClass = "form-control2";
+
+                resp = false;
+            }
+
+        }
+        return resp;
+    }
     private void LimpiarClases()
     {
         foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
         {
             texto.CssClass = "form-control";
+            this.ddlist_empresas.CssClass = "form-control";
         }
     }
 
@@ -107,7 +123,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         
         if(idUsuario != 0)
         {
-            if(this.EstanCamposLLenos()==true)
+            if(this.EstanCamposLLenos()==true && this.validarCombos()==true)
 
             {
                 moduloc cnn = new moduloc();
@@ -130,7 +146,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         }
         else
         {
-            if (this.EstanCamposLLenos() == true)
+            if (this.EstanCamposLLenos() == true && this.validarCombos()==true)
             {
                 moduloc cnn = new moduloc();
 
@@ -168,6 +184,7 @@ public partial class usuarios_Default : System.Web.UI.Page
        
         btnPopUp_ModalPopupExtender.Show();
         this.LimpiarClases();
+        this.LlemarCombo();
         this.Limpiar();
         Session["idUsuario"] = 0;
         this.btn_registrar_actualizar.Text = "Registrar";
@@ -191,6 +208,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         this.ddlist_empresas.DataValueField = "id";
         this.ddlist_empresas.DataTextField = "nombre";
         this.ddlist_empresas.DataBind();
+        this.ddlist_empresas.ClearSelection();
         this.ddlist_empresas.Items.Insert(0, new ListItem("Empresa de origen..", "0"));  
     }
 
@@ -247,6 +265,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                    
                     btnPopUp_ModalPopupExtender.Show();
                     this.LimpiarClases();
+                    this.LlemarCombo();
                     this.MostrarDatos();
                   
                 }

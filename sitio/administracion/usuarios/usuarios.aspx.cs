@@ -40,7 +40,23 @@ public partial class usuarios_Default : System.Web.UI.Page
              }
 
          }
-         return resp; return true;
+         return resp; 
+     }
+     private bool validarCombos()
+     {
+         bool resp = true;
+         foreach (DropDownList texto in pn_nombre.Controls.OfType<DropDownList>())
+         {
+
+             if (texto.SelectedValue.ToString() == "0")
+             {
+                 texto.CssClass = "form-control2";
+
+                 resp = false;
+             }
+
+         }
+         return resp;
      }
 
     public void chkStatus_OnCheckedChanged(object sender, EventArgs e)
@@ -100,7 +116,7 @@ public partial class usuarios_Default : System.Web.UI.Page
 
         if (idUsuario != 0)
         {
-           if(this.prueba()==true)
+           if(this.prueba()==true && this.validarCombos()==true)
            {
                     LogInc cnn = new LogInc();
 
@@ -122,7 +138,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         
         else
         {
-            if (this.prueba() == true)
+            if (this.prueba() == true && validarCombos()==true)
             {
                 if (this.txtContrasena.Text == this.txtConf.Text)
                 {
@@ -191,6 +207,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         {
             texto.CssClass = "form-control";
         }
+        this.ddlist_empresas.CssClass = "form-control";
     }
     
     
@@ -198,7 +215,7 @@ public partial class usuarios_Default : System.Web.UI.Page
     {
         empresac cnn = new empresac();
 
-        cnn.idEmpresa = 0;
+        cnn.idUsuario = 100;
        
         this.ddlist_empresas.DataSource = cnn.EmpresaDetalle();
         this.ddlist_empresas.DataValueField = "id";
@@ -298,6 +315,6 @@ public partial class usuarios_Default : System.Web.UI.Page
 
     protected void txtCorreo_TextChanged(object sender, EventArgs e)
     {
-        this.txtContrasena.Enabled = false;
+      
     }
 }

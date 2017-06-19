@@ -20,7 +20,7 @@ public partial class usuarios_Default : System.Web.UI.Page
     public void chkStatus_OnCheckedChanged(object sender, EventArgs e)
     {
      
-            CheckBox chkStatus = (CheckBox)sender;
+           CheckBox chkStatus = (CheckBox)sender;
           
            int nID = Convert.ToInt32(GridView1.DataKeys[((GridViewRow)chkStatus.NamingContainer).RowIndex].Value);
 
@@ -39,6 +39,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                cnn.Activo = 0;
                cnn.idUsuario = nID;
                int var = cnn.estado();
+              
            }
 
            this.LLenarGrid();
@@ -214,13 +215,18 @@ public partial class usuarios_Default : System.Web.UI.Page
             short indicefila;
             indicefila = Convert.ToInt16(e.CommandArgument);
             string id;
+          
+            
             
             if (indicefila >= 0 & indicefila < GridView1.Rows.Count)
             {
                 id = GridView1.Rows[indicefila].Cells[0].Text;
+          
+               
                
                 if (e.CommandName == "Actualizar")
                 {
+                   
                     Session["idUsuario"] = id;
                    
                   
@@ -228,6 +234,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                     btnPopUp_ModalPopupExtender.Show();
                     this.LimpiarClases();
                     this.MostrarDatos();
+                    
                   
                 }
             }

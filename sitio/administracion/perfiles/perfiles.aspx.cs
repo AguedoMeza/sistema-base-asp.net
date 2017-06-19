@@ -59,14 +59,32 @@ public partial class usuarios_Default : System.Web.UI.Page
             }
 
         }
-        return resp; return true;
+        return resp; 
      }
+
+    private bool validarCombos()
+    {
+        bool resp = true;
+        foreach (DropDownList texto in pn_nombre.Controls.OfType<DropDownList>())
+        {
+
+            if (texto.SelectedValue.ToString() == "0")
+            {
+                texto.CssClass = "form-control2";
+
+                resp = false;
+            }
+
+        }
+        return resp;
+    }
     
     private void LimpiarClases()
     {
         foreach (TextBox texto in pn_nombre.Controls.OfType<TextBox>())
         {
             texto.CssClass = "form-control";
+            this.ddlist_empresas.CssClass = "form-control";
         }
     }
 
@@ -100,7 +118,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         
         if(idUsuario != 0)
         {
-            if(this.EstanCamposLLenos() == true)
+            if(this.EstanCamposLLenos() == true && this.validarCombos()==true)
             {
             perfilc cnn = new perfilc();
 
@@ -119,7 +137,7 @@ public partial class usuarios_Default : System.Web.UI.Page
         }
         else
         {
-            if (this.EstanCamposLLenos() == true)
+            if (this.EstanCamposLLenos() == true && this.validarCombos()==true)
             {
                 perfilc cnn = new perfilc();
 

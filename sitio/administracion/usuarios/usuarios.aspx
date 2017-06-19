@@ -42,6 +42,9 @@
             -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
             transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
         }
+         .page-header {
+    padding-bottom: 0px;
+    }
     </style>
     
 
@@ -185,8 +188,14 @@
                                                     <asp:BoundField DataField="Correo" ItemStyle-HorizontalAlign="Center" HeaderText="Correo" />
                                                     <asp:BoundField DataField="Usuario" ItemStyle-HorizontalAlign="Center" HeaderText="Usuario" />
 
-                                                    <asp:ButtonField ButtonType="Button" CommandName="Actualizar"
-                                                        HeaderText="Editar" Text="Actualizar" ControlStyle-CssClass="btn btn-success" ItemStyle-HorizontalAlign="Center" />
+                                                   <asp:TemplateField  HeaderText="Actualizar">
+                                                      <ItemTemplate>
+                                                        <asp:Button ID="AddButton" runat="server" 
+                                                          CommandName="Actualizar" ControlStyle-CssClass="btn btn-success" text="Actualizar " 
+                                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" 
+                                                          enabled='<%# Convert.ToBoolean(Eval("activo")) %>'  ToolTip="Active registro para actualizar"/>
+                                                      </ItemTemplate> 
+                                                    </asp:TemplateField>
 
 
 
@@ -208,7 +217,7 @@
                                             </asp:GridView>
 
                                         </div>
-
+                                        
                                         <!--Delete Record Modal Ends here -->
                 </div>
                 </form>

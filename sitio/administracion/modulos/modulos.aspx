@@ -16,6 +16,9 @@
         .table th {
             text-align: center;
         }
+         .page-header {
+    padding-bottom: 0px;
+    }
     </style>
 
 </asp:Content>
@@ -130,8 +133,14 @@
                                                     
                                                         <asp:BoundField DataField="id_empresa" ItemStyle-HorizontalAlign="Center" HeaderText="Empresa" />
 
-                                                    <asp:ButtonField ButtonType="Button" CommandName="Actualizar"
-                                                        HeaderText="Editar" Text="Actualizar" ControlStyle-CssClass="btn btn-success" ItemStyle-HorizontalAlign="Center" />
+                                                    <asp:TemplateField  HeaderText="Actualizar">
+                                                      <ItemTemplate>
+                                                        <asp:Button ID="AddButton" runat="server" 
+                                                          CommandName="Actualizar" ControlStyle-CssClass="btn btn-success" text="Actualizar " 
+                                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" 
+                                                          enabled='<%# Convert.ToBoolean(Eval("activo")) %>'  ToolTip="Active registro para actualizar"/>
+                                                      </ItemTemplate> 
+                                                    </asp:TemplateField>
 
 
                                                     <%--   <asp:CheckBoxField DataField="Activo" HeaderText="Activo" ItemStyle-HorizontalAlign="Center"/>--%>

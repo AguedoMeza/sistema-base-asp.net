@@ -154,8 +154,8 @@ public partial class empresas_empresas : System.Web.UI.Page
                 empresac cnn = new empresac();
                 cnn.Nombre = this.txtNombre.Text;
                 cnn.Apellido = this.txtDireccion.Text;
-                cnn.Usuaio = this.txtrazon_social.Text;
-                cnn.Password = this.txtrfc.Text;
+                cnn.Usuaio = this.txtrfc.Text;
+                cnn.Password = this.txtrazon_social.Text;
                 cnn.Correo = this.TxtCon.Text;
                 cnn.idUsuario = idEmpresa;
                 int var = cnn.UsuarioUpdate();
