@@ -202,7 +202,7 @@ public partial class usuarios_Default : System.Web.UI.Page
     {
         empresac cnn = new empresac();
 
-        cnn.idEmpresa = 0;
+        cnn.idUsuario = 100;
        
         this.ddlist_empresas.DataSource = cnn.EmpresaDetalle();
         this.ddlist_empresas.DataValueField = "id";
@@ -229,14 +229,20 @@ public partial class usuarios_Default : System.Web.UI.Page
 
             foreach (DataRow fila in dt.Rows)
             {
-               
+                if (this.ddlist_empresas.SelectedValue.ToString() == "0")
+                {
+                    string empresac = fila["id_emp"].ToString();
+                    string empresa_nombre = fila["id_empresa"].ToString();
+                    this.ddlist_empresas.Items.Insert(0, new ListItem(empresa_nombre, empresac));
+                }
+              
                 string nombre = fila["nombre"].ToString();
                 this.txtNombre.Text = nombre;
 
                 string descripcion = fila["descripcion_actividad"].ToString();
                 this.txtDesc.Text = descripcion;
 
-                string empresa = fila["id_empresa"].ToString();
+                string empresa = fila["id_emp"].ToString();
 
                 this.ddlist_empresas.ClearSelection();
                 this.ddlist_empresas.Items.FindByValue(empresa).Selected = true;

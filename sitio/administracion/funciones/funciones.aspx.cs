@@ -203,7 +203,7 @@ public partial class usuarios_Default : System.Web.UI.Page
     {
         moduloc cnn = new moduloc();
 
-        cnn.idUsuario = 0;
+        cnn.idUsuario = 100;
 
         this.ddlist_modulos.DataSource = cnn.ModuloDetalle();
 
@@ -217,7 +217,7 @@ public partial class usuarios_Default : System.Web.UI.Page
     {
         accionesc cnn = new accionesc();
 
-        cnn.idUsuario = 0;
+        cnn.idUsuario = 100;
 
         this.ddlist_acciones.DataSource = cnn.AccionesDetalle();
 
@@ -247,7 +247,7 @@ public partial class usuarios_Default : System.Web.UI.Page
 
             foreach (DataRow fila in dt.Rows)
             {
-                string definicion = fila["definicion"].ToString();
+                string definicion = fila["Definicion"].ToString();
                 this.txtDefinicion.Text = definicion;
 
                 string modulo = fila["id_modulos"].ToString();
@@ -255,6 +255,13 @@ public partial class usuarios_Default : System.Web.UI.Page
                 this.ddlist_modulos.Items.FindByValue(modulo).Selected = true;
 
                 string accion = fila["id_acciones"].ToString();
+              
+                string modulo_nombre =  fila["Modulos"].ToString();
+                string accione_nombre = fila["Acciones"].ToString(); ;
+
+                this.ddlist_modulos.Items.Insert(0, new ListItem(modulo_nombre, modulo));
+                this.ddlist_acciones.Items.Insert(0, new ListItem(accione_nombre, accion));
+
                 this.ddlist_acciones.ClearSelection();
                 this.ddlist_acciones.Items.FindByValue(accion).Selected = true;
          

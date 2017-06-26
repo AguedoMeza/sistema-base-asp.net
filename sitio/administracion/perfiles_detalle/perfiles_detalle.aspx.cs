@@ -199,12 +199,12 @@ public partial class usuarios_Default : System.Web.UI.Page
     {
         perfilc cnn = new perfilc();
 
-        cnn.idUsuario = 0;
+        cnn.idUsuario = 100;
        
         this.ddlist_perfiles.DataSource = cnn.PerfilDetalle();
 
-        this.ddlist_perfiles.DataValueField = "#";
-        this.ddlist_perfiles.DataTextField = "Nombre";
+        this.ddlist_perfiles.DataValueField = "id";
+        this.ddlist_perfiles.DataTextField = "nombre";
         this.ddlist_perfiles.DataBind();
         this.ddlist_perfiles.ClearSelection();
         this.ddlist_perfiles.Items.Insert(0, new ListItem("Perfil..", "0"));  
@@ -213,7 +213,7 @@ public partial class usuarios_Default : System.Web.UI.Page
     {
         moduloc cnn = new moduloc();
 
-        cnn.idUsuario = 0;
+        cnn.idUsuario = 100;
 
         this.ddlist_modulos.DataSource = cnn.ModuloDetalle();
 
@@ -240,6 +240,16 @@ public partial class usuarios_Default : System.Web.UI.Page
 
             foreach (DataRow fila in dt.Rows)
             {
+                if (this.ddlist_perfiles.SelectedValue.ToString() == "0")
+                {
+                    string empresac = fila["id_perfil"].ToString();
+                    string empresa_nombre = fila["Perfil"].ToString();
+                    this.ddlist_perfiles.Items.Insert(0, new ListItem(empresa_nombre, empresac));
+
+                    string moduloc = fila["id_modulo"].ToString();
+                    string modulo_nombre = fila["Modulo"].ToString();
+                    this.ddlist_modulos.Items.Insert(0, new ListItem(modulo_nombre, moduloc));
+                }
 
                 string perfil = fila["id_perfil"].ToString();
                 this.ddlist_perfiles.ClearSelection();

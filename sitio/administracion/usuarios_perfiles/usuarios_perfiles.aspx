@@ -154,7 +154,8 @@
 
 
                                             </asp:GridView>
-
+                                           <%--<asp:Label ID="lblPrueba" runat="server" Text="Label"></asp:Label>
+                                            <asp:TextBox ID="txtprueba" runat="server"></asp:TextBox>--%>
                                         </div>
 
                                         <!--Delete Record Modal Ends here -->

@@ -228,10 +228,6 @@ public partial class usuarios_Default : System.Web.UI.Page
 
      }  
  
-    
-
-
-
     private void MostrarDatos()
     {
 
@@ -248,33 +244,45 @@ public partial class usuarios_Default : System.Web.UI.Page
 
             foreach (DataRow fila in dt.Rows)
             {
-                string usuario = fila["Usuario"].ToString();
-                this.txtUsuario.Text = usuario;
+                
+                    string usuario = fila["Usuario"].ToString();
+                    this.txtUsuario.Text = usuario;
 
-                string contrasena = fila["Contraseña"].ToString();
-                this.txtContrasena.Text = contrasena;
-                this.txtConf.Text = contrasena;
+                    string contrasena = fila["Contraseña"].ToString();
+                    this.txtContrasena.Text = contrasena;
+                    this.txtConf.Text = contrasena;
 
-                string curp = fila["CURP"].ToString();
-                this.txtCurp.Text = curp;
+                    string curp = fila["CURP"].ToString();
+                    this.txtCurp.Text = curp;
 
-                string nombre = fila["Nombre"].ToString();
-                this.txtNombre.Text = nombre;
+                    string nombre = fila["Nombre"].ToString();
+                    //this.txtNombre.Text = nombre;
 
-                string ap_paterno = fila["Ap_Paterno"].ToString();
-                this.txtAp_paterno.Text = ap_paterno;
+                    string ap_paterno = fila["Ap_Paterno"].ToString();
+                    this.txtAp_paterno.Text = ap_paterno;
 
-                string ap_materno = fila["Ap_Materno"].ToString();
-                this.txtAp_Materno.Text = ap_materno;
+                    string ap_materno = fila["Ap_Materno"].ToString();
+                    this.txtAp_Materno.Text = ap_materno;
 
-                string correo = fila["correo"].ToString();
-                this.txtCorreo.Text = correo;
+                    string correo = fila["correo"].ToString();
+                    this.txtCorreo.Text = correo;
 
-                string empresa= fila["id_empresa"].ToString();
 
-                this.ddlist_empresas.ClearSelection();
-                this.ddlist_empresas.Items.FindByValue(empresa).Selected = true;
-         
+                    string empresa = fila["id_empresa"].ToString();
+                    string empresa_nombre = fila["Empresa"].ToString();
+
+                    string estado_empresaa = fila["Activo"].ToString();
+                  
+                    this.txtNombre.Text = estado_empresaa;
+
+                    this.ddlist_empresas.Items.Insert(0, new ListItem(empresa_nombre, empresa));
+                    if(estado_empresaa == "True")
+                    {
+                        this.ddlist_empresas.ClearSelection();
+                        this.ddlist_empresas.Items.FindByValue(empresa).Selected = true;
+                       
+                    }
+                   
             }
        
          this.btn_registrar_actualizar.Text = "Actualizar";

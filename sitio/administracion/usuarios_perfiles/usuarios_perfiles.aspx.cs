@@ -39,12 +39,12 @@ public partial class usuarios_Default : System.Web.UI.Page
     {
         perfilc cnn = new perfilc();
 
-        cnn.idUsuario = 0;
+        cnn.idUsuario = 100;
 
         this.ddList_perfiles.DataSource = cnn.PerfilDetalle();
 
-        this.ddList_perfiles.DataValueField = "#";
-        this.ddList_perfiles.DataTextField = "Nombre";
+        this.ddList_perfiles.DataValueField = "id";
+        this.ddList_perfiles.DataTextField = "nombre";
         this.ddList_perfiles.DataBind();
         this.ddList_perfiles.Items.Insert(0, new ListItem("Perfil..", "0"));
     }
@@ -53,12 +53,12 @@ public partial class usuarios_Default : System.Web.UI.Page
     {
         LogInc cnn = new LogInc();
 
-        cnn.idUsuario = 0;
+        cnn.idUsuario = 100;
 
         this.ddList_usuarios.DataSource = cnn.UsuarioDetalle();
 
-        this.ddList_usuarios.DataValueField = "#";
-        this.ddList_usuarios.DataTextField = "Usuario";
+        this.ddList_usuarios.DataValueField = "id";
+        this.ddList_usuarios.DataTextField = "nombre_usuario";
         this.ddList_usuarios.DataBind();
         this.ddList_usuarios.Items.Insert(0, new ListItem("Usuario..", "0"));
     }
@@ -238,18 +238,31 @@ public partial class usuarios_Default : System.Web.UI.Page
             DataTable dt = new DataTable();
 
             dt = cnn.UsuariosPerfilDetalle();
+          
 
             foreach (DataRow fila in dt.Rows)
             {
-
+               
                 string usuario = fila["id_usuario"].ToString();
-                this.ddList_usuarios.ClearSelection();
-                this.ddList_usuarios.Items.FindByValue(usuario).Selected = true;
-
+                string nombre_usuario = fila["Usuario"].ToString();
+                string perfil_nombre = fila["Perfil"].ToString();
                 string perfil = fila["id_perfil"].ToString();
-                this.ddList_perfiles.ClearSelection();
-                this.ddList_perfiles.Items.FindByValue(perfil).Selected = true;
+                string estado_usuario = fila["Activo"].ToString();
+                string estado_perfil = fila["Activo_perfil"].ToString();
+
               
+                   this.ddList_usuarios.Items.Insert(0, new ListItem(nombre_usuario, usuario));
+               
+
+                   this.ddList_perfiles.Items.Insert(0, new ListItem(perfil_nombre, perfil)); 
+               
+              
+                   this.ddList_usuarios.ClearSelection();
+                   this.ddList_usuarios.Items.FindByValue(usuario).Selected = true;
+               
+                   this.ddList_perfiles.ClearSelection();
+                   this.ddList_perfiles.Items.FindByValue(perfil).Selected = true;
+            
             }
        
          this.btn_registrar_actualizar.Text = "Actualizar";

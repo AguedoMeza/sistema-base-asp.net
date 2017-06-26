@@ -189,13 +189,13 @@ public partial class usuarios_Default : System.Web.UI.Page
     {
         empresac cnn = new empresac();
 
-        cnn.idEmpresa = 0;
+        cnn.idUsuario = 100;
        
         this.ddlist_empresas.DataSource = cnn.EmpresaDetalle();
         this.ddlist_empresas.DataValueField = "id";
         this.ddlist_empresas.DataTextField = "nombre";
         this.ddlist_empresas.DataBind();
-        this.ddlist_empresas.ClearSelection();
+        //this.ddlist_empresas.ClearSelection();
         this.ddlist_empresas.Items.Insert(0, new ListItem("Empresa de origen..", "0"));  
     }
 
@@ -203,28 +203,37 @@ public partial class usuarios_Default : System.Web.UI.Page
     private void MostrarDatos()
     {
 
-        int idUsuario = Convert.ToInt32(Session["idUsuario"]);
+            int idUsuario = Convert.ToInt32(Session["idUsuario"]);
 
             perfilc cnn = new perfilc();
-
             cnn.idUsuario = idUsuario;
-
-
+  
             DataTable dt = new DataTable();
 
             dt = cnn.PerfilDetalle();
+ 
+           foreach (DataRow fila in dt.Rows)
+           {
 
-            foreach (DataRow fila in dt.Rows)
-            {
-               
-                string nombre = fila["Nombre"].ToString();
-                this.txtNombre.Text = nombre;
+               string empresac = fila["id_empresa"].ToString();
+               string empresa_nombre = fila["Empresa"].ToString();
+               string nombre = fila["Nombre"].ToString();
+               string estado_empresa = fila["Activo"].ToString();
 
-                string empresa = fila["id_empresa"].ToString();
+               this.txtNombre.Text = nombre;
 
-                this.ddlist_empresas.ClearSelection();
-                this.ddlist_empresas.Items.FindByValue(empresa).Selected = true;
-            }
+               if(estado_empresa=="False")
+               {
+                   this.ddlist_empresas.Items.Insert(0, new ListItem(empresa_nombre, empresac));
+               }
+               else if(estado_empresa=="True")
+               {
+                   this.ddlist_empresas.ClearSelection();
+                   this.ddlist_empresas.Items.FindByValue(empresac).Selected = true;
+               }
+              
+             
+           }
        
          this.btn_registrar_actualizar.Text = "Actualizar";
        
