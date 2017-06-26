@@ -251,8 +251,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                 this.txtDefinicion.Text = definicion;
 
                 string modulo = fila["id_modulos"].ToString();
-                this.ddlist_modulos.ClearSelection();
-                this.ddlist_modulos.Items.FindByValue(modulo).Selected = true;
+              
 
                 string accion = fila["id_acciones"].ToString();
               
@@ -264,7 +263,9 @@ public partial class usuarios_Default : System.Web.UI.Page
 
                 this.ddlist_acciones.ClearSelection();
                 this.ddlist_acciones.Items.FindByValue(accion).Selected = true;
-         
+
+                this.ddlist_modulos.ClearSelection();
+                this.ddlist_modulos.Items.FindByValue(modulo).Selected = true;
             }
        
          this.btn_registrar_actualizar.Text = "Actualizar";
