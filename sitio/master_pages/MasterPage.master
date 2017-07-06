@@ -292,6 +292,7 @@
                                 </div>
                             </a>
                         </li>
+
                         <li class="divider"></li>
                         <li>
                             <a class="text-center" href="#">
@@ -343,34 +344,57 @@
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i>Inicio</a>
                         </li>
                         
+
                         <li>
-                            <a href="../../administracion/usuarios/usuarios.aspx"><i class="fa fa-table fa-fw"></i>Usuarios</a>
-                        </li>
-                         <li>
-                            <a href="../../administracion/usuarios_perfiles/usuarios_perfiles.aspx"><i class="fa fa-table fa-fw"></i>Asignación de perfiles</a>
-                        </li>
-                        <li>
-                            <a href="../../administracion/empresas/empresas.aspx"><i class="fa fa-table fa-fw"></i>Empresas</a>
-                        </li>
-                        <li>
-                            <a href="../../administracion/perfiles/perfiles.aspx"><i class="fa fa-table fa-fw"></i>Perfiles</a>
-                        </li>
-                        <li>
-                            <a href="../../administracion/modulos/modulos.aspx"><i class="fa fa-table fa-fw"></i>Modulos</a>
-                        </li>
-                          <li>
-                            <a href="../../administracion/perfiles_detalle/perfiles_detalle.aspx"><i class="fa fa-table fa-fw"></i>Detalle Perfil</a>
-                        </li>
-                         <li>
-                            <a href="../../administracion/acciones/acciones.aspx"><i class="fa fa-table fa-fw"></i>Acciones</a>
-                        </li>
-                           <li>
-                            <a href="../../administracion/funciones/funciones.aspx"><i class="fa fa-table fa-fw"></i>Funciones</a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Administración<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                            
+                                <li id="li_usuarios" runat="server">
+                                    <a href="../../administracion/usuarios/usuarios.aspx">Usuarios</a>
+                                </li>
+                              
+                                 <li id="li_usuarios_perfiles" runat="server">
+                                    <a href="../../administracion/usuarios_perfiles/usuarios_perfiles.aspx">Asignación de perfiles</a>
+                                </li>
+                                <li id="li_empresas" runat="server">
+                                    <a href="../../administracion/empresas/empresas.aspx">Empresas</a>
+                               </li>
+                                <li id="li_perfiles" runat="server">
+                                     <a href="../../administracion/perfiles/perfiles.aspx">Perfiles</a>
+                                </li>
+                                <li id="li_modulos" runat="server">
+                                     <a href="../../administracion/modulos/modulos.aspx">Modulos</a>
+                                </li>
+                                <li id="li_perfiles_detalle" runat="server">
+                                     <a href="../../administracion/perfiles_detalle/perfiles_detalle.aspx">Detalle Perfil</a>
+                                </li>
+                                <li id="li_acciones" runat="server">
+                                     <a href="../../administracion/acciones/acciones.aspx">Acciones</a>
+                                </li>
+                                <li id="li_funciones" runat="server">
+                                     <a href="../../administracion/funciones/funciones.aspx">Funciones</a>
+                               </li>
+                               <li id="li_modulos_funciones" runat="server">
+                                     <a href="../../administracion/modulos_funciones/modulos_funciones.aspx">Modulos Funciones</a>
+                               </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         
-                           <li>
-                            <a href="../../administracion/modulos_funciones/modulos_funciones.aspx"><i class="fa fa-table fa-fw"></i>Modulos Funciones</a>
+                        <li>
+                            
                         </li>
+                         <li>
+                            
+                        </li>
+                        
+                        
+                        
+                          
+                        
+                          
+                        
+                           
                         
                         
                       

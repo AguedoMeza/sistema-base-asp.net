@@ -170,6 +170,24 @@ Public Class moduloc
         Return Resultado
     End Function
 
+    Public Function ModulosAccesoUsuario() As DataTable
+        Dim cnnDatos As New cclasecnn
+
+        Dim Resultado As New DataTable
+        Try
+            cnnDatos.Command("validar_accesos")
+            cnnDatos.AddParameter("@id_perfil", SqlDbType.Int, mIdUsuario)
+
+
+
+            cnnDatos.GetData(Resultado)
+
+        Catch ex As Exception
+            Throw cnnDatos.ErrorIT
+        End Try
+        Return Resultado
+    End Function
+
     Public Function UsuariosValidaInformacionCompleta(idUsuario As Integer) As String
         Dim cnnDatos As New cclasecnn
 

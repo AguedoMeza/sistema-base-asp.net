@@ -166,6 +166,24 @@ Public Class usuarios_perfilesc
         Return Resultado
     End Function
 
+    Public Function UsuariosPerfilDetalleByUsuario() As DataTable
+        Dim cnnDatos As New cclasecnn
+
+        Dim Resultado As New DataTable
+        Try
+            cnnDatos.Command("usuario_perfiles_select_usuario")
+            cnnDatos.AddParameter("@id_usuario", SqlDbType.Int, mIdUsuario)
+
+
+
+            cnnDatos.GetData(Resultado)
+
+        Catch ex As Exception
+            Throw cnnDatos.ErrorIT
+        End Try
+        Return Resultado
+    End Function
+
     Public Function UsuariosValidaInformacionCompleta(idUsuario As Integer) As String
         Dim cnnDatos As New cclasecnn
 

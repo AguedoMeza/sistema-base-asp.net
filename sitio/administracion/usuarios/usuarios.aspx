@@ -226,6 +226,8 @@
                                 
                                 <!-- /.col-lg-6 (nested) -->
                 <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                <asp:ListView ID="ListView1" runat="server"></asp:ListView>
+
             </div>
             <!-- /.row (nested) -->
 

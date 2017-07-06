@@ -73,6 +73,7 @@
     <Compile Include="empresac.vb" />
     <Compile Include="funcionesc.vb" />
     <Compile Include="LogInc.vb" />
+    <Compile Include="maquinasc.vb" />
     <Compile Include="moduloc.vb" />
     <Compile Include="modulos_funcionesc.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

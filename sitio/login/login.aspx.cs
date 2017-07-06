@@ -47,6 +47,7 @@ public partial class login_login : System.Web.UI.Page
             LogInc cnnPruea = new LogInc();
 
             cnnPruea.Correo = cnn.Usuaio;
+            
 
 
             DataTable dt = new DataTable();
@@ -63,6 +64,20 @@ public partial class login_login : System.Web.UI.Page
            
             Session["nom"] = nombre_usuario;
             Session["id_usuario_registro"] = id_usuario;
+          
+
+            usuarios_perfilesc cnnPerfil = new usuarios_perfilesc();
+            cnnPerfil.idUsuario = Convert.ToInt32(id_usuario);
+            DataTable dt2 = new DataTable();
+            dt2 = cnnPerfil.UsuariosPerfilDetalleByUsuario();
+
+            string id_perfil = "";
+
+            foreach (DataRow fila2 in dt2.Rows)
+            {
+                id_perfil = fila2["id_perfil"].ToString();
+            }
+            Session["id_perfil_usuario"] = id_perfil;
             Response.Redirect("../inicio/inicio.aspx");
         }
         else

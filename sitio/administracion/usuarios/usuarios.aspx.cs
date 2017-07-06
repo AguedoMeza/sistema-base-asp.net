@@ -12,9 +12,12 @@ public partial class usuarios_Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Uri uriAddress1 = new Uri("http://localhost:59977/administracion/usuarios/usuarios.aspx");
+        string carpeta = uriAddress1.Segments[2];
+
         if (!IsPostBack)
         {
-
+            this.Label3.Text = carpeta;
            this.LLenarGrid();
            //this.LlemarCombo();
            /// pn_nombre.Controls.OfType<TextBox>().Count();
