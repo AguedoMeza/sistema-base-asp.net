@@ -3,7 +3,7 @@ Imports System.Data
 Imports System.Data.SqlClient
 
 
-Public Class maquinasc
+Public Class bitacorac
     Dim Cnn As New cclasecnn
 
 
@@ -147,13 +147,13 @@ Public Class maquinasc
         End Try
         Return refIdUsuario
     End Function
-    Public Function MaquinaDetalle() As DataTable
+    Public Function ModuloFuncionDetalle() As DataTable
         Dim cnnDatos As New cclasecnn
 
         Dim Resultado As New DataTable
         Try
-            cnnDatos.Command("maquinas_select")
-            cnnDatos.AddParameter("@id_linea", SqlDbType.Int, mIdUsuario)
+            cnnDatos.Command("modulo_funciones_select")
+            cnnDatos.AddParameter("@id", SqlDbType.Int, mIdUsuario)
 
 
 

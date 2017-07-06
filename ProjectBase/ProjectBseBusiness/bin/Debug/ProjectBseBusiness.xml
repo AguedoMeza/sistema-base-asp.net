@@ -6,7 +6,27 @@ ProjectBseBusiness
 </name>
 </assembly>
 <members>
-<member name="P:ProjectBseBusiness.empresac.Fecha">
+<member name="P:ProjectBseBusiness.bitacorac.Nombre">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.bitacorac.Activo">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.bitacorac.BitacorasInsert">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.empresac.Fecha">
 	<summary>
  Nombre de Usuario
  </summary>
@@ -41,6 +61,26 @@ ProjectBseBusiness
 	<returns></returns>
 	<remarks></remarks>
 </member><member name="M:ProjectBseBusiness.LogInc.ValidaUsuario">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.maquinasc.Nombre">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.maquinasc.Activo">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.maquinasc.BitacorasInsert">
 	<summary>
  Funcion que Valida el acceso al usuario
  </summary>

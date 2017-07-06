@@ -114,8 +114,21 @@ public partial class usuarios_Default : System.Web.UI.Page
     }
     protected void btnGuardar_Click(object sender, EventArgs e)
     {
+        //obtengo el nombre de la carpeta actual
+        Uri uriAddress1 = new Uri("http://localhost:59977/administracion/usuarios/usuarios.aspx");
+        string carpeta = uriAddress1.Segments[2];
+
+        //le jalo la variable a la clase, ya que le asigne el vaalor desde el login ALV :v
+        int usuarioLoging = variablesGlobales.id_usuario_login;
+      
         int idUsuario = Convert.ToInt32(Session["idUsuario"]);
         int idUsuarioResgistro = Convert.ToInt32(Session["id_usuario_registro"]);
+
+        //preparo el insert para la bitacora :v
+        bitacorac cnnBitacora = new bitacorac();
+        cnnBitacora.Empresa = usuarioLoging;
+        cnnBitacora.Accion = 1;
+        int varBitacora = 0;
 
         if (idUsuario != 0)
         {
@@ -132,6 +145,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                     cnn.Correo = this.txtCorreo.Text;
                     cnn.idUsuario = idUsuario;
                     int var = cnn.UsuarioUpdate();
+                    varBitacora = cnnBitacora.BitacorasInsert();
                     Session.Remove("idUsuario");
                     btnPopUp_ModalPopupExtender.Hide();
                     Response.Redirect("../usuarios/usuarios.aspx");
@@ -159,6 +173,7 @@ public partial class usuarios_Default : System.Web.UI.Page
                     cnn.NoRuta = idUsuarioResgistro;
 
                     int var = cnn.UsuariosInsert();
+                    varBitacora = cnnBitacora.BitacorasInsert();
 
                     btnPopUp_ModalPopupExtender.Hide();
 

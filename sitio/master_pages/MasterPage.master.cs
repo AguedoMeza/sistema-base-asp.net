@@ -22,10 +22,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         this.denegar();
      
-        String id_perfil = Session["id_perfil_usuario"].ToString();
+        int perfilLoging = variablesGlobales.id_perfil_usuario_login; //obtengo el perfil del usuario actual 
 
         moduloc cnnIdModuloAcceso = new moduloc();
-        cnnIdModuloAcceso.idUsuario = Convert.ToInt32(id_perfil);
+        cnnIdModuloAcceso.idUsuario = perfilLoging;
         DataTable dt = new DataTable();
         dt = cnnIdModuloAcceso.ModulosAccesoUsuario();
 

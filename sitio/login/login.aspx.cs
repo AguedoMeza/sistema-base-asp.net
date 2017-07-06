@@ -61,11 +61,6 @@ public partial class login_login : System.Web.UI.Page
               
             }
 
-           
-            Session["nom"] = nombre_usuario;
-            Session["id_usuario_registro"] = id_usuario;
-          
-
             usuarios_perfilesc cnnPerfil = new usuarios_perfilesc();
             cnnPerfil.idUsuario = Convert.ToInt32(id_usuario);
             DataTable dt2 = new DataTable();
@@ -77,7 +72,15 @@ public partial class login_login : System.Web.UI.Page
             {
                 id_perfil = fila2["id_perfil"].ToString();
             }
-            Session["id_perfil_usuario"] = id_perfil;
+
+            //aigne el id el usuario que entro a una variable publica de la clase variablesglobales :v
+            variablesGlobales usuariologing = new variablesGlobales();
+            variablesGlobales.id_usuario_login = Convert.ToInt32(id_usuario); //le asigno el id del usuario logeado
+            variablesGlobales.id_perfil_usuario_login = Convert.ToInt32(id_perfil); //le asigno el id_perfil del usuario logeado
+
+            Session["nom"] = nombre_usuario;
+            Session["id_usuario_registro"] = id_usuario;
+
             Response.Redirect("../inicio/inicio.aspx");
         }
         else
