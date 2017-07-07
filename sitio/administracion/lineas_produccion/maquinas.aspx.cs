@@ -21,7 +21,7 @@ public partial class administracion_lineas_produccion_maquinas : System.Web.UI.P
         this.li2.Visible = false;
         this.li3.Visible = false;
         this.li4.Visible = false;
-        this.li5.Visible = false;
+        this.li5.Visible = true;
         this.li6.Visible = false;
         this.li7.Visible = false;
         this.li8.Visible = false;
@@ -42,6 +42,10 @@ public partial class administracion_lineas_produccion_maquinas : System.Web.UI.P
             if (id_maquina.ToString() == this.li3.ID.ToString())
             {
                 this.li3.Visible = true;
+            }
+            if (id_maquina.ToString() == this.li4.ID.ToString())
+            {
+                this.li4.Visible = true;
             }
 
 

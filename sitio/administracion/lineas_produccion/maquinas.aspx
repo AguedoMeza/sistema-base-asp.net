@@ -3,23 +3,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
      <style>
 .row li {
-  width: 33.3%;
+  width: 10%;
   float: left;
 }
 
+ul{
+    list-style:none;
+  }
+
 img {
-  border: 0 none;
-  display: inline-block;
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
+ 
 }
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h1 class="page-header" >Línea de producción: Polvos</h1>
-   <div class="row">
-  <div id="small-img" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+  
     <ul>
           <li id="li1" runat="server" title="1">
         <img src="icono.png" class="img-responsive inline-block" alt="Responsive image" />
@@ -34,7 +33,7 @@ img {
         <img src="icono.png" class="img-responsive inline-block" alt="Responsive image" />
       </li>
       <li id="li5" runat="server" title="1">
-        <img src="icono.png" class="img-responsive inline-block" alt="Responsive image" />
+        <img src="flecha.png" class="img-responsive inline-block" alt="Responsive image"/>
       </li>
        <li id="li6" runat="server" title="1">
         <img src="icono.png" class="img-responsive inline-block" alt="Responsive image" />
@@ -47,7 +46,30 @@ img {
       </li>
         
     </ul>
-  </div>
-</div>
+  
+
+    <form role="form" id="form1">
+                                     <div  class="table-responsive">
+<%--  <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>--%>
+                                 <%--    <a onclick ="img1_click" runat="server">
+                                     <asp:Image ID="img1" height="80" src="../../imgs/1.png" runat="server" />
+                                     </a>--%>
+<%--<asp:Image ID="imgI1" Height ="60" src="../../imgs/2.png" runat="server" />
+                                     <asp:Image ID="Image1" Height ="60" src="../../imgs/1.png" runat="server" />
+                                     <asp:Image ID="Image2" Height ="60" src="../../imgs/2.png" runat="server" />
+                                     <asp:Image ID="Image3" Height ="60" src="../../imgs/1.png" runat="server" />
+                                     <asp:Image ID="Image4" Height ="60" src="../../imgs/2.png" runat="server" />
+                                     <asp:Image ID="Image5" Height ="60" src="../../imgs/1.png" runat="server" /> 
+                                     <asp:Image ID="Image7" Height ="60" src="../../imgs/2.png" runat="server" />
+                                     <asp:Image ID="Image8" Height ="60" src="../../imgs/1.png" runat="server" />
+                                     <asp:Image ID="Image9" Height ="60" src="../../imgs/2.png" runat="server" />
+                                     <asp:Image ID="Image10" Height ="60" src="../../imgs/1.png" runat="server" />
+                                     <asp:Image ID="Image11" Height ="60" src="../../imgs/2.png" runat="server" />
+                                     <asp:Image ID="Image12" Height ="60px" src="../../imgs/1.png" runat="server" Width="60px" />--%>
+<asp:ImageButton ID="ImageButton1" runat="server" Height="70px" ImageUrl="icono.png"  />
+                                         <asp:ImageButton ID="ImageButton2" runat="server" Height="30px" ImageUrl="flecha.png" />
+</div>       
+            <!--Delete Record Modal Ends here -->
+</form>
 </asp:Content>
 
