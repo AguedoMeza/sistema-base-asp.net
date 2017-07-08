@@ -8,8 +8,8 @@ Public Class maquinasc
 
 
 #Region "Atributos"
-    Dim mNombre As String
-    Dim mIdUsuario, mEmpresa, mActivo, mAccion As Integer
+    Dim mNombre, mSerie As String
+    Dim mIdUsuario, mLinea, mActivo As Integer
 
 #End Region
 
@@ -31,6 +31,15 @@ Public Class maquinasc
         End Set
     End Property
 
+    Public Property Serie As String
+        Get
+            Return mSerie
+        End Get
+        Set(ByVal value As String)
+            mSerie = value
+        End Set
+    End Property
+
 
     ''' <summary>
     ''' Password del usuario
@@ -49,21 +58,12 @@ Public Class maquinasc
         End Set
     End Property
 
-    Public Property Empresa As Integer
+    Public Property Linea As Integer
         Get
-            Return mEmpresa
+            Return mLinea
         End Get
         Set(ByVal value As Integer)
-            mEmpresa = value
-        End Set
-    End Property
-
-    Public Property Accion As Integer
-        Get
-            Return mAccion
-        End Get
-        Set(ByVal value As Integer)
-            mAccion = value
+            mLinea = value
         End Set
     End Property
 
@@ -86,7 +86,7 @@ Public Class maquinasc
 
 
 
-    Public Function BitacorasInsert() As Integer
+    Public Function MaquinasInsert() As Integer
 
         Dim cnnDatos As New cclasecnn
 
@@ -94,9 +94,10 @@ Public Class maquinasc
 
 
         Try
-            cnnDatos.Command("bitacoras_insert")
-            cnnDatos.AddParameter("@id_usuario", SqlDbType.Int, mEmpresa)
-            cnnDatos.AddParameter("@id_modulo", SqlDbType.Int, mAccion)
+            cnnDatos.Command("maquinas_insert")
+            cnnDatos.AddParameter("@id_linea", SqlDbType.Int, mLinea)
+            cnnDatos.AddParameter("@nombre", SqlDbType.VarChar, mNombre)
+            cnnDatos.AddParameter("@serie", SqlDbType.VarChar, mSerie)
 
 
             refIdUsuario = cnnDatos.GetString
@@ -114,8 +115,6 @@ Public Class maquinasc
 
         Try
             cnnDatos.Command("modulo_funciones_update")
-            cnnDatos.AddParameter("@id_modulos", SqlDbType.Int, mEmpresa)
-            cnnDatos.AddParameter("@id_funcion", SqlDbType.Int, mAccion)
             cnnDatos.AddParameter("@id", SqlDbType.Int, mIdUsuario)
 
 

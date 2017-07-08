@@ -80,7 +80,7 @@ ProjectBseBusiness
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:ProjectBseBusiness.maquinasc.BitacorasInsert">
+</member><member name="M:ProjectBseBusiness.maquinasc.MaquinasInsert">
 	<summary>
  Funcion que Valida el acceso al usuario
  </summary>
