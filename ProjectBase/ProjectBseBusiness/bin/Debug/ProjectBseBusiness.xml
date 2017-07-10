@@ -166,6 +166,26 @@ ProjectBseBusiness
  </summary>
 	<returns>Regresa un areeglo de String</returns>
 	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.lineac.Nombre">
+	<summary>
+ Nombre de Usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ProjectBseBusiness.lineac.Activo">
+	<summary>
+ Password del usuario
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ProjectBseBusiness.lineac.LineasInsert">
+	<summary>
+ Funcion que Valida el acceso al usuario
+ </summary>
+	<returns>Regresa un areeglo de String</returns>
+	<remarks></remarks>
 </member><member name="P:ProjectBseBusiness.modulos_funcionesc.Nombre">
 	<summary>
  Nombre de Usuario

@@ -14,8 +14,11 @@ public partial class usuarios_Default : System.Web.UI.Page
    { 
         if (!IsPostBack)
         {
-          maquinasc cnn = new maquinasc();
-        cnn.idUsuario = 1; //evaluo linea de la que es la maquina :v
+
+        this.lblLinea.Text = variablesGlobales.nombre_linea_actual; //aqui asigno el che nombre de la linea actual ALV :v
+
+        maquinasc cnn = new maquinasc();
+        cnn.idUsuario = variablesGlobales.id_linea_actual; //evaluo linea de la que es la maquina :v
         DataTable dt = new DataTable();
         dt = cnn.MaquinaDetalle();
 
@@ -27,7 +30,6 @@ public partial class usuarios_Default : System.Web.UI.Page
         this.li6.Visible = false;
         this.li7.Visible = false;
         this.li8.Visible = false;
-
 
         foreach (DataRow fila in dt.Rows)
         {
@@ -198,7 +200,7 @@ public partial class usuarios_Default : System.Web.UI.Page
 
                 cnn.Nombre = this.txtNombre.Text;
         
-                cnn.Linea = 1;
+                cnn.Linea = variablesGlobales.id_linea_actual;
                 cnn.Nombre = this.txtNombre.Text;
                 cnn.Serie = this.txtSerie.Text;
 

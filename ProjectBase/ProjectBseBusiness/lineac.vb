@@ -3,7 +3,7 @@ Imports System.Data
 Imports System.Data.SqlClient
 
 
-Public Class moduloc
+Public Class lineac
     Dim Cnn As New cclasecnn
 
 
@@ -34,7 +34,6 @@ Public Class moduloc
     Public Property Descripcion As String
         Get
             Return mDescripcion
-
         End Get
         Set(ByVal value As String)
             mDescripcion = value
@@ -87,7 +86,7 @@ Public Class moduloc
 
 
 
-    Public Function UsuariosInsert() As Integer
+    Public Function LineasInsert() As Integer
 
         Dim cnnDatos As New cclasecnn
 
@@ -95,12 +94,9 @@ Public Class moduloc
 
 
         Try
-            cnnDatos.Command("modulos_insert")
+            cnnDatos.Command("lineas_insert")
             cnnDatos.AddParameter("@nombre", SqlDbType.VarChar, mNombre)
             cnnDatos.AddParameter("@descripcion", SqlDbType.VarChar, mDescripcion)
-
-
-            cnnDatos.AddParameter("@id_empresa", SqlDbType.Int, mEmpresa)
             cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
 
             refIdUsuario = cnnDatos.GetString
@@ -110,17 +106,16 @@ Public Class moduloc
         Return refIdUsuario
     End Function
 
-    Public Function ModulosUpdate() As Integer
+    Public Function LineasUpdate() As Integer
 
         Dim cnnDatos As New cclasecnn
 
         Dim refIdUsuario As Integer
 
         Try
-            cnnDatos.Command("modulos_update")
+            cnnDatos.Command("lineas_update")
             cnnDatos.AddParameter("@nombre", SqlDbType.VarChar, mNombre)
             cnnDatos.AddParameter("@descripcion", SqlDbType.VarChar, mDescripcion)
-            cnnDatos.AddParameter("@id_empresa", SqlDbType.Int, mEmpresa)
             cnnDatos.AddParameter("@id", SqlDbType.Int, mIdUsuario)
             'cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
 
@@ -140,7 +135,7 @@ Public Class moduloc
         Dim refIdUsuario As Integer
 
         Try
-            cnnDatos.Command("modulos_estado")
+            cnnDatos.Command("lineas_estado")
             cnnDatos.AddParameter("@id", SqlDbType.Int, mIdUsuario)
             cnnDatos.AddParameter("@activo", SqlDbType.Int, mActivo)
 
@@ -152,49 +147,13 @@ Public Class moduloc
         End Try
         Return refIdUsuario
     End Function
-    Public Function ModuloDetalle() As DataTable
+    Public Function LineaDetalle() As DataTable
         Dim cnnDatos As New cclasecnn
 
         Dim Resultado As New DataTable
         Try
-            cnnDatos.Command("modulos_select")
+            cnnDatos.Command("lineas_select")
             cnnDatos.AddParameter("@id", SqlDbType.Int, mIdUsuario)
-
-
-
-            cnnDatos.GetData(Resultado)
-
-        Catch ex As Exception
-            Throw cnnDatos.ErrorIT
-        End Try
-        Return Resultado
-    End Function
-
-    Public Function ModuloDetalleByNombre() As DataTable
-        Dim cnnDatos As New cclasecnn
-
-        Dim Resultado As New DataTable
-        Try
-            cnnDatos.Command("modulos_select_nombre")
-            cnnDatos.AddParameter("@nombre", SqlDbType.VarChar, mNombre)
-
-
-
-            cnnDatos.GetData(Resultado)
-
-        Catch ex As Exception
-            Throw cnnDatos.ErrorIT
-        End Try
-        Return Resultado
-    End Function
-
-    Public Function ModulosAccesoUsuario() As DataTable
-        Dim cnnDatos As New cclasecnn
-
-        Dim Resultado As New DataTable
-        Try
-            cnnDatos.Command("validar_accesos")
-            cnnDatos.AddParameter("@id_perfil", SqlDbType.Int, mIdUsuario)
 
 
 

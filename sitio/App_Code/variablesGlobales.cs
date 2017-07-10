@@ -10,4 +10,6 @@ public class variablesGlobales
 {
     public static int id_usuario_login;
     public static int id_perfil_usuario_login;
+    public static int id_linea_actual;
+    public static string nombre_linea_actual;
 }

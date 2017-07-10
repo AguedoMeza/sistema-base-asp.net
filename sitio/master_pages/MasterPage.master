@@ -352,22 +352,12 @@
                                 <li id="li_usuarios" runat="server">
                                     <a href="../../administracion/usuarios/usuarios.aspx">Usuarios</a>
                                 </li>
-                              
-                                 <li id="li_usuarios_perfiles" runat="server">
-                                    <a href="../../administracion/usuarios_perfiles/usuarios_perfiles.aspx">Asignación de perfiles</a>
-                                </li>
                                 <li id="li_empresas" runat="server">
                                     <a href="../../administracion/empresas/empresas.aspx">Empresas</a>
                                </li>
-                                <li id="li_perfiles" runat="server">
-                                     <a href="../../administracion/perfiles/perfiles.aspx">Perfiles</a>
-                                </li>
-                                <li id="li_modulos" runat="server">
-                                     <a href="../../administracion/modulos/modulos.aspx">Modulos</a>
-                                </li>
-                                <li id="li_perfiles_detalle" runat="server">
-                                     <a href="../../administracion/perfiles_detalle/perfiles_detalle.aspx">Detalle Perfil</a>
-                                </li>
+                                 <li id="li_linea" runat="server">
+                                    <a href="../../administracion/lineas_produccion/lineas_produccion.aspx">Líneas Producción</a>
+                               </li>
                                 <li id="li_acciones" runat="server">
                                      <a href="../../administracion/acciones/acciones.aspx">Acciones</a>
                                 </li>
@@ -380,7 +370,30 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        
+
+                         <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Seguridad<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+
+                               <li id="li_perfiles" runat="server">
+                                  <a href="../../administracion/perfiles/perfiles.aspx">Perfiles</a>
+                               </li>
+
+                              <li id="li_usuarios_perfiles" runat="server">
+                                  <a href="../../administracion/usuarios_perfiles/usuarios_perfiles.aspx">Asignación de perfiles</a>
+                              </li>
+
+                               <li id="li_modulos" runat="server">
+                                     <a href="../../administracion/modulos/modulos.aspx">Modulos</a>
+                               </li>
+
+                               <li id="li_perfiles_detalle" runat="server">
+                                    <a href="../../administracion/perfiles_detalle/perfiles_detalle.aspx">Detalle Perfil</a>
+                               </li>
+                             
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                         <li>
                             
                         </li>

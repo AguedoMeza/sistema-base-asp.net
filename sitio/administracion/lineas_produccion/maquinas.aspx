@@ -128,9 +128,11 @@ ul{
                                     
                                     <form role="form" id="form1">
                                         <div class="col-lg-12">
-
+                                           
+                                                
                                             <ul>
-          <li id="li1" runat="server" title="1">
+                                               
+          <li id="li1" runat="server" title="1" >
         <img src="icono.png" class="img-responsive inline-block" alt="Responsive image" />
       </li>
        <li id="li2" runat="server" title="1">

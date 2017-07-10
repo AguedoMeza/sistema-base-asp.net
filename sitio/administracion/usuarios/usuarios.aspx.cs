@@ -124,10 +124,22 @@ public partial class usuarios_Default : System.Web.UI.Page
         int idUsuario = Convert.ToInt32(Session["idUsuario"]);
         int idUsuarioResgistro = Convert.ToInt32(Session["id_usuario_registro"]);
 
+        //obtenermos el id del modulo en el que esta situado
+        moduloc cnnModulo = new moduloc();
+        cnnModulo.Nombre = "usuarios";
+        DataTable dt = new DataTable();
+        dt = cnnModulo.ModuloDetalleByNombre();
+
+        string idModuloActual = "";
+        foreach (DataRow fila in dt.Rows)
+        {
+           idModuloActual = fila["id"].ToString();
+        }
+
         //preparo el insert para la bitacora :v
         bitacorac cnnBitacora = new bitacorac();
         cnnBitacora.Empresa = usuarioLoging;
-        cnnBitacora.Accion = 1;
+        cnnBitacora.Accion = Convert.ToInt32(idModuloActual);
         int varBitacora = 0;
 
         if (idUsuario != 0)
