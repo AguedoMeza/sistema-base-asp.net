@@ -9,7 +9,7 @@ Public Class bitacorac
 
 #Region "Atributos"
     Dim mNombre As String
-    Dim mIdUsuario, mEmpresa, mActivo, mAccion As Integer
+    Dim mIdUsuario, mEmpresa, mActivo, mAccion, mFuncion As Integer
 
 #End Region
 
@@ -46,6 +46,16 @@ Public Class bitacorac
         End Get
         Set(ByVal value As Integer)
             mActivo = value
+        End Set
+    End Property
+
+    Public Property Funcion As Integer
+        Get
+            Return mFuncion
+
+        End Get
+        Set(ByVal value As Integer)
+            mFuncion = value
         End Set
     End Property
 
@@ -97,6 +107,7 @@ Public Class bitacorac
             cnnDatos.Command("bitacoras_insert")
             cnnDatos.AddParameter("@id_usuario", SqlDbType.Int, mEmpresa)
             cnnDatos.AddParameter("@id_modulo", SqlDbType.Int, mAccion)
+            cnnDatos.AddParameter("@id_funcion", SqlDbType.Int, mFuncion)
 
 
             refIdUsuario = cnnDatos.GetString
@@ -147,12 +158,12 @@ Public Class bitacorac
         End Try
         Return refIdUsuario
     End Function
-    Public Function ModuloFuncionDetalle() As DataTable
+    Public Function BitacoraDetalle() As DataTable
         Dim cnnDatos As New cclasecnn
 
         Dim Resultado As New DataTable
         Try
-            cnnDatos.Command("modulo_funciones_select")
+            cnnDatos.Command("bitacoras_select")
             cnnDatos.AddParameter("@id", SqlDbType.Int, mIdUsuario)
 
 
